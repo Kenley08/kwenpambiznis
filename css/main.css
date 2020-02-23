@@ -3,7 +3,7 @@
 .logo{background-color: #ee7b0f!important;font-size: 1.8em; font-weight: bold;text-align: center!important;padding:0!important;}
 .logo p{color: white;width: 100%; }
 .bg-white{background-color: white;}
-#back-opacity{position: fixed;top:0;left:0;height: 100%;width: 100%;opacity: .5;z-index: 1399;background-color: black;display: none;}
+#back-opacity{position: fixed;top:0;left:0;height: 100%;width: 100%;opacity: .5;z-index: 1050;background-color: black;display: none;}
 .no-padding{padding: 0;}
 .padding-5{padding: 5%;}
 .padding-3{padding: 3%;}

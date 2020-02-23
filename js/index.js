@@ -79,16 +79,34 @@ $(document).ready(function () {
         window.open("http://localhost/kwenpam/cpanel/payments?val="+100+"&type=business","Peman ak Moncash","height=500,width=500,resizable=0,menubar=0,location=0,alwaysRaised=0,modal=1");
     });
 
+    $(".rd-wallet").click(function () {  
+        $("#val-wallet-option").val($(this).val());  
+    });
+
     //quand on cree une bourse 
     $("#btncreatewallet").click(function (e) { 
         e.preventDefault();
         $("#back-opacity").show();
         //liste des parametre a prendre en compte
-        tip_bous=1;
-        tem_kondisyon=0;
-        // mapopup = window.open("about:blank", "mapop", "height=500,width=500,resizable=1"); 
-        url=""+"http://localhost/kwenpam/cpanel/wallet/create/activation?tip_bous="+tip_bous;
-        openWindow(url);
+        //verication sur quelle type de bourse l'utilisateur a choisi 
+        tip_bous= $("#val-wallet-option").val();  
+        if($("#chkverifterm").prop("checked") == true){  
+            url=""+"http://localhost/kwenpambiznis/wallet/create/activation?tip_bous="+tip_bous;
+            openWindow(url);
+        }else{
+            $("#btncancelmodal").hide();
+            $("#staticModal").removeClass('fade');
+            $("#staticModal").show();
+            $("#staticModal p").text("Atansyon, fok ou koche kaz ki di ou li e konprann tem ak kondisyon nou yo pou ou ka kontinye.");
+        } 
+        // mapopup = window.open("about:blank", "mapop", "height=500,width=500,resizable=1");  
+    });
+
+    //cancel modal
+    $("#btncancelmodal,#btnokmodal").click(function (e) { 
+        e.preventDefault();
+        $("#staticModal").fadeOut(100);
+        $("#back-opacity").hide();
     });
 
     //fonction pour ouvrir une fenetre enfant

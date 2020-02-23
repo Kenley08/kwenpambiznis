@@ -15,8 +15,8 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anile</button>
-                <button type="button" class="btn btn-primary" id="btnsupprimeremploye">Aksepte</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btncancelmodal">Anile</button>
+                <button type="button" class="btn btn-primary" id="btnokmodal">Dak&ograve;</button>
             </div>
         </div>
     </div>

@@ -32,26 +32,27 @@
             <div class="col col-md-9 padding-3">
                 <div class="radio ">
                     <label for="radio1" class="form-check-label ">
-                        <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Bwonz
+                        <input type="radio" id="radio1" name="radios" value="1" class="form-check-input rd-wallet" checked>Bwonz
                     </label>
                 </div>
                 <div class="radio">
                     <label for="radio2" class="form-check-label ">
-                        <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Ajan
+                        <input type="radio" id="radio2" name="radios" value="2" class="form-check-input rd-wallet">Ajan
                     </label>
                 </div>
                 <div class="radio">
                     <label for="radio3" class="form-check-label ">
-                        <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input">L&ograve;
+                        <input type="radio" id="radio3" name="radios" value="3" class="form-check-input rd-wallet">L&ograve;
                     </label>
                  </div>
+                 <input type="hidden" id="val-wallet-option" value="1">
             </div>
-             <label for="checkbox1" class="form-check-label padding-3">
-                <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input">
+             <label for="chkverifterm" class="form-check-label padding-3">
+                <input type="checkbox" id="chkverifterm" name="checkbox1"  class="form-check-input">
                 Mwen byen li e konprann tout sa mwen sot f&egrave; la yo. Si tout fwa ou ta renmen anile sa ou sot f&egrave; a.
             </label> <br>
-            <button type="button" class="btn btn-secondary btn-small" id="backwallet">Back</button>
-            <button type="button" class="btn btn-primary btn-small" id="btncreatewallet">Kreye bous</button>
+            <button type="button" class="btn btn-secondary btn-small" id="backwallet" >Back</button>
+            <button type="button" class="btn btn-primary btn-small" id="btncreatewallet" data-toggle="modal">Kreye bous</button>
         </div>
         <?php
             //aide wallet

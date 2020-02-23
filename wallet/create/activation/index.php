@@ -1,24 +1,49 @@
 <?php session_start();
+require_once"../../../Dao/BourseDao.php";
+// require_once'../../../Modele/Mconnexion.php';
+// require_once'../../../Modele/Mbourse.php';
       //creation du bourse
-      $serveur="localhost";
-      //$user="a38e91_kwen";
-      $user="root";
-      //$serveur="mysql5022.site4now.net";
-      $pass="";
-      $bd="db_9b4f31_kwenpam";
-      //$bd="db_a38e91_kwen";
-      $con=  mysqli_connect($serveur, $user, $pass, $bd) or die ("Connexion a la base impossible"); 
+if(isset($_GET['idtpbourse'])){
+    $idtypebourse=$_GET['idtpbourse'];
+    if(($idtypebourse)!=="1" || ($idtypebourse)!=="2" || ($idtypebourse)!=="3"){
+      $message="Gen yon ere ki komet";
+    } else{
+      $iduti=2;
+      $bourse=new BourseDao();
 
-      $id=time().''.rand(0,1000);
-      $id_user=$_SESSION['id_user'];
-      $tip_bou=$_GET['tip_bous'];
-      $req="insert into tblbourse values('$id',1,'$id_user',0,1,NOW(),NOW())";
-      $q=@mysqli_query($con, $req);
-      if ($q>0) {
-        $message= "Bous kwenpan ou an kreye avek sikse";
-      }else {
-        $message="Gen yon ere ki komet, kontakte yon administrate sit lan pou plis enfomasyon";
+      //on passe l'objet des atrributs
+      $b=time()."".rand(1,100);
+      $bourse->idbourse=$b;
+      $bourse->idtypebourse=$idtypebourse;
+      $bourse->iduti=1;
+      $bourse->solde=0;
+      $bourse->etat=1;
+      $bourse->dateaj="";
+      $bourse->dateup="";
+    //printf(BourseDao::ajouterbourse($bourse));
+      //on teste avant d'ajouter une bourse
+      $row=BourseDao::testeridut($iduti);
+      //var_dump($row);
+       if(!$row){
+         //  $message="etat egale a 0";
+         if(BourseDao::ajouterbourse($bourse))
+        {
+          $message=" insertion reussi";
+        }
+
+      }else{
+        if($row[0]==0){
+        $message="bous ou kreye deja,li mande aktive";
+
+        }else{
+          $message="bous ou kreye deja!";
+        }
       }
+    }
+
+
+
+}
 ?>
     <div style="margin:auto;margin-top:70px;text-align:center;">
         <img src="../../../images/6.png" height="150"> <br> <br>
@@ -26,10 +51,10 @@
         <button type="button" class="btn btn-secondary btn-small" onclick="closechildfen();" style="padding:10px;background-color:blue;color:white;border:1px solid blue;width:100px;">F&egrave;men</button>  <br> <br>
         <a href="http://business.kwenpam.com/privacy">Tem ak kondisyon</a> aplikab
     </div>
-    
+
     <script>
         function closechildfen(){
-            window.opener.location.href="http://localhost/kwenpam/cpanel/wallet/?activation=true";
+            window.opener.location.href="http://localhost/cpanel/wallet/?activation=true";
             window.close();
         }
     </script>
