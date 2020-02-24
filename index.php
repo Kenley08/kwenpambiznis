@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <meta name="author" content="kwenpam"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="kwenpam">
     <title>Kwenpam | Dashboard</title>
      <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -32,7 +32,7 @@
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-container2 index-page-container2">
-            <?php 
+            <?php
                 //insertion de l'entete de la page
                 include 'file/header.inc.php';
                 include 'file/info.inc.php';
@@ -41,14 +41,14 @@
                 include 'file/menu_left.inc.php';
                 include 'file/footer.inc.php';
             ?>
-        </div> 
+        </div>
     </div>
- 
+
     <script src="vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS--> 
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>  
-    <script src="vendor/animsition/animsition.min.js"></script>  
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>  
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
 </body>
