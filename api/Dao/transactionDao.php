@@ -1,6 +1,6 @@
 <?php
-   require_once'../../Modele/Mconnexion.php';
-   require_once'../../Modele/Mtransaction.php';
+   require_once'../../api/Modele/Mconnexion.php';
+   require_once'../../api/Modele/Mtransaction.php';
  class transactionDao{
     public static function afficherkobous($id){
         $con=new connexion();

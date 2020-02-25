@@ -1,5 +1,5 @@
 <?php session_start();
-require_once"../../../Dao/BourseDao.php";
+require_once"../../../api/Dao/BourseDao.php";
 // require_once'../../../Modele/Mconnexion.php';
 // require_once'../../../Modele/Mbourse.php';
       //creation du bourse

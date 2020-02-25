@@ -1,6 +1,6 @@
 <?php
   require_once'../Dao/EmployeDao.php';
-  require_once'../Modele/Memploye.php';
+  //require_once'../Modele/Memploye.php';
 
        switch ($_GET['a']){
          case 'ins':
@@ -46,33 +46,7 @@
 
           EmployeDao::ajouteremploye($emp);
           break;
-           case'edit':
-           $em=new EmployeDao();
-         $em->idemp=$_POST['txtid'];
-         $em->nomcomplet=$_POST['nomcomplet'];
-         $em->email=$_POST['email'];
-         $em->tel=$_POST['telephone'];
-         $em->sexe=$_POST['sexe'];
-         $em->idtpcond=$_POST['conditionpatrimonial'];
-         $em->idgs=$_POST['groupesanguin'];
-         $em->idtpniv=$_POST['tpniv'];
-         $em->idville=$_POST['ville'];
-         $em->adresse=$_POST['adresse'];
-         $em->idpostact=$_POST['postactuel'];
-         $em->idpostanc=$_POST['denyejob'];
-         $em->salaire=$_POST['salaire'];
-         $em->etat=1;
-         $em->dateaj="";
-         $em->dateup="";
 
-
-         EmployeDao::editeremploye($em);
-
-            break;
-
-           //  case'elim':
-           //      RolesDao::supprimerbyid($_GET['id']);
-           //      break;
        }
 
     header("location: ../employee/index.php");

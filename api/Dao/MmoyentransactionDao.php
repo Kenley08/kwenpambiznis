@@ -1,5 +1,5 @@
 <?php
-   require_once'../../Modele/Mconnexion.php';
+   require_once'../../api/Modele/Mconnexion.php';
    //require_once'../../Modele/Mbourse.php';
  class MmoyentransactionDao{
     public static function affichermoyen(){

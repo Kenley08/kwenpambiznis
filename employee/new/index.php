@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +40,7 @@
                 include '../../file/new_employee.inc.php';
                 include '../../file/help_all.inc.php';
             ?>
-        </div>
+        </div>  
     </div>
 
     <!-- Jquery JS-->

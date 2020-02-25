@@ -1,6 +1,6 @@
 <?php
-   require_once'../../../Modele/Mconnexion.php';
-   require_once'../../../Modele/Mbourse.php';
+   require_once'../../../api/Modele/Mconnexion.php';
+   require_once'../../../api/Modele/Mbourse.php';
  class BourseDao{
 
         //fonction pour inserer des bourses

@@ -1,7 +1,7 @@
 <?php
- require_once"../../Dao/transactionDao.php";
-require_once"../../Dao/MmoyentransactionDao.php";
-require_once"../../Dao/transactionDao.php";
+ require_once"../../api/Dao/transactionDao.php";
+require_once"../../api/Dao/MmoyentransactionDao.php";
+require_once"../../api/Dao/transactionDao.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
