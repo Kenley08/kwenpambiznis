@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +19,7 @@
 
     <!-- Main CSS-->
     <link href="../css/theme.css" rel="stylesheet" media="all">
-    <link href="../css/main.css?v=2233" rel="stylesheet" media="all">
+    <link href="../css/main.css?v=22333" rel="stylesheet" media="all">
 </head>
 <body class="animsition">  
         <?php

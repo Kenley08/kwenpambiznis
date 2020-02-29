@@ -1,94 +1,15 @@
-<?php
- session_start();
- $iduti=$_GET['iduti'];
-$_SESSION['id']=$iduti;
-// require_once"../../Dao/transactionDao.php";
- //on teste si l 'id de lutilisateur existe'
-    if(isset($_SESSION['id'])){
-      $iduti=$_GET['iduti'];
-      $mesaj="";
-      $row=transactionDao::afficherkobous($iduti);
-      $_SESSION['idbourse']=$row[1];
-
-      //$moyentran=$_POST['moyentranzaksyon'];
-      $tran=new transactionDao();
-      $idt=time()."".rand(1,100);
-      if($row){
-          //on va tester si le boutton submit existe
-          if(isset($_POST['submit'])){
-            //on va tester les champs si ils sont vides
-            $tran->idtran=$idt;
-            $tran->idbourse=$row[1];
-            $tran->montant=$_POST['kantitekobretre'];
-            $tran->idetattran=1;
-            $tran->idtypetran=3;
-            $tran->idmoyentran=$_POST['moyentranzaksyon'];
-            $tran->orderid="order-001";
-            $tran->transactionid="t-505";
-            $tran->description="description de cette transaction";
-            $tran->dateajout="";
-            $tran->dateupdate="";
-          $kantitekobretre=$_POST['kantitekobretre'];
-          $nimewotranzaksyon=$_POST['nimewotranzaksyon'];
-          $kr=preg_match('/^[0-9]*$/', $kantitekobretre);
-          //$kr =preg_match('/[^0-9]+$/', '', $kantitekobretre);
-          $nt =preg_match('/^[0-9]*$/',$nimewotranzaksyon);
-           if(empty($_POST['kantitekobretre']) || empty($_POST['nimewotranzaksyon']) || empty($_POST['password'])){
-            $mesaj="ou dwe ranpli tout chan yo";
-          }else{
-/////on teste
-              if (!$kr){
-                $mesaj="ou dwe antre selman chif nan kob retre a ";
-              }else{
-                if(!$nt){
-                    $mesaj="ou dwe antre selman chif nan nimewo trazaksyon a";
-                }else{
-
-                      if($kantitekobretre>$row[0]){
-                          $mesaj="ou pa gen kantite kob sa sou bous ou a!";
-
-
-                      }else{
-
-                       transactionDao::ajoutertransaction($tran);
-                         if(transactionDao::ajoutertransaction($tran)){
-                         $mesaj="tranzaksyon an ale men li an atant toujou,tann yon ti moman pou yo valide l";
-
-                        //  echo "fdfgdf" ;
-                       }
-
-
-                      }
-
-                }
-
-
-
-              }
-
-          }
-
-            // si le bouton submit n est pas encore isset on en nettoie le variable mesaj
-           }else{
-             $mesaj="";
-           }
-        }
-
-
-    }else{
-      $mesaj="nou pa jwenn obje a";
-    }
-
-?>
-
-
-
-<div class="row" id="midle-new-ads">
-     <?php echo $mesaj; ?>
+ <div class="row" id="midle-new-ads">  
     <div class="col-9">
         <p class="title-page">
             Retire lajan sou bous kwenpam
         </p>
+        <?php
+        if(isset($mesaj)){?>  
+            <div class="alert alert-danger  " role="alert">
+                <?php echo $mesaj;?>  
+            </div> 
+        <?php  }
+    ?>
         <div class="text-pub" id="step-1-new-ads">
             Pou s&egrave;vi ak pati sila, f&ograve;k ou gen minimum 500 goud nan bous kwnepam ou. Pou tout sa ki gen rap&ograve; ak fason pou itilize espas sila, ou ka voye
             je nan <a href="http://business.kwenpam.com/privacy">t&egrave;m ak kondisyon nou yo</a>. Oubyen siw bezwen konnen k&ograve;man li fonksyone
@@ -135,15 +56,15 @@ $_SESSION['id']=$iduti;
                     <!-- <small class="help-block form-text">Please enter your email</small> -->
                 </div>
             </div>
-            <div class="row form-group">
+            <!-- <div class="row form-group">
                 <div class="col col-md-3">
-                    <label for="txtpasswordemp" class=" form-control-label">Modpas</label>
+                    <label for="txtpasswordemp" class=" form-control-label">Pin</label>
                 </div>
                 <div class="col-12 col-md-9">
                     <input type="password" name="password" value="<?php if (isset($_POST['password'])){echo $_POST['password'];} ?>" id="txtpasswordemp"  placeholder="Ex: Xsd_$23sd" class="form-control">
-                    <!-- <small class="help-block form-text">Please enter your email</small> -->
+                    <small class="help-block form-text">Please enter your email</small>
                 </div>
-            </div>
+            </div> -->
             <a href="../"> <button type="button" class="btn btn-secondary btn-small" >Anile</button>  </a>
             <!-- <button type="button" name="submit" class="btn btn-primary btn-small" id="btnvaliderdemandetransaction">Valide</button> -->
             <input type="submit" name="submit" value ="Ajouter" class="btn btn-primary btn-small" id="btnvaliderdemandetransaction"/>
