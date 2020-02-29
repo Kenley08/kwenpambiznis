@@ -1,17 +1,4 @@
-<?php session_start();
-     // $serveur="localhost";
-     // //$user="a38e91_kwen";
-     // $user="root";
-     // //$serveur="mysql5022.site4now.net";
-     // $pass="";
-     // $bd="db_9b4f31_kwenpam";
-     // //$bd="db_a38e91_kwen";
-     // $con=  mysqli_connect($serveur, $user, $pass, $bd) or die ("Connexion a la base impossible");
-     //
-     // $id=$_SESSION['id_user'];
-     // $req="select count(*),solde from tbltransaction t inner join tblbourse b where (b.id_bourse=t.id_bourse and b.id_uti='$id')";
-     // $q=@mysqli_query($con, $req);
-     // $requete=@mysqli_fetch_row($q);
+<?php session_start(); 
 ?>
 <html lang="en">
 <head>

@@ -1,13 +1,13 @@
 
 <?php
-    require_once'../api/Dao/EmployeDao.php';
-     //require_once'../../Modele/Memploye.php';
-    // if(isset($_POST['btnupdateetat'])){
-       //require_once"../Dao/EmployeDao.php";
-      //  $emp=new EmployeDao();
-      //  $emp->idemp=$ligne[0];
-       // EmployeDao::updateetat($emp);
-  //  }
+    // require_once '../api/Dao/EmployeDao.php';
+    // require_once '../Modele/Memploye.php';
+    if(isset($_POST['btnupdateetat'])){
+       require_once "../Dao/EmployeDao.php";
+       $emp=new EmployeDao();
+       $emp->idemp=$ligne[0];
+       EmployeDao::updateetat($emp);
+   }
 
   ?>
 <!DOCTYPE html>

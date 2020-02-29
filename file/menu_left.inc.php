@@ -145,6 +145,10 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
+                            <a href="../../../wallet/deposit">
+                                <i class="fab"></i>Ajoute lajan</a>
+                        </li> 
+                        <li>
                             <a href="../../../wallet/transaction">
                                 <i class="fab"></i>Tranzaksyon</a>
                         </li> 

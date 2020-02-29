@@ -1,17 +1,17 @@
-<?php session_start();
+<?php
+ session_start();
     require_once"../../api/Dao/transactionDao.php";
     require_once"../../api/Dao/MmoyentransactionDao.php";
     require_once"../../api/Dao/transactionDao.php";
     //  session_start();
-    $iduti=$_GET['iduti'];
-    $_SESSION['id']=$iduti;
+    // $iduti=$_GET['id_uti'];
+    // $_SESSION['id_uti']=2;
     // require_once"../../Dao/transactionDao.php";
-    //on teste si l 'id de lutilisateur existe' 
-    if(isset($_SESSION['id'])){
-      $iduti=$_GET['iduti'];
-      $mesaj="";
+    //on teste si l 'id de lutilisateur existe'  
+    if(isset($_SESSION['id_uti'])){
+      $iduti=$_SESSION['id_uti']; 
       $row=transactionDao::afficherkobous($iduti);
-      $_SESSION['idbourse']=$row[1];
+      $_SESSION['id_bourse']=$row[1];
 
       //$moyentran=$_POST['moyentranzaksyon'];
       $tran=new transactionDao();
@@ -20,39 +20,42 @@
           //on va tester si le boutton submit existe
           if(isset($_POST['submit'])){
             //on va tester les champs si ils sont vides
+            $idtransaction=time().''.rand(1,1000);
             $tran->idtran=$idt;
             $tran->idbourse=$row[1];
-            $tran->montant=$_POST['kantitekobretre'];
+            $tran->montant=trim($_POST['kantitekobretre']);
             $tran->idetattran=1;
             $tran->idtypetran=3;
             $tran->idmoyentran=$_POST['moyentranzaksyon'];
-            $tran->orderid="order-001";
-            $tran->transactionid="t-505";
-            $tran->description="description de cette transaction";
+            $tran->orderid="2";
+            $tran->transactionid=$idtransaction;
+            $tran->description="Demand retre ".trim($_POST['kantitekobretre'])." goud pa mwayen ".$_POST['moyentranzaksyon'];
             $tran->dateajout="";
             $tran->dateupdate="";
-          $kantitekobretre=$_POST['kantitekobretre'];
-          $nimewotranzaksyon=$_POST['nimewotranzaksyon'];
-          $kr=preg_match('/^[0-9]*$/', $kantitekobretre);
-          //$kr =preg_match('/[^0-9]+$/', '', $kantitekobretre);
-          $nt =preg_match('/^[0-9]*$/',$nimewotranzaksyon);
+            $kantitekobretre=$_POST['kantitekobretre'];
+            $nimewotranzaksyon=$_POST['nimewotranzaksyon'];
+            $kr=preg_match('/^[0-9]*$/', $kantitekobretre);
+            //$kr =preg_match('/[^0-9]+$/', '', $kantitekobretre);
+            $nt =preg_match('/^[0-9]*$/',$nimewotranzaksyon);
            if(empty($_POST['kantitekobretre']) || empty($_POST['nimewotranzaksyon']) ){
-            $mesaj="ou dwe ranpli tout chan yo";
-          }else{
-/////on teste
+                $mesaj="Ou dwe ranpli tout chan yo";
+            }else{ 
               if (!$kr){
-                $mesaj="ou dwe antre selman chif nan kob retre a ";
+                $mesaj="Ou dwe antre selman chif nan kob retre a ";
               }else{
                 if(!$nt){
-                    $mesaj="ou dwe antre selman chif nan nimewo trazaksyon a";
+                    $mesaj="Ou dwe antre selman chif nan nimewo trazaksyon a";
                 }else{ 
                       if($kantitekobretre>$row[0]){
-                          $mesaj="ou pa gen kantite kob sa sou bous ou a!";  
+                          $mesaj="Ou pa gen kantite kob sa sou bous ou a!";  
                       }else{ 
-                         transactionDao::ajoutertransaction($tran);
-                         if(transactionDao::ajoutertransaction($tran)){
-                         $mesaj="tranzaksyon an ale men li an atant toujou,tann yon ti moman pou yo valide l";
-                       } 
+                        //  transactionDao::ajoutertransaction($tran);
+                        
+                        if(transactionDao::ajoutertransaction($tran)){
+                            $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou yo valide l";
+                        }else{
+                            $mesaj="Nou pa arive fe demand tranzaksyon an pou ou";  
+                        } 
                       } 
                 }  
               } 
