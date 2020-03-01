@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD
 require_once'../../api/Modele/Mconnexion.php';
 require_once'../../api/Modele/Memploye.php';
+=======
+  require_once '../api/Modele/Mconnexion.php';
+  require_once '../api/Modele/Memploye.php';
+>>>>>>> 3550438d0833ac3bae6dc8f21bfd013a043a6d70
  class EmployeDao{
     //fonction pour lister tous les employes
       public static function listeremploye(){

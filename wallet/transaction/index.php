@@ -1,12 +1,4 @@
-<?php session_start();
-     $serveur="localhost";
-     //$user="a38e91_kwen";
-     $user="root";
-     //$serveur="mysql5022.site4now.net";
-     $pass="";
-     $bd="db_9b4f31_kwenpam";
-     //$bd="db_a38e91_kwen";
-     $con=  mysqli_connect($serveur, $user, $pass, $bd) or die ("Connexion a la base impossible");   
+<?php session_start();  
     
 ?>
 <html lang="en">
@@ -26,13 +18,13 @@
     <link href="../../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="../../vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> 
+    <link href="../../vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="../../vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="../../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all"> 
+    <link href="../../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="../../css/theme.css" rel="stylesheet" media="all">
-    <link href="../../css/main.css?v=23" rel="stylesheet" media="all">
+    <link href="../../css/main.css?v=33w2" rel="stylesheet" media="all">
 </head>
 <body class="animsition">
     <div class="page-wrapper">
@@ -58,12 +50,14 @@
     <script src="../../vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="../../vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="../../vendor/bootstrap-4.1/bootstrap.min.js"></script> 
-    <script src="../../vendor/animsition/animsition.min.js"></script>  
-    <script src="../../vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script> 
+    <script src="../../vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="../../vendor/animsition/animsition.min.js"></script>
+    <script src="../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../../vendor/select2/select2.min.js">
     </script>
+    <!-- Main JS-->
     <script src="../../js/main.js"></script>
+
+    <script src="../../js/index.js?v=142321"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
     </div> 
     <div class="col-md-6 col-lg-3">
         <div class="statistic__item"> 
-            <h2 class="number"><?php echo $requete[0];?></h2>
+            <h2 class="number"><?php echo 1;?></h2>
             <span class="desc">tranzaksyon</span>
             <div class="icon">
                 <i class="zmdi zmdi-calendar-note"></i>
@@ -20,7 +20,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="statistic__item"> 
-            <h2 class="number"><?php echo $requete[1];?></h2>
+            <h2 class="number"><?php echo 1;?></h2>
             <span class="desc">goud disponib</span>
             <div class="icon">
                 <i class="zmdi zmdi-money"></i>

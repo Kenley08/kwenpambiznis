@@ -1,7 +1,7 @@
  <div class="row" id="midle-new-ads">  
     <div class="col-9">
         <p class="title-page">
-            Retire lajan sou bous kwenpam
+            Retire lajan sou bous kwenpam <?php echo transactionDao::ajoutertransaction($tran)?>
         </p>
         <?php
         if(isset($mesaj)){?>  
@@ -9,7 +9,14 @@
                 <?php echo $mesaj;?>  
             </div> 
         <?php  }
-    ?>
+     ?>
+       <?php
+        if(isset($sikse)){?>  
+            <div class="alert alert-success  " role="alert">
+                <?php echo $sikse;?>  
+            </div> 
+        <?php  }
+     ?>
         <div class="text-pub" id="step-1-new-ads">
             Pou s&egrave;vi ak pati sila, f&ograve;k ou gen minimum 500 goud nan bous kwnepam ou. Pou tout sa ki gen rap&ograve; ak fason pou itilize espas sila, ou ka voye
             je nan <a href="http://business.kwenpam.com/privacy">t&egrave;m ak kondisyon nou yo</a>. Oubyen siw bezwen konnen k&ograve;man li fonksyone
