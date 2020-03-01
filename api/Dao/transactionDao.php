@@ -11,12 +11,14 @@
 
       public static function ajoutertransaction($transaction){
       $con=new connexion();
-      $con->executeactualisation("insert into tbltransaction (id_transaction,id_bourse,montant,id_etat_transaction,id_type_transaction,id_moyen_tran,order_id,transaction_id,description,date_ajout,date_update)
+      $resultat=$con->executeactualisation("insert into tbltransaction (id_transaction,id_bourse,montant,id_etat_transaction,id_type_transaction,id_moyen_tran,order_id,transaction_id,description,date_ajout,date_update)
         values('" . $transaction->idtran . "','" . $transaction->idbourse . "','" . $transaction->montant . "','" . $transaction->idetattran . "','" . $transaction->idtypetran . "','" . $transaction->idmoyentran . "','" . $transaction->orderid . "','" . $transaction->transactionid . "',
         '" . $transaction->description . "',NOW(),'" . $transaction->dateupdate . "')");
         $con->closeconnexion();
-      //  return $resultat;
-        }
+        return $resultat;
+
+}
+
 
 
   }

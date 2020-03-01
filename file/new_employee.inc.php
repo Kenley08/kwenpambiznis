@@ -1,3 +1,4 @@
+
 <div class="row" id="midle-new-employee">
     <div class="col-9">
         <p class="title-page">
@@ -14,7 +15,7 @@
                 <strong>Ranpli tout chan yo</strong>
             </div>
             <div class="card-body card-block">
-                <form action="../api/Controleur/Cemploye.php?a=ins" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <form action="?" enctype="multipart/form-data" method="post" class="form-horizontal">
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="txtcodeemp" class=" form-control-label">K&ograve;d anplwaye</label>
@@ -25,10 +26,10 @@
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="txtnomcompletemp" class=" form-control-label">Non konpl&egrave;</label>
+                            <label for="nomcompletemp" class=" form-control-label">Non konpl&egrave;</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtnomcompletemp" name="nomcomplet" placeholder="Ex: Junior Jean Laurent" class="form-control">
+                            <input type="text" id="txtnomcompletemp" name="nomcompletemp" placeholder="Ex: Junior Jean Laurent" class="form-control">
                             <!-- <small class="form-text text-muted">This is a help text</small> -->
                         </div>
                     </div>
@@ -37,7 +38,7 @@
                             <label for="txtemailemp" class=" form-control-label">Imel</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="email" id="txtemailemp" name="email"  placeholder="Ex: juni@gamil.com" class="form-control">
+                            <input type="email" id="txtemailemp" name="emailemp"  placeholder="Ex: juni@gamil.com" class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>
@@ -46,7 +47,7 @@
                             <label for="txtphoneemp" class=" form-control-label">Telef&ograve;n</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtphoneemp" name="telephone" placeholder="Ex: 47293493" class="form-control">
+                            <input type="text" id="txtphoneemp" name="telephoneemp" placeholder="Ex: 47293493" class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>
@@ -55,7 +56,7 @@
                             <label for="txtsexeemp" class=" form-control-label">S&egrave;ks</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtsexeemp" name="sexe" class="form-control">
+                            <select id="txtsexeemp" name="sexeemp" class="form-control">
                                 <option value="0">Mal</option>
                                 <option value="1">Fem&egrave;l</option>
                                 <option value="2">L&ograve;t</option>
@@ -150,13 +151,14 @@
                             <label for="txtsalireemp" class=" form-control-label">Sal&egrave; (an goud)</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtsalireemp" name="salaire" placeholder="Ex: 5000" class="form-control">
+                            <input type="text" id="txtsalireemp" name="salaireemp" placeholder="Ex: 5000" class="form-control">
                             <!-- <small class="help-block form-text">Please enter a complex password</small> -->
                         </div>
                     </div>  <br>
                     <a href="../"><button type="button" class="btn btn-secondary btn-small" >Anile anrejitreman</button> </a>
                     <!-- <button type="button" class="btn btn-primary btn-small" id="btnajouteremploye">Ajoute</button> -->
-                  <input type="submit" class="btn btn-primary btn-small" id="btnajouteremploye" value="Ajoute"/>
+                    <input type="submit"  name="btnadd" class="btn btn-primary btn-small" id="btnajouteremploye" value="Ajoute" />
+
 
     </div>
 </div>

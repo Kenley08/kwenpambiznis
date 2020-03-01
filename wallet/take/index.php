@@ -6,7 +6,7 @@
     $iduti=$_GET['iduti'];
     $_SESSION['id']=$iduti;
     // require_once"../../Dao/transactionDao.php";
-    //on teste si l 'id de lutilisateur existe' 
+    //on teste si l 'id de lutilisateur existe'
     if(isset($_SESSION['id'])){
       $iduti=$_GET['iduti'];
       $mesaj="";
@@ -45,23 +45,23 @@
               }else{
                 if(!$nt){
                     $mesaj="ou dwe antre selman chif nan nimewo trazaksyon a";
-                }else{ 
+                }else{
                       if($kantitekobretre>$row[0]){
-                          $mesaj="ou pa gen kantite kob sa sou bous ou a!";  
-                      }else{ 
+                          $mesaj="ou pa gen kantite kob sa sou bous ou a!";
+                      }else{
                          transactionDao::ajoutertransaction($tran);
                          if(transactionDao::ajoutertransaction($tran)){
                          $mesaj="tranzaksyon an ale men li an atant toujou,tann yon ti moman pou yo valide l";
-                       } 
-                      } 
-                }  
-              } 
-          } 
+                       }
+                      }
+                }
+              }
+          }
             // si le bouton submit n est pas encore isset on en nettoie le variable mesaj
            }else{
              $mesaj="";
            }
-        } 
+        }
     }else{
       $mesaj="nou pa jwenn obje a";
     }
@@ -94,7 +94,7 @@
 </head>
 <body class="animsition">
     <div class="page-wrapper">
-        <div class="page-container2 index-page-container2"> 
+        <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
                 include '../../file/header.inc.php';

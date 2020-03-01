@@ -1,12 +1,12 @@
 <?php
-  require_once'../Modele/Mconnexion.php';
-  require_once'../Modele/Memploye.php';
+require_once'../../api/Modele/Mconnexion.php';
+require_once'../../api/Modele/Memploye.php';
  class EmployeDao{
     //fonction pour lister tous les employes
       public static function listeremploye(){
         $con=new connexion();
 
-        $cont=$con->executerequete("select * from tblemploye ");
+        $cont=$con->executerequete("select * from tblemploye");
         $con->closeconnexion();
         return $cont;
       }
