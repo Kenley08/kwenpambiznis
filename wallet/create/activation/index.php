@@ -8,6 +8,7 @@ if(isset($_GET['idtpbourse'])){
     if(($idtypebourse)!=="1" || ($idtypebourse)!=="2" || ($idtypebourse)!=="3"){
       $message="Gen yon ere ki komet";
     } else{
+      $message=" insertion reussi";
       $iduti=2;
       $bourse=new BourseDao();
 

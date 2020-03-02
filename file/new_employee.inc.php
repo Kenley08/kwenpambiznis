@@ -11,11 +11,16 @@
                 <button type="button" class="btn btn-secondary btn-small callads" id="btncallcreateads">Kreye piblisite</button>  -->
         </div> <br>
         <div class="col col-md-12 bg-white no-padding">
+              <?php echo $mesaj;
+                  echo $sikse;
+              ?>
             <div class="card-header">
                 <strong>Ranpli tout chan yo</strong>
             </div>
             <div class="card-body card-block">
+
                 <form action="?" enctype="multipart/form-data" method="post" class="form-horizontal">
+
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="txtcodeemp" class=" form-control-label">K&ograve;d anplwaye</label>
@@ -125,7 +130,7 @@
                             <label for="txtdernierposteemp" class=" form-control-label">D&egrave;nye dj&ograve;b</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="email" id="txtdernierposteemp"  placeholder="Ex: kontab, Le bon berger" class="form-control">
+                            <input type="text" id="txtdernierposteemp"  placeholder="Ex: kontab, Le bon berger" class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>

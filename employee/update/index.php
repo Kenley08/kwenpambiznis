@@ -1,3 +1,38 @@
+<?php
+
+$id=$_GET['id'];
+
+require_once"../../api/Connector/Connector.php";
+
+//if ($ligne){
+  if(isset($_POST['submit'])){
+    if(isset($_POST['nomcomplet'])){
+      $nc=$_POST['nomcomplet'];
+      $email=$_POST['email'];
+      $tel=$_POST['telephone'];
+      $adres=$_POST['adresse'];
+      $postanc=$_POST['postancien'];
+      $postac=$_POST['postactuel'];
+      $salaire=$_POST['salaire'];
+      $requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'";
+      $resultat=mysqli_query($con, $requete);
+                        if($resultat>0){
+        //header("location: ../index.php");
+        $mesaj="";
+        $sikse="Modifikasyon an fet";
+    }else{
+      $sikse="";
+      $mesaj="Modifikasyon an pa fet";
+    }
+}
+
+}else{
+  $mesaj="";
+  $sikse="";
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

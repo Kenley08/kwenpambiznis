@@ -1,7 +1,39 @@
 <?php
-    require_once"../../api/Dao/EmployeDao.php";
-  //  require_once"../../api/Modele/Mconnexion.php";
-  ?>
+  require_once"../../api/Connector/Connector.php";
+
+      if(isset($_POST['btnadd'])){
+        $e="emp-".time()."".rand(1,100);
+        $idemp=$e;
+        $nomcomplet=$_POST['nomcompletemp'];
+        $email=$_POST['emailemp'];
+        $tel=$_POST['telephoneemp'];
+        $sexe=$_POST['sexeemp'];
+        $idtpcond=1;
+        $idgs=3;
+        $idtpniv=2;
+        $idville=4;
+        $adresse="Tabarre";
+        $idpostact=2;
+        $idpostanc=5;
+        $salaire=$_POST['salaireemp'];
+        $etat=1;
+        $dateaj="";
+        $dateup="";
+          //$requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'";
+         $requete="insert into tblemploye values('$idemp','$nomcomplet','$email','$tel','$sexe','$idtpcond','$idgs','$idtpniv','$idville','$adresse','$idpostact','$idpostanc','$salaire','$etat',NOW(),NOW())";
+          $resultat=mysqli_query($con, $requete);
+                           if($resultat>0){
+            $sikse="Anploye a anregistre";
+          //  header("location: ../index.php");
+    }else{
+      $mesaj="Anploye a pa anregisre";
+    }
+  }else{
+    $mesaj="";
+    $sikse="";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

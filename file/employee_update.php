@@ -1,28 +1,4 @@
-<?php
 
-$id=$_GET['id'];
-
-$con = mysqli_connect("localhost", "root", "", "db_kwenpam_biznis");
-//if ($ligne){
-  if(isset($_POST['submit'])){
-    if(isset($_POST['nomcomplet'])){
-      $nc=$_POST['nomcomplet'];
-      $email=$_POST['email'];
-      $tel=$_POST['telephone'];
-      $adres=$_POST['adresse'];
-      $postanc=$_POST['postancien'];
-      $postac=$_POST['postactuel'];
-      $salaire=$_POST['salaire'];
-      $requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'";
-      $resultat=mysqli_query($con, $requete);
-                        if($resultat>0){
-        header("location: ../index.php");
-    }
-}
-
-}
-
-?>
 
 
 <div class="row" id="midle-new-employee">
@@ -43,6 +19,10 @@ $con = mysqli_connect("localhost", "root", "", "db_kwenpam_biznis");
 
             </div>
             <div class="card-body card-block">
+              <?php
+              echo $mesaj;
+              echo $sikse;
+              ?>
                 <form action="" method="post"  class="form-horizontal">
                     <div class="row form-group">
                         <div class="col col-md-3">
