@@ -1,9 +1,10 @@
 
 <?php
-    // require_once '../api/Dao/EmployeDao.php';
-    // require_once '../Modele/Memploye.php';
+
+  require_once"../api/Dao/EmployeDao.php";
+
     if(isset($_POST['btnupdateetat'])){
-       require_once "../Dao/EmployeDao.php";
+      // require_once "../api/Dao/EmployeDao.php";
        $emp=new EmployeDao();
        $emp->idemp=$ligne[0];
        EmployeDao::updateetat($emp);

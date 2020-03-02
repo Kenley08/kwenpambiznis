@@ -1,21 +1,28 @@
 <?php
-    session_start();
-
+      // require_once'../api/M/Dao.php';
+    //session_start();
     // if(!isset($_GET['id_uti'])){
-    //   $_SESSION['id_uti']=_GET['id_uti'];
-    //
-    //
+    //   $_SESSION['id_uti']=$_GET['id_uti'];
+    //   $iduti=$_GET['id_uti'];
+    //   //$admin=new administrationDao();
+    //   administrationDao::capteriduti($iduti);
+    //     if(administrationDao::capteriduti($iduti)){
+    //        $sikse="mwen jwenn id a nan base la deja!";
+    //     }
     //  }
 
-  //on teste on teste si le bouton existe
-    if(isset($_POST['submit'])){
-  //on teste si le session existe
-        if(!isset($_SESSION['id_uti'])){
-          //on teste si l'id est bien obtenu
-             $mesaj="Pou konekte sou kwenpambiznis fok ou konekte sou kwenpam, kisa w ap fe? <a href='http://kwenpam.com/login?referer=$_SERVER[HTTP_REFERER]'> konekte</a> oubyen <a href='http://kwenpam.com/register?referer=$_SERVER[HTTP_REFERER]'>kreye yon kont</a>?";
-        }
 
-    }
+
+  //on teste on teste si le bouton existe
+  //   if(isset($_POST['submit'])){
+  // //on teste si le session existe
+  //       if(!isset($_SESSION['id_uti'])){
+  //         //on teste si l'id est bien obtenu
+  //            $mesaj="Pou konekte sou kwenpambiznis fok ou konekte sou kwenpam, kisa w ap fe? <a href='http://kwenpam.com/login?referer=$_SERVER[HTTP_REFERER]'> konekte</a> oubyen <a href='http://kwenpam.com/register?referer=$_SERVER[HTTP_REFERER]'>kreye yon kont</a>?";
+  //       }
+
+
+    //}
 ?>
 <html lang="en">
 <head>
@@ -39,6 +46,7 @@
 </head>
 <body class="animsition">
         <?php
+        //  echo $mesaj;
             include '../file/login.inc.php';
             include '../file/footer.inc.php';
         ?>

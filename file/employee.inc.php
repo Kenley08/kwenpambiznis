@@ -1,7 +1,4 @@
 
-<?php
-       require_once "../api/Dao/EmployeDao.php";
- ?>
 
 <div class="table-data__tool">
         <div class="table-data__tool-left">
