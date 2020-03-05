@@ -12,8 +12,9 @@
 
 
         ?>
-        <input type="password" placeholder="Rantre PIN ou" class="form-control col-12">
+
+        <input type="password" name="pin"  value="<?php if(!$row){echo $e;}else{ echo $e="";}?>"   <?php if(!$row) echo 'disabled="disabled"'; ?> placeholder="Rantre PIN ou" class="form-control col-12">
         <br>
-        <input type="submit"  value="konekte" class="btn btn-primary btn-small col-12"/>
+        <input type="submit" name="btnconnect"  value="konekte" class="btn btn-primary btn-small col-12"/>
     </div>
 </form>

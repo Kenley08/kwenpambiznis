@@ -1,6 +1,6 @@
 <?php
   class Madministration{
-      public $admin;
+      public $idadmin;
       public $iduti;
       public $pin;
       public $etat;
@@ -8,7 +8,7 @@
       public $dateup;
 
       public function __construct(){
-        $this->admin="";
+        $this->idadmin="";
         $this->iduti="";
         $this->pin="";
         $this->etat="";

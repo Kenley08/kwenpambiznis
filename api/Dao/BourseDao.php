@@ -7,7 +7,7 @@
       public static function ajouterbourse($bourse){
         $con=new connexion();
       $con->executeactualisation("insert into tblbourse (id_bourse,id_type_bourse,id_uti,solde,etat,date_ajout,date_update)
-        values('" . $bourse->idbourse . "','" . $bourse->idtypebourse . "','" . $bourse->iduti . "','" . $bourse->solde. "','" . $bourse->etat . "','" . $bourse->dateaj . "','" . $bourse->dateup . "')");
+        values('" . $bourse->idbourse . "','" . $bourse->idtypebourse . "','" . $bourse->iduti . "','" . $bourse->solde. "','" . $bourse->etat . "',NOW(),'" . $bourse->dateup . "')");
         $con->closeconnexion();
       //  return $resultat;
       }

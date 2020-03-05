@@ -1,28 +1,70 @@
 <?php
-      // require_once'../api/M/Dao.php';
-    //session_start();
-    // if(!isset($_GET['id_uti'])){
-    //   $_SESSION['id_uti']=$_GET['id_uti'];
-    //   $iduti=$_GET['id_uti'];
-    //   //$admin=new administrationDao();
-    //   administrationDao::capteriduti($iduti);
-    //     if(administrationDao::capteriduti($iduti)){
-    //        $sikse="mwen jwenn id a nan base la deja!";
-    //     }
-    //  }
+  //session_start();
+  //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
+  //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
+  ini_set('display_errors', 'Off');
+  require_once'../api/Dao/administrationDao.php';
+        if(isset($_GET['id_uti'])){
+      //  $_SESSION['id_uti']=$_GET['id_uti'];
+          $iduti=$_GET['id_uti'];
+          //mwen recheche done uti a pa rapo a id li genyen sou kwenpam
+        $row=administrationDao::capteriduti($iduti);
+        $admin=new administrationDao();
+        //mwen teste si donne li te deja kreye yon kont sou kwenpambiznis
+        //si li te genyen deja mwen pral just update tbladministration a nan db kwenpambiznis
+        if($row){
+                //mwen teste si bouton a egziste
+              if(isset($_POST['btnconnect'])){
+                //mwen adapte attributs yo ak objet mwen te kreye anle a
+                $admin->idemp=$row[0];
+                $admin->iduti=$row[1];
+                $admin->pin=$_POST['pin'];
+                $admin->etat=1;
+                $admin->dateajout=$row[4];
+                $admin->dateupdate=$row[5];
+                //mwen teste si attribut pin la egziste paske se avel mwen pral fe tes poum konnen si uti a mete
+                //Bon PIN li a
+                  if(isset($admin->pin) && isset($admin->idemp) && isset($admin->etat)){
+                    if(($admin->pin)==$row[2]){
+
+                      administrationDao::updateetat($admin);
+                      header("location:../index.php");
+                    }else {
+                      echo "svp antre bon PIN la!";
+                    }
+                  }//sinon sa se pou si la pa jwenn yon attribut ki lye ak obje a,n apaffiche yon mesaj
+                  else{
+                    echo "mwen pa jwen obje a,update la pa ka fet";
+                  }
+
+              }
 
 
+        }else{
+          //sinon sa se pou le moun la fek konekte sou kwenpam epi li vin premye fwa ap konnete
+          //sou kwenpambiznis mwen jenere yon kod yon PIN pou li pou li ka konekte sou kwenpambiznis
+            $idadmin=time()."".rand(1,100);
+            $e=time()."".rand(1,100);
+          //ON va inserer dans la base
+          if(isset($_POST['btnconnect'])){
+            $admin->idadmin=$idadmin;
+            $admin->iduti=$iduti;
+            $admin->pin=$e;
+            $admin->etat=1;
+            $admin->dateaj="";
+            $admin->dateup="";
+              if(isset($admin->etat) && isset($admin->iduti) && isset($admin->idadmin) && isset($admin->etat) && isset($admin->dateaj) && isset($admin->dateup) && isset($admin->pin)){
+                //on ajoute l'administrateur
+                administrationDao::createadmin($admin);
+              //  echo "admin nan kreye";
+                  header("location:../index.php");
+              }else{
+                echo "admin na pa arive kreye";
+              }
 
-  //on teste on teste si le bouton existe
-  //   if(isset($_POST['submit'])){
-  // //on teste si le session existe
-  //       if(!isset($_SESSION['id_uti'])){
-  //         //on teste si l'id est bien obtenu
-  //            $mesaj="Pou konekte sou kwenpambiznis fok ou konekte sou kwenpam, kisa w ap fe? <a href='http://kwenpam.com/login?referer=$_SERVER[HTTP_REFERER]'> konekte</a> oubyen <a href='http://kwenpam.com/register?referer=$_SERVER[HTTP_REFERER]'>kreye yon kont</a>?";
-  //       }
-
-
-    //}
+          }
+        }
+      }
 ?>
 <html lang="en">
 <head>
@@ -46,7 +88,8 @@
 </head>
 <body class="animsition">
         <?php
-        //  echo $mesaj;
+          // echo $mesaj;
+           //echo $sikse;
             include '../file/login.inc.php';
             include '../file/footer.inc.php';
         ?>
