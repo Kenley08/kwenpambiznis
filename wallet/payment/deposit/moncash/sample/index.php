@@ -1,9 +1,66 @@
 <?php session_start();
-// unset($_SESSION['order_id']);
+  // unset($_SESSION['order_id']);
+  require_once '../../../../../api/Modele/Mconnexion.php';
+  require_once '../../../../../api/Modele/Mtransaction.php';
+  require_once "../../../../../api/Dao/transactionDao.php";
   if(!isset($_SESSION['order_id'])){
     $_SESSION['order_id']=time().''.rand(1,1000);
   }
+   // Leave only for debuging purposes
+   ini_set('display_errors', 1);
 
+   require_once '../vendor/autoload.php';
+   use DGCGroup\MonCashPHPSDK\Credentials;
+   use DGCGroup\MonCashPHPSDK\Configuration;
+   use DGCGroup\MonCashPHPSDK\PaymentMaker;
+   use DGCGroup\MonCashPHPSDK\Order;
+   use DGCGroup\MonCashPHPSDK\TransactionCaller;
+   use DGCGroup\MonCashPHPSDK\TransactionDetails;
+   use DGCGroup\MonCashPHPSDK\TransactionPayment;
+
+   // Instanciation of the payment class
+   $client = "420a0c3df56ea66743a72d1b820c7fe3";
+   $secret = "yBvHejbLSxrTz7NthHOh5pKkmwXwm0fKCkaxm_dxNVhOgoo9IL7vgGV4sZrNWFXr";
+   $configArray = Configuration::getSandboxConfigs();
+   if(isset($_POST['btnajoutelajan'])){
+        $iduti=$_GET['id_uti'];
+        // $mesaj="";
+        $row=transactionDao::afficherkobous($iduti);
+        $_SESSION['id_bourse']=$row[1];
+
+        //$moyentran=$_POST['moyentranzaksyon'];
+        $tran=new transactionDao();
+        $idt=time()."".rand(1,100);
+        $_SESSION['id_transaction']=$idt;
+        //////////////////////////////////////////////////
+        $amount = $_POST['txtlajan'];
+        $orderId = $_POST['txtorderid'];
+        // $idtransaction=time().''.rand(1,1000);
+        $tran->idtran=$idt;
+        $tran->idbourse=$row[1];
+        $tran->montant=$amount;
+        $tran->idetattran=1;
+        $tran->idtypetran=4;
+        $tran->idmoyentran=2;
+        $tran->orderid=$orderId;
+        $tran->transactionid="";
+        $tran->description="Ajoute ".trim($_POST['txtlajan'])." goud sou bous kwenpam biznis pa mwayen Moncash";
+        $tran->dateajout="";
+        $tran->dateupdate="";
+        transactionDao::ajoutertransaction($tran); 
+        if(isset( $tran->idtran)){
+            $test = new Credentials($client, $secret, $configArray); 
+            // Call to the payment request   
+            $theOrder = new Order( $orderId, $amount );
+    
+            $paymentObj = PaymentMaker::makePaymentRequest( $theOrder, $test, $configArray );
+            $url=$paymentObj->getRedirect(); 
+            header("Location: $url"); 
+        //  $mesaj="Tranzaksyon an ajoute";
+        }else{
+          $mesaj="Nou pa arive kreye tranzaksyon an pou ou, verifye epi rek&ograve;manse pou nou.";
+        } 
+   }  
 ?>
 <html lang="en">
 <head>
@@ -29,40 +86,7 @@
     <!-- Main CSS-->
     <link href="../../../../../css/theme.css" rel="stylesheet" media="all">
     <link href="../../../../../css/main.css?v=23" rel="stylesheet" media="all">
-</head>
-
-  <?php
-    // Leave only for debuging purposes
-    ini_set('display_errors', 1);
-
-    require_once '../vendor/autoload.php';
-    use DGCGroup\MonCashPHPSDK\Credentials;
-    use DGCGroup\MonCashPHPSDK\Configuration;
-    use DGCGroup\MonCashPHPSDK\PaymentMaker;
-    use DGCGroup\MonCashPHPSDK\Order;
-    use DGCGroup\MonCashPHPSDK\TransactionCaller;
-    use DGCGroup\MonCashPHPSDK\TransactionDetails;
-    use DGCGroup\MonCashPHPSDK\TransactionPayment;
-
-    // Instanciation of the payment class
-    $client = "420a0c3df56ea66743a72d1b820c7fe3";
-    $secret = "yBvHejbLSxrTz7NthHOh5pKkmwXwm0fKCkaxm_dxNVhOgoo9IL7vgGV4sZrNWFXr";
-    $configArray = Configuration::getSandboxConfigs();
-    if(isset($_POST['btnajoutelajan'])){
-        $test = new Credentials($client, $secret, $configArray);
-        if(!isset($_GET['paymentDetails'])){
-            // Call to the payment request
-            $amount = $_POST['txtlajan'];
-            $orderId = $_POST['txtorderid'];
-
-            $theOrder = new Order( $orderId, $amount );
-
-            $paymentObj = PaymentMaker::makePaymentRequest( $theOrder, $test, $configArray );
-            $url=$paymentObj->getRedirect();
-            header("Location: $url");
-        }
-    }
-  ?>
+</head> 
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-container2">
@@ -79,20 +103,20 @@
             include '../../../../../file/confirmation.inc.php';
             include '../../../../../file/help_all.inc.php';
         ?>
-
-        <?php
-              if(isset($_GET["paymentDetails"])){
+        
+        <?php 
+              if(isset($_GET["transactionId"])){     
                 $test = new Credentials($client, $secret, $configArray);
                 $amount = 10;
-                $orderId = 1583011868990;
+                $orderId = 1583596665787;
 
                 $theOrder = new Order( $orderId, $amount );
 
                 $transactionDetails = TransactionCaller::getTransactionDetailsByOrderIdRequest( $theOrder, $test, $configArray );
-               echo $transactionDetails->getPayment()->getMessage();
+                $transactionDetails->getPayment()->getMessage(); 
+                $_SESSION['order_id']=null;
               }
-          ?>
-
+          ?>  
     </div>
     <!-- Jquery JS-->
     <script src="../../../../../vendor/jquery-3.2.1.min.js"></script>
