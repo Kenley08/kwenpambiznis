@@ -52,7 +52,10 @@
                 </thead>
                 <tbody>
                   <tr>
-                  <?php foreach(transactionDao::listertransaction() as $row): ?>
+
+                  <?php
+                    $iduser=2;
+                   foreach(transactionDao::listertransaction($iduser) as $row): ?>
                       <td><?php echo $row[0] ?></td>
                       <td><?php echo $row[1] ?></td>
                       <td><?php echo $row[2] ?></td>

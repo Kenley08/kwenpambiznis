@@ -34,14 +34,14 @@
 
           }
 
-          public static function listertransaction(){
+          public static function listertransaction($iduti){
             $con=new connexion();
             $cont=$con->executerequete("SELECT tblbourse.id_uti,tbltransaction.montant,tbletattransaction.type,tbltypetransaction.type,tblmoyentransaction.moyen,tbltransaction.description,tbltransaction.date_ajout
-          FROM tbltransaction
+            FROM tbltransaction
           	 join tbltypetransaction on tbltypetransaction.id_type_transaction=tbltransaction.id_type_transaction
                join tblmoyentransaction on tblmoyentransaction.id_moyen_tran=tbltransaction.id_moyen_tran
                join tbletattransaction on tbletattransaction.id_etat_transaction=tbltransaction.id_etat_transaction
-                join tblbourse on tblbourse.id_bourse=tbltransaction.id_bourse
+                join tblbourse on tblbourse.id_bourse=tbltransaction.id_bourse where id_uti=$iduti
 	  ");
             $con->closeconnexion();
             return $cont;
