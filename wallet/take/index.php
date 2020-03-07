@@ -6,17 +6,15 @@
     //  session_start();
     // $iduti=$_GET['id_uti'];
     // $_SESSION['id_uti']=2;
-    // require_once"../../Dao/transactionDao.php";
-<<<<<<< HEAD
+    // require_once"../../Dao/transactionDao.php
     //on teste si l 'id de lutilisateur existe'
     if(isset($_SESSION['id'])){
       $iduti=$_GET['iduti'];
       $mesaj="";
-=======
-    //on teste si l 'id de lutilisateur existe'  
+    //onteste si l 'id de lutilisateur existe'
     if(isset($_SESSION['id_uti'])){
-      $iduti=$_SESSION['id_uti']; 
->>>>>>> 3550438d0833ac3bae6dc8f21bfd013a043a6d70
+      $iduti=$_SESSION['id_uti'];
+
       $row=transactionDao::afficherkobous($iduti);
       $_SESSION['id_bourse']=$row[1];
 
@@ -46,12 +44,11 @@
             $nt =preg_match('/^[0-9]*$/',$nimewotranzaksyon);
            if(empty($_POST['kantitekobretre']) || empty($_POST['nimewotranzaksyon']) ){
                 $mesaj="Ou dwe ranpli tout chan yo";
-            }else{ 
+            }else{
               if (!$kr){
                 $mesaj="Ou dwe antre selman chif nan kob retre a ";
               }else{
                 if(!$nt){
-<<<<<<< HEAD
                     $mesaj="ou dwe antre selman chif nan nimewo trazaksyon a";
                 }else{
                       if($kantitekobretre>$row[0]){
@@ -65,25 +62,24 @@
                 }
               }
           }
-=======
                     $mesaj="Ou dwe antre selman chif nan nimewo trazaksyon a";
-                }else{ 
+                }else{
                       if($kantitekobretre>$row[0]){
-                          $mesaj="Ou pa gen kantite kob sa sou bous ou a!";  
-                      }else{ 
+                          $mesaj="Ou pa gen kantite kob sa sou bous ou a!";
+                      }else{
                         //  transactionDao::ajoutertransaction($tran);
-                        
+
                         if(transactionDao::ajoutertransaction($tran)){
                             $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou yo valide l";
                         }else{
-                            $mesaj="Nou pa arive fe demand tranzaksyon an pou ou";  
-                        } 
-                      } 
-                }  
-              } 
-          } 
->>>>>>> 3550438d0833ac3bae6dc8f21bfd013a043a6d70
-            // si le bouton submit n est pas encore isset on en nettoie le variable mesaj
+                            $mesaj="Nou pa arive fe demand tranzaksyon an pou ou";
+                        }
+                      }
+                }
+              }
+          }
+
+            //si le bouton submit n est pas encore isset on en nettoie le variable mesaj
            }else{
              $mesaj="";
            }

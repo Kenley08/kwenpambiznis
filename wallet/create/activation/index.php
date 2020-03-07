@@ -1,8 +1,8 @@
 <?php session_start();
 require_once"../../../api/Dao/BourseDao.php";
-// require_once'../../../Modele/Mconnexion.php';
-// require_once'../../../Modele/Mbourse.php';
-      //creation du bourse
+require_once'../../../api/Modele/Mconnexion.php';
+require_once'../../../api/Modele/Mbourse.php';
+
 if(isset($_GET['idtpbourse'])){
     $idtypebourse=$_GET['idtpbourse'];
     if(($idtypebourse)!=="1" || ($idtypebourse)!=="2" || ($idtypebourse)!=="3"){

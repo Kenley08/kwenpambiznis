@@ -1,37 +1,38 @@
 <?php
-  require_once"../../api/Connector/Connector.php";
+  //require_once"../../api/Connector/Connector.php";
+  require_once'../../api/Modele/Memploye.php';
+  //require_once'../../api/Modele/Mconnexion.php';
+  require_once'../../api/Dao/EmployeDao.php';
 
+if(!isset($mesaj) && !isset($sikse)){
+  $mesaj="";
+  $sikse="";
+}
       if(isset($_POST['btnadd'])){
         $e="emp-".time()."".rand(1,100);
-        $idemp=$e;
-        $nomcomplet=$_POST['nomcompletemp'];
-        $email=$_POST['emailemp'];
-        $tel=$_POST['telephoneemp'];
-        $sexe=$_POST['sexeemp'];
-        $idtpcond=1;
-        $idgs=3;
-        $idtpniv=2;
-        $idville=4;
-        $adresse="Tabarre";
-        $idpostact=2;
-        $idpostanc=5;
-        $salaire=$_POST['salaireemp'];
-        $etat=1;
-        $dateaj="";
-        $dateup="";
-          //$requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'";
-         $requete="insert into tblemploye values('$idemp','$nomcomplet','$email','$tel','$sexe','$idtpcond','$idgs','$idtpniv','$idville','$adresse','$idpostact','$idpostanc','$salaire','$etat',NOW(),NOW())";
-          $resultat=mysqli_query($con, $requete);
-                           if($resultat>0){
-            $sikse="Anploye a anregistre";
-          //  header("location: ../index.php");
-    }else{
-      $mesaj="Anploye a pa anregisre";
-    }
-  }else{
-    $mesaj="";
-    $sikse="";
-  }
+        $emp->idemp=$e;
+        $emp->nomcomplet=$_POST['nomcompletemp'];
+        $emp->email=$_POST['emailemp'];
+        $emp->tel=$_POST['telephoneemp'];
+        $emp->sexe=$_POST['sexeemp'];
+        $emp->idtpcond=1;
+        $emp->idgs=3;
+        $emp->idtpniv=2;
+        $emp->idville=4;
+        $emp->adresse="Tabarre";
+        $emp->idpostact=2;
+        $emp->idpostanc=5;
+        $emp->salaire=$_POST['salaireemp'];
+        $emp->etat=1;
+        $emp->dateaj="";
+        $emp->dateup="";
+        if(isset($emp->idemp)){
+          EmployeDao::ajouteremploye($emp);
+          $succes="anrejistreman an fet";
+        }else{
+          $mesaj="anrejistreman pa fet";
+        }
+   }
 ?>
 
 <!DOCTYPE html>

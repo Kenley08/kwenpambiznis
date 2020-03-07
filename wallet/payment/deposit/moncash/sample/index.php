@@ -3,7 +3,7 @@
   if(!isset($_SESSION['order_id'])){
     $_SESSION['order_id']=time().''.rand(1,1000);
   }
-  
+
 ?>
 <html lang="en">
 <head>
@@ -50,18 +50,18 @@
     $configArray = Configuration::getSandboxConfigs();
     if(isset($_POST['btnajoutelajan'])){
         $test = new Credentials($client, $secret, $configArray);
-        if(!isset($_GET['paymentDetails'])){ 
-            // Call to the payment request 
+        if(!isset($_GET['paymentDetails'])){
+            // Call to the payment request
             $amount = $_POST['txtlajan'];
             $orderId = $_POST['txtorderid'];
-    
+
             $theOrder = new Order( $orderId, $amount );
-    
+
             $paymentObj = PaymentMaker::makePaymentRequest( $theOrder, $test, $configArray );
-            $url=$paymentObj->getRedirect(); 
+            $url=$paymentObj->getRedirect();
             header("Location: $url");
-        } 
-    }  
+        }
+    }
   ?>
 <body class="animsition">
     <div class="page-wrapper">
@@ -69,30 +69,30 @@
             <?php
                 include '../../../../../file/header.inc.php';
                 // include '../../file/info.inc.php';
-            ?>  
+            ?>
                 <?php include '../../../../../file/deposit_wallet.inc.php'; include '../../file/footer.inc.php';?>
-     
+
         </div>
-        <?php 
+        <?php
             //insertion du menu gauche de la page
             include '../../../../../file/menu_left.inc.php';
             include '../../../../../file/confirmation.inc.php';
             include '../../../../../file/help_all.inc.php';
         ?>
-        
-        <?php 
-              if(isset($_GET["paymentDetails"])){     
+
+        <?php
+              if(isset($_GET["paymentDetails"])){
                 $test = new Credentials($client, $secret, $configArray);
                 $amount = 10;
                 $orderId = 1583011868990;
 
-                $theOrder = new Order( $orderId, $amount );     
+                $theOrder = new Order( $orderId, $amount );
 
                 $transactionDetails = TransactionCaller::getTransactionDetailsByOrderIdRequest( $theOrder, $test, $configArray );
-               echo $transactionDetails->getPayment()->getMessage(); 
+               echo $transactionDetails->getPayment()->getMessage();
               }
-          ?> 
-        
+          ?>
+
     </div>
     <!-- Jquery JS-->
     <script src="../../../../../vendor/jquery-3.2.1.min.js"></script>
@@ -107,5 +107,5 @@
     <script src="../../../../../js/main.js"></script>
 </body>
 
-    
+
 </html>

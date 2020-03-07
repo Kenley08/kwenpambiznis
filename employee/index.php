@@ -2,6 +2,8 @@
 <?php
 
   require_once"../api/Dao/EmployeDao.php";
+  require_once'../api/Modele/Memploye.php';
+  require_once'../api/Modele/Mconnexion.php';
 
     if(isset($_POST['btnupdateetat'])){
       // require_once "../api/Dao/EmployeDao.php";

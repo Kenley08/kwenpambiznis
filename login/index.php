@@ -1,4 +1,6 @@
 <?php
+    require_once'../api/Modele/Mconnexion.php';
+    require_once'../api/Modele/Madministration.php';
   //session_start();
   //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
   //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
