@@ -39,42 +39,29 @@
                 <thead>
                     <tr>
                         <!-- <th>Eta</th>  -->
-                        <th>Tip</th>
-                        <th>Telef&ograve;n</th>
+                        <th>Kod Itiizate</th>
+                        <th>montan</th>
+                        <th>tip</th>
+                        <th>eta</th>
                         <!-- <th>Non</th> -->
-                        <th>Description</th>
-                        <th>Adr&egrave;s</th>
-                        <th>Lajan</th>
-                        <th>Dat tran.</th>
+                        <th>moyen</th>
+                        <th>Deskripsyon</th>
+                        <th>Date</th>
                         <!-- <th> </th> -->
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                         // $id=$_SESSION['id_user'];
-                         // $req="select t.montant,t.description,u.username,a.telephone,concat(a.departement,', ',a.commune,', ',a.adresse),t.date_ajout from tbltransaction t inner join tbladresse a, tblprofil p,tblbourse b,tblutilisateur u where (u.id_uti=p.id_uti and p.id_adr=a.id_adr and b.id_uti=u.id_uti and b.id_bourse=t.id_bourse and b.id_uti='$id')";
-                         // $q=@mysqli_query($con, $req);
-                         //while ($ligne=@mysqli_fetch_array($q)){
-                             echo " <tr><td></td>
-                             <td></td>
-                             <td></td>
-                             <td></td>
-                             <td></td>
-                             <td></td></tr>";
-                      //   }
-                    ?>
-                    <!-- <tr>
-                        <td>Atann</td>
-                        <td>Depo</td>
-                        <td>+509 47349282</td>
-                        <td>Liv pdf</td>
-                        <td>Delmas 48, an fas djoumbala</td>
-                        <td>90000</td>
-                        <td>12/02/2020</td>
-                        <td>
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#staticModal">Konfime</button>
-                        </td>
-                    </tr>  -->
+                  <tr>
+                  <?php foreach(transactionDao::listertransaction() as $row): ?>
+                      <td><?php echo $row[0] ?></td>
+                      <td><?php echo $row[1] ?></td>
+                      <td><?php echo $row[2] ?></td>
+                      <td><?php echo $row[3] ?></td>
+                      <td><?php echo $row[4] ?></td>
+                      <td><?php echo $row[5] ?></td>
+                      <td><?php echo $row[6] ?></td>
+                  </tr>
+                  <?php endforeach;?>
                 </tbody>
             </table>
         </div>

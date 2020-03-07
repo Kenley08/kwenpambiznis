@@ -47,20 +47,20 @@
         $tran->description="Ajoute ".trim($_POST['txtlajan'])." goud sou bous kwenpam biznis pa mwayen Moncash";
         $tran->dateajout="";
         $tran->dateupdate="";
-        transactionDao::ajoutertransaction($tran); 
+        transactionDao::ajoutertransaction($tran);
         if(isset( $tran->idtran)){
-            $test = new Credentials($client, $secret, $configArray); 
-            // Call to the payment request   
+            $test = new Credentials($client, $secret, $configArray);
+            // Call to the payment request
             $theOrder = new Order( $orderId, $amount );
-    
+
             $paymentObj = PaymentMaker::makePaymentRequest( $theOrder, $test, $configArray );
-            $url=$paymentObj->getRedirect(); 
-            header("Location: $url"); 
+            $url=$paymentObj->getRedirect();
+            header("Location: $url");
         //  $mesaj="Tranzaksyon an ajoute";
         }else{
           $mesaj="Nou pa arive kreye tranzaksyon an pou ou, verifye epi rek&ograve;manse pou nou.";
-        } 
-   }  
+        }
+   }
 ?>
 <html lang="en">
 <head>
@@ -86,7 +86,7 @@
     <!-- Main CSS-->
     <link href="../../../../../css/theme.css" rel="stylesheet" media="all">
     <link href="../../../../../css/main.css?v=23" rel="stylesheet" media="all">
-</head> 
+</head>
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-container2">
@@ -103,9 +103,9 @@
             include '../../../../../file/confirmation.inc.php';
             include '../../../../../file/help_all.inc.php';
         ?>
-        
-        <?php 
-              if(isset($_GET["transactionId"])){     
+
+        <?php
+              if(isset($_GET["transactionId"])){
                 $test = new Credentials($client, $secret, $configArray);
                 $amount = 10;
                 $orderId = 1583596665787;
@@ -113,10 +113,10 @@
                 $theOrder = new Order( $orderId, $amount );
 
                 $transactionDetails = TransactionCaller::getTransactionDetailsByOrderIdRequest( $theOrder, $test, $configArray );
-                $transactionDetails->getPayment()->getMessage(); 
+                $transactionDetails->getPayment()->getMessage();
                 $_SESSION['order_id']=null;
               }
-          ?>  
+          ?>
     </div>
     <!-- Jquery JS-->
     <script src="../../../../../vendor/jquery-3.2.1.min.js"></script>
