@@ -14,6 +14,6 @@ if($_SESSION['transactionId']){
   }else {
       echo "Li pa update";
   }
-} 
+}
 
 ?>

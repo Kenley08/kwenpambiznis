@@ -47,8 +47,8 @@
         $tran->description="Ajoute ".trim($_POST['txtlajan'])." goud sou bous kwenpam biznis pa mwayen Moncash";
         $tran->dateajout="";
         $tran->dateupdate="";
-        transactionDao::ajoutertransaction($tran);
-        if(isset( $tran->idtran)){
+        if(isset($tran->idtran)){
+            transactionDao::ajoutertransaction($tran);
             $test = new Credentials($client, $secret, $configArray);
             // Call to the payment request
             $theOrder = new Order( $orderId, $amount );

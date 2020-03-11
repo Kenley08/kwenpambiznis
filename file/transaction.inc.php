@@ -47,6 +47,7 @@
                         <th>moyen</th>
                         <th>Deskripsyon</th>
                         <th>Date</th>
+                        <th>valide</th>
                         <!-- <th> </th> -->
                     </tr>
                 </thead>
@@ -54,16 +55,40 @@
                   <tr>
 
                   <?php
-                    $iduser=2;
-                   foreach(transactionDao::listertransaction($iduser) as $row): ?>
-                      <td><?php echo $row[0] ?></td>
+
+                   foreach(transactionDao::listertransaction($iduser) as $row):
+
+                   ?>
+
                       <td><?php echo $row[1] ?></td>
                       <td><?php echo $row[2] ?></td>
                       <td><?php echo $row[3] ?></td>
                       <td><?php echo $row[4] ?></td>
                       <td><?php echo $row[5] ?></td>
                       <td><?php echo $row[6] ?></td>
+                      <td><?php echo $row[7] ?></td>
+
+                      <td>
+                          <?php
+                              if(($row[8]=="") || ($row[9]=="") || ($row[3]=="atant")){
+                            echo '<form action="" method="post">';
+                            echo '<input type="submit" id="idbtnvalide" name="btnvalide" class="btn btn-primary btn-small" value="konfime"/>';
+                             echo '</form>';
+                            // echo "ooooo";
+                          }else{
+                                  ?>
+                                  <script type='text/javascript'>
+                                       $(document).ready(function(){
+                                          document.getElementById("idbtnvalide").style.dislay="none";
+
+                                        });
+                                    </script>
+
+                                <?php } ?>
+                              </td>
+
                   </tr>
+
                   <?php endforeach;?>
                 </tbody>
             </table>

@@ -21,10 +21,19 @@
 
       public static function afficherkobous($id){
         $con=new connexion();
-        $cont=$con->executerequete("select solde from tblbourse where id_uti=$id");
+        $cont=$con->executerequete("select id_bourse,solde from tblbourse where id_uti=$id");
         $con->closeconnexion();
         return $cont[0];
       }
+
+      public static function updatesolde($idbourse,$montant){
+          $con=new connexion();
+          $con->executeactualisation("update tblbourse set solde=solde+$montant where id_bourse=$idbourse");
+          $con->closeconnexion();
+
+      }
+
+
 
   }
 ?>

@@ -1,4 +1,20 @@
-<?php session_start(); 
+<?php
+  session_start();
+  require_once'../api/Modele/Mconnexion.php';
+  require_once'../api/Modele/Mbourse.php';
+  require_once'../api/Dao/BourseDao.php';
+  require_once'../api/Modele/Mtransaction.php';
+  require_once'../api/Dao/transactionDao.php';
+  $iduti=$_GET['id_uti'];
+ $_SESSION['id_uti']=$iduti;
+$row=BourseDao::afficherkobous($iduti);
+
+if(isset( $_SESSION['id_uti'])){
+  $idbourse=$row[0];
+
+}
+
+
 ?>
 <html lang="en">
 <head>
@@ -30,6 +46,7 @@
         <div class="page-container2">
             <?php
                 include '../file/header.inc.php';
+
             ?>
             <div class="section__content section__content--p30 midle-midle">
                 <p class="title-page">

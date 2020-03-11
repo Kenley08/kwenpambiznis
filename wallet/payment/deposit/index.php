@@ -23,12 +23,12 @@
         $secret = "yBvHejbLSxrTz7NthHOh5pKkmwXwm0fKCkaxm_dxNVhOgoo9IL7vgGV4sZrNWFXr";
         $configArray = Configuration::getSandboxConfigs();
 
-        $test = new Credentials($client, $secret, $configArray); 
+        $test = new Credentials($client, $secret, $configArray);
         $amount = $_POST['txtlajan'];
         $orderId = $_POST['txtorderid'];
-    
+
         $theOrder = new Order( $orderId, $amount );
-    
+
         $paymentObj = PaymentMaker::makePaymentRequest( $theOrder, $test, $configArray );
         header("Location: $paymentObj->getRedirect()");
    }
@@ -66,9 +66,9 @@
             <?php
                 include '../../../file/header.inc.php';
                 // include '../../file/info.inc.php';
-            ?>  
+            ?>
                 <?php include '../../../file/deposit_wallet.inc.php'; include '../../file/footer.inc.php';?>
-     
+
         </div>
         <?php
 

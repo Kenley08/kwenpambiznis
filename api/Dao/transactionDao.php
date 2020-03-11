@@ -29,14 +29,21 @@
 
           public static function UpdateEtatTransactionId($tran){
               $con=new connexion();
-              $con->executeactualisation("update tbltransaction set id_etat_transaction=2,transaction_id='".$tran->transactionid . "'  where id_transaction=" . $tran->idtran);
+            $result=$con->executeactualisation("update tbltransaction set id_etat_transaction=2 where id_transaction=". $tran->idtran);
               $con->closeconnexion();
+              return $result;
 
+          }
+          public static function getlastrow($id){
+            $con=new connexion();
+            $cont=$con->executerequete("SELECT * FROM tbltransaction WHERE id_bourse=$id ORDER by date_ajout desc limit 0,1");
+            $con->closeconnexion();
+            return $cont[0];
           }
 
           public static function listertransaction($iduti){
             $con=new connexion();
-            $cont=$con->executerequete("SELECT tblbourse.id_uti,tbltransaction.montant,tbletattransaction.type,tbltypetransaction.type,tblmoyentransaction.moyen,tbltransaction.description,tbltransaction.date_ajout
+            $cont=$con->executerequete("SELECT tbltransaction.id_transaction,tblbourse.id_uti,tbltransaction.montant,tbletattransaction.type,tbltypetransaction.type,tblmoyentransaction.moyen,tbltransaction.description,tbltransaction.date_ajout,tbltransaction.id_bourse,tbltransaction.order_id,tbltransaction.transaction_id
             FROM tbltransaction
           	 join tbltypetransaction on tbltypetransaction.id_type_transaction=tbltransaction.id_type_transaction
                join tblmoyentransaction on tblmoyentransaction.id_moyen_tran=tbltransaction.id_moyen_tran
@@ -47,8 +54,19 @@
             return $cont;
           }
 
+          public static function counttransaction($id){
+            $con=new connexion();
+            $cont=$con->executerequete("select count(*) from tbltransaction where id_bourse=$id");
+            $con->closeconnexion();
+            return $cont;
+          }
 
-
+          public static function countretraittransaction($id){
+            $con=new connexion();
+            $cont=$con->executerequete("select count(*) from tbltransaction where id_type_transaction=3 and id_bourse=$id");
+            $con->closeconnexion();
+            return $cont;
+          }
 
 
 
