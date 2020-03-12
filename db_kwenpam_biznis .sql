@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2020 at 06:38 PM
+-- Generation Time: Mar 12, 2020 at 06:56 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -37,6 +37,22 @@ CREATE TABLE `tbladministration` (
   `date_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbladministration`
+--
+
+INSERT INTO `tbladministration` (`id_admin`, `id_uti`, `pin`, `etat`, `date_ajout`, `date_update`) VALUES
+('158330981813', '8', '158330981894', 1, '2020-03-04 00:16:58', '0000-00-00 00:00:00'),
+('158330982627', '22', '158330982696', 0, '2020-03-04 00:17:06', '0000-00-00 00:00:00'),
+('158331002933', '2', '158331002951', 1, '2020-03-04 00:20:29', '0000-00-00 00:00:00'),
+('158331238871', '6', '158331238813', 1, '2020-03-04 00:59:48', '0000-00-00 00:00:00'),
+('158331322452', '80', '158331322496', 1, '2020-03-04 01:13:44', '0000-00-00 00:00:00'),
+('158331344966', '81', '158331344985', 1, '2020-03-04 01:17:29', '0000-00-00 00:00:00'),
+('158331380163', '90', '158331380116', 1, '2020-03-04 01:23:21', '0000-00-00 00:00:00'),
+('158331475294', '1', '158331475253', 1, '2020-03-04 01:39:12', '0000-00-00 00:00:00'),
+('158333997278', '4', '158333997215', 1, '2020-03-04 08:39:32', '0000-00-00 00:00:00'),
+('158338325491', '9', '158338325472', 1, '2020-03-04 20:40:54', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -49,7 +65,7 @@ CREATE TABLE `tblbourse` (
   `id_uti` varchar(200) NOT NULL,
   `solde` float NOT NULL,
   `etat` int(1) NOT NULL,
-  `date_ajout` datetime NOT NULL,
+  `date_ajout` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -58,7 +74,10 @@ CREATE TABLE `tblbourse` (
 --
 
 INSERT INTO `tblbourse` (`id_bourse`, `id_type_bourse`, `id_uti`, `solde`, `etat`, `date_ajout`, `date_update`) VALUES
-('1580459475304', 1, '1507584121', 70, 1, '2020-01-31 00:31:15', '2020-01-31 01:20:00');
+('1580459475304', 1, '1', 1900, 1, '2020-03-11 14:05:24', '2020-01-31 01:20:00'),
+('158239957215', 66, '2', 1000, 1, '2020-02-23 15:53:29', '0000-00-00 00:00:00'),
+('158240129034', 66, '3', 5000, 1, '2020-02-24 16:13:13', '0000-00-00 00:00:00'),
+('158240140094', 66, '4', 4000, 1, '2020-02-24 16:13:44', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -155,17 +174,20 @@ CREATE TABLE `tblemploye` (
 --
 
 INSERT INTO `tblemploye` (`id_emp`, `nom_complet`, `email`, `telephone`, `sexe`, `id_type_condition_mat`, `id_type_groupe_san`, `id_type_niveau_et`, `id_ville`, `adresse`, `id_poste_actuel`, `id_poste_ancien`, `salaire`, `etat`, `date_ajout`, `date_update`) VALUES
-('emp-158198974423', 'Junior  Larosiliere', 'junior@gmail.com', '43567876', 'Masculin', 1, 2, 1, 1, 'Delmas60', 1, 1, 56499, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('emp-158199004381', 'Regine Fleurine', 'fleurgeen@gmail.com', '46780967', 'Masculin', 1, 2, 1, 1, 'Delmas60', 1, 1, 30000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+('emp-158198974423', 'Junior  Larosiliere', 'junior9@gmail.com', '43567876', 'Masculin', 1, 2, 1, 1, 'Delmas60', 1, 1, 6000, 1, '2020-03-02 17:45:45', '2020-03-02 17:45:45'),
+('emp-158199004381', 'Regine Fleurine', 'fleurgeen32@gmail.com', '46780967', 'Masculin', 1, 2, 1, 1, 'Delmas60', 1, 1, 30000, 1, '2020-03-02 00:56:40', '2020-03-02 00:56:40'),
 ('emp-158203529532', 'Francois Nicolas', 'nicolas32@gmail.com', '23567822', 'Masculin', 1, 2, 1, 1, 'Carrefour Feuilles,Route de Dalles', 1, 1, 50000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 ('emp-158203542428', 'Billy Napoleon', 'joachinwidy@yahoo.fr', '44098743', 'Masculin', 1, 2, 1, 1, 'delmas 45', 1, 1, 12000, 1, '2020-02-20 18:25:32', '0000-00-00 00:00:00'),
 ('emp-158204575761', 'Marcel jude', 'Marcel@gmail.com', '343234', 'masculin', 1, 3, 2, 4, 'Petion ville', 2, 5, 56499, 1, '2020-02-21 14:21:21', '0000-00-00 00:00:00'),
-('emp-158207390956', 'Jacques Allain', 'Jacques92@gmail.com', '33225648', 'Masculin', 1, 3, 2, 4, 'Delmas 56', 2, 5, 30000, 1, '2020-02-21 14:33:51', '0000-00-00 00:00:00'),
+('emp-158207390956', 'Jacques Allain', 'Jacques92@gmail.com', '33225648', 'Masculin', 1, 3, 2, 4, 'Delmas 56', 2, 5, 30000, 1, '2020-03-02 23:11:20', '2020-03-02 23:11:20'),
 ('emp-158207400442', 'Judeline amazan Pierre ', 'Judeline08@gmail.com', '23567821', 'Feminin', 1, 3, 2, 4, 'Petion ville,Rue Lamarre', 2, 5, 25000, 1, '2020-02-21 14:54:32', '0000-00-00 00:00:00'),
 ('emp-158207413042', 'Ricardo Nelly', 'ricardo@gmail.com', '33447789', 'Masculin', 1, 3, 2, 4, 'Bizoton,78', 2, 5, 30000, 1, '2020-02-20 00:56:13', '0000-00-00 00:00:00'),
 ('emp-158213341826', 'Fleurine Kenley', 'fleurinekenley@gmail.com', '47663774', 'Masculin', 1, 3, 2, 4, 'Tabarre.24', 2, 5, 50000, 1, '2020-02-20 00:56:29', '0000-00-00 00:00:00'),
 ('emp-158223027070', 'Ricardo Nazaire', 'ricardo@gmail.com', '33447789', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 30000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('emp-158230429465', 'Julien Mondesir', 'Mondesir@gmail.com', '32098976', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 60000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+('emp-158230429465', 'Julien Mondesir', 'Mondesir@gmail.com', '32098976', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 60000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+('emp-158302174834', 'jojo Pierre', 'jojo@gmail.com', '3443244', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 6000, 1, '2020-03-02 17:33:03', '2020-03-02 17:33:03'),
+('emp-158310686020', 'Maudelin', 'Maudelin@gmail.com', '43456093', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 6000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+('emp-158318869460', 'toto', 'toto@gmail.com', '45454545', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 6000, 1, '2020-03-02 22:38:14', '2020-03-02 22:38:14');
 
 -- --------------------------------------------------------
 
@@ -228,6 +250,15 @@ CREATE TABLE `tbletattransaction` (
   `date_ajout` datetime NOT NULL,
   `date_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbletattransaction`
+--
+
+INSERT INTO `tbletattransaction` (`id_etat_transaction`, `type`, `date_ajout`, `date_update`) VALUES
+(1, 'atant', '2020-02-22 00:00:00', '2020-02-22 00:00:00'),
+(2, 'valide', '2020-02-22 00:00:00', '2020-02-22 00:00:00'),
+(3, 'elimine', '2020-02-22 00:00:00', '2020-02-22 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -400,10 +431,13 @@ CREATE TABLE `tbltransaction` (
   `id_transaction` varchar(200) NOT NULL,
   `id_bourse` varchar(200) NOT NULL,
   `montant` float NOT NULL,
-  `id_etat_transation` int(11) NOT NULL,
+  `id_etat_transaction` int(11) NOT NULL,
   `id_type_transaction` int(11) NOT NULL,
+  `id_moyen_tran` int(11) NOT NULL,
+  `order_id` varchar(200) NOT NULL,
+  `transaction_id` varchar(200) NOT NULL,
   `description` text NOT NULL,
-  `date_ajout` datetime NOT NULL,
+  `date_ajout` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -411,11 +445,14 @@ CREATE TABLE `tbltransaction` (
 -- Dumping data for table `tbltransaction`
 --
 
-INSERT INTO `tbltransaction` (`id_transaction`, `id_bourse`, `montant`, `id_etat_transation`, `id_type_transaction`, `description`, `date_ajout`, `date_update`) VALUES
-('1580462068683', '1580459475304', 10, 1, 1, 'liv revey vesyon pdf', '2020-01-31 01:14:28', '2020-01-31 01:14:28'),
-('1580462221768', '1580459475304', 10, 1, 1, 'liv revey vesyon pdf', '2020-01-31 01:17:01', '2020-01-31 01:17:01'),
-('1580462223434', '1580459475304', 10, 1, 1, 'liv revey vesyon pdf', '2020-01-31 01:17:03', '2020-01-31 01:17:03'),
-('1580462400504', '1580459475304', 10, 1, 1, 'liv revey vesyon pdf', '2020-01-31 01:20:00', '2020-01-31 01:20:00');
+INSERT INTO `tbltransaction` (`id_transaction`, `id_bourse`, `montant`, `id_etat_transaction`, `id_type_transaction`, `id_moyen_tran`, `order_id`, `transaction_id`, `description`, `date_ajout`, `date_update`) VALUES
+('1580462068683', '1580459475304', 200, 2, 3, 2, 'order-034', '158381860032', 'liv revey vesyon pdf', '2020-03-10 23:36:03', '2020-01-31 01:14:28'),
+('1580462221768', '1580459475304', 50, 2, 3, 2, 'order-401', '158381860147', 'liv revey vesyon pdf', '2020-03-10 23:35:55', '2020-01-31 01:17:01'),
+('1580462223434', '1580459475304', 100, 2, 3, 2, 'order-0901', '158381860116', 'liv revey vesyon pdf', '2020-03-10 23:35:43', '2020-01-31 01:17:03'),
+('1580462400504', '1580459475304', 150, 2, 3, 2, 'erttretr', '35534553535535', 'liv revey vesyon pdf', '2020-03-11 06:19:20', '2020-01-31 01:20:00'),
+('158301035050', '158239957215', 300, 2, 3, 2, 'order-001', '158376240621', 'description de cette transaction', '2020-03-09 07:27:03', '0000-00-00 00:00:00'),
+('2343456567876', '1580459475304', 200, 2, 3, 2, 'gdfgdgdgfd', '34534553453453', 'dgdfgdgg', '2020-03-11 07:05:24', '0000-00-00 00:00:00'),
+('898239957220', '158239957215', 200, 2, 3, 2, 'dgdgfgf', '54353453455', 'sfsfsfsdbfdfdgdfgdg', '2020-03-10 23:48:49', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -900,7 +937,7 @@ ALTER TABLE `tbletat`
 -- AUTO_INCREMENT for table `tbletattransaction`
 --
 ALTER TABLE `tbletattransaction`
-  MODIFY `id_etat_transaction` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_etat_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblgroupesanguin`
