@@ -56,7 +56,7 @@
 
           public static function counttransaction($id){
             $con=new connexion();
-            $cont=$con->executerequete("select count(*) from tbltransaction where id_bourse=$id");
+            $cont=$con->executerequete("select count(*) from tbltransaction WHERE id_type_transaction=2 and id_bourse=$id");
             $con->closeconnexion();
             return $cont;
           }

@@ -1,7 +1,5 @@
 <?php
-
 $id=$_GET['id'];
-
 require_once"../../api/Connector/Connector.php";
 
 //if ($ligne){

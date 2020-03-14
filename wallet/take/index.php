@@ -1,93 +1,111 @@
 <?php
- session_start();
-    require_once"../../api/Dao/transactionDao.php";
-    require_once"../../api/Dao/MmoyentransactionDao.php";
-    require_once"../../api/Dao/transactionDao.php";
-    //  session_start();
-    // $iduti=$_GET['id_uti'];
-    // $_SESSION['id_uti']=2;
-    // require_once"../../Dao/transactionDao.php
+session_start();
+require_once"../../api/Dao/transactionDao.php";
+require_once"../../api/Dao/MmoyentransactionDao.php";
+require_once"../../api/Dao/transactionDao.php";
+  ini_set('display_errors', 'Off');
+//  $_SESSION['id_uti']=1;
     //on teste si l 'id de lutilisateur existe'
-    if(isset($_SESSION['id'])){
-      $iduti=$_GET['iduti'];
-      $mesaj="";
-    //onteste si l 'id de lutilisateur existe'
     if(isset($_SESSION['id_uti'])){
-      $iduti=$_SESSION['id_uti'];
+          $iduti=$_SESSION['id_uti'];
+          $row=transactionDao::afficherkobous($iduti);
+        //  $_SESSION['id_bourse']=$row[1];
+          $tran=new transactionDao();
+          $idt=time()."".rand(1,100);
 
-      $row=transactionDao::afficherkobous($iduti);
-      $_SESSION['id_bourse']=$row[1];
-
-      //$moyentran=$_POST['moyentranzaksyon'];
-      $tran=new transactionDao();
-      $idt=time()."".rand(1,100);
-      if($row){
-          //on va tester si le boutton submit existe
-          if(isset($_POST['submit'])){
-            //on va tester les champs si ils sont vides
-            $idtransaction=time().''.rand(1,1000);
-            $tran->idtran=$idt;
-            $tran->idbourse=$row[1];
-            $tran->montant=trim($_POST['kantitekobretre']);
-            $tran->idetattran=1;
-            $tran->idtypetran=3;
-            $tran->idmoyentran=$_POST['moyentranzaksyon'];
-            $tran->orderid="2";
-            $tran->transactionid=$idtransaction;
-            $tran->description="Demand retre ".trim($_POST['kantitekobretre'])." goud pa mwayen ".$_POST['moyentranzaksyon'];
-            $tran->dateajout="";
-            $tran->dateupdate="";
-            $kantitekobretre=$_POST['kantitekobretre'];
-            $nimewotranzaksyon=$_POST['nimewotranzaksyon'];
-            $kr=preg_match('/^[0-9]*$/', $kantitekobretre);
-            //$kr =preg_match('/[^0-9]+$/', '', $kantitekobretre);
-            $nt =preg_match('/^[0-9]*$/',$nimewotranzaksyon);
-           if(empty($_POST['kantitekobretre']) || empty($_POST['nimewotranzaksyon']) ){
-                $mesaj="Ou dwe ranpli tout chan yo";
-            }else{
-              if (!$kr){
-                $mesaj="Ou dwe antre selman chif nan kob retre a ";
-              }else{
+          if($row){
+            //on va tester si le boutton submit existe
+            if(isset($_POST['submit'])){
+              //on va tester les champs si ils sont vides
+                $idtransaction=time().''.rand(1,1000);
+                $idorder=time().''.rand(1,1000);
+                $tran->idtran=$idt;
+                $tran->idbourse=$row[1];
+                $tran->montant=trim($_POST['kantitekobretre']);
+                $tran->idetattran=1;
+                $tran->idtypetran=3;
+                $tran->idmoyentran=$_POST['moyentranzaksyon'];
+                $tran->orderid=$idorder;
+                $tran->transactionid=$idtransaction;
+                $tran->description="Demand retre ".trim($_POST['kantitekobretre'])." goud pa mwayen ".$_POST['moyentranzaksyon'];
+                $tran->dateajout="";
+                $tran->dateupdate="";
+                $kantitekobretre=$_POST['kantitekobretre'];
+                $nimewotranzaksyon=$_POST['nimewotranzaksyon'];
+                $kr=preg_match('/^[0-9]*$/', $kantitekobretre);
+                //$kr =preg_match('/[^0-9]+$/', '', $kantitekobretre);
+                $nt =preg_match('/^[0-9]*$/',$nimewotranzaksyon);
+                if(empty($_POST['kantitekobretre']) || empty($_POST['nimewotranzaksyon']) ){
+                  $mesaj="Ou dwe ranpli tout chan yo";
+                }else{
+                  if (!$kr){
+                        $mesaj="Ou dwe antre selman chif nan kob retre a ";
+                    }else{
                 if(!$nt){
-                    $mesaj="ou dwe antre selman chif nan nimewo trazaksyon a";
-                }else{
-                      if($kantitekobretre>$row[0]){
-                          $mesaj="ou pa gen kantite kob sa sou bous ou a!";
-                      }else{
-                         transactionDao::ajoutertransaction($tran);
-                         if(transactionDao::ajoutertransaction($tran)){
-                         $mesaj="tranzaksyon an ale men li an atant toujou,tann yon ti moman pou yo valide l";
-                       }
-                      }
-                }
-              }
-          }
                     $mesaj="Ou dwe antre selman chif nan nimewo trazaksyon a";
-                }else{
-                      if($kantitekobretre>$row[0]){
-                          $mesaj="Ou pa gen kantite kob sa sou bous ou a!";
-                      }else{
-                        //  transactionDao::ajoutertransaction($tran);
-
-                        if(transactionDao::ajoutertransaction($tran)){
-                            $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou yo valide l";
+                }else{//ou teste si kantite kob iti a antre a siperye a kob sou bous li a
+                        if($kantitekobretre>$row[0]){
+                            $mesaj="Ou pa gen kantite kob sa sou bous ou a!";
                         }else{
-                            $mesaj="Nou pa arive fe demand tranzaksyon an pou ou";
-                        }
+                              //on tester si il y a un transaction en cours
+
+
+                          if((isset($tran->idtran)) && (isset($tran->idbourse)) && (isset($tran->montant)) && (isset($tran->idetattran)) && (isset($tran->idtypetran)) && (isset($tran->idmoyentran)) && (isset($tran->orderid))
+                        && (isset($tran->transactionid)) &&  (isset($tran->description)) && (isset($tran->dateajout)) && (isset($tran->dateupdate))){
+                          //mwen rekipere idbous la
+                          $idbous=$tran->idbourse;
+                          $liy=transactionDao::getlastrow($idbous);
+
+                         if($liy){
+                            //mwen teste si uti sa pa gen tranzaksyon ki an kou sou bous li a
+                            if($liy[3]==2){
+                              //ajoute tranzakzyon
+                                transactionDao::ajoutertransaction($tran);
+                                $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou nou valide l";
+                            }else{
+                              $mesaj="Ou gen yon trazaksyon ki an atant deja,tanpri tann nou valide li pou ou";
+                            }
+
+                         }else{
+                           //ajoute tranzakzyon
+                             transactionDao::ajoutertransaction($tran);
+                               $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou nou valide l";
+                         }
+
+                          // if($liy[3]==2){
+                          //
+                          // }else{
+                          //   $mesaj="ou ge yon tranzaksyon ki an kou deja";
+                          // }
+                        //  echo $liy[3];
+
+                          // transactionDao::ajoutertransaction($tran);
+                          //  $_POST['kantitekobretre']="";
+                          //  $_POST['moyentranzaksyon']="";
+                          //  $_POST['nimewotranzaksyon']="";
+                          // $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou nou valide l";
+
+
+
+
+
+                         }else{
+                           $mesaj="Nou pa arive fe demande ou a.";
+                         }
+
                       }
                 }
               }
-          }
 
-            //si le bouton submit n est pas encore isset on en nettoie le variable mesaj
-           }else{
-             $mesaj="";
-           }
-        }
-    }else{
-      $mesaj="nou pa jwenn obje a";
+                }
+            }
+
+          }
+    }else {
+      $mesaj="";
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,9 +137,9 @@
         <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
-                include '../../file/header.inc.php';
+              //  include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-                include '../../file/menu_left.inc.php';
+              //  include '../../file/menu_left.inc.php';
                 include '../../file/take_money.inc.php';
                 include '../../file/help_all.inc.php';
             ?>

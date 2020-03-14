@@ -3,7 +3,7 @@ require_once"../../../api/Dao/BourseDao.php";
 require_once'../../../api/Modele/Mconnexion.php';
 require_once'../../../api/Modele/Mbourse.php';
 
-if(isset($_GET['idtpbourse'])){
+if(isset($_SESSION['id_uti'])){
     $idtypebourse=$_GET['idtpbourse'];
     if(($idtypebourse)!=="1" || ($idtypebourse)!=="2" || ($idtypebourse)!=="3"){
       $message="Gen yon ere ki komet";

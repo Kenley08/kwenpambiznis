@@ -23,7 +23,7 @@
    $secret = "yBvHejbLSxrTz7NthHOh5pKkmwXwm0fKCkaxm_dxNVhOgoo9IL7vgGV4sZrNWFXr";
    $configArray = Configuration::getSandboxConfigs();
    if(isset($_POST['btnajoutelajan'])){
-        $iduti=$_GET['id_uti'];
+        $iduti=$_SESSION['id_uti'];
         // $mesaj="";
         $row=transactionDao::afficherkobous($iduti);
         $_SESSION['id_bourse']=$row[1];

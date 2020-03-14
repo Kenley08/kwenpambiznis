@@ -1,20 +1,20 @@
- <div class="row" id="midle-new-ads">  
+ <div class="row" id="midle-new-ads">
     <div class="col-9">
         <p class="title-page">
-            Retire lajan sou bous kwenpam <?php echo transactionDao::ajoutertransaction($tran)?>
+            Retire lajan sou bous kwenpam <?php// echo transactionDao::ajoutertransaction($tran)?>
         </p>
         <?php
-        if(isset($mesaj)){?>  
+        if(isset($mesaj)){?>
             <div class="alert alert-danger  " role="alert">
-                <?php echo $mesaj;?>  
-            </div> 
+                <?php echo $mesaj;?>
+            </div>
         <?php  }
      ?>
        <?php
-        if(isset($sikse)){?>  
+        if(isset($sikse)){?>
             <div class="alert alert-success  " role="alert">
-                <?php echo $sikse;?>  
-            </div> 
+                <?php echo $sikse;?>
+            </div>
         <?php  }
      ?>
         <div class="text-pub" id="step-1-new-ads">

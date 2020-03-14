@@ -1,16 +1,22 @@
-
 <?php
-
+session_start();
   require_once"../api/Dao/EmployeDao.php";
   require_once'../api/Modele/Memploye.php';
   require_once'../api/Modele/Mconnexion.php';
+ // echo $i;
 
     if(isset($_POST['btnupdateetat'])){
       // require_once "../api/Dao/EmployeDao.php";
        $emp=new EmployeDao();
        $emp->idemp=$ligne[0];
-       EmployeDao::updateetat($emp);
+    //   $_SESSION['ligne']=
+       if($emp->idemp){
+          EmployeDao::updateetat($emp);
+       }
    }
+
+
+
 
   ?>
 <!DOCTYPE html>
@@ -43,7 +49,7 @@
     <div class="page-wrapper">
         <div class="page-container2">
             <?php
-                include '../file/header.inc.php';
+               include '../file/header.inc.php';
                 // include '../file/info.inc.php';
             ?>
             <div class="section__content section__content--p30 midle-midle">
@@ -57,7 +63,7 @@
         <?php
 
             //insertion du menu gauche de la page
-            include '../file/menu_left.inc.php';
+           include '../file/menu_left.inc.php';
             include '../file/confirmation.inc.php';
         ?>
     </div>

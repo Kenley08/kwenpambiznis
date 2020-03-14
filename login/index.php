@@ -1,14 +1,16 @@
 <?php
     require_once'../api/Modele/Mconnexion.php';
     require_once'../api/Modele/Madministration.php';
-  //session_start();
+  session_start();
   //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
   //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
   ini_set('display_errors', 'Off');
   require_once'../api/Dao/administrationDao.php';
-        if(isset($_GET['id_uti'])){
-      //  $_SESSION['id_uti']=$_GET['id_uti'];
-          $iduti=$_GET['id_uti'];
+
+      $_SESSION['id_uti']=$_GET['id_uti'];
+        if(isset($_SESSION['id_uti'])){
+          $iduti=$_SESSION['id_uti'];
+          //session_destroy();
           //mwen recheche done uti a pa rapo a id li genyen sou kwenpam
         $row=administrationDao::capteriduti($iduti);
         $admin=new administrationDao();

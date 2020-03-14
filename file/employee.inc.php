@@ -64,11 +64,10 @@
                       <td><?php echo $row[1] ?></td>
                       <td><?php echo $row[2] ?></td>
                       <td><?php echo $row[3]?></td>
-
                     <td>
               <button type="button" name="btnupdateetat" class="btn btn-secondary btn-sm" data-toggle="modal">bloke</button>
                 <!-- <input type="submit" name="btnupdateetat" class="btn btn-secondary btn-sm" value="Bloke"  data-toggle="modal"/> -->
-                            <a href="update/?id=<?=$row[0]?>"><button type="button" class="btn btn-primary btn-sm" >Modifye</button> </a>
+                            <a href="update/?id=<?=$row[0]?>"><button type="button" name="btnupdateindex" class="btn btn-primary btn-sm" >Modifye</button> </a>
                         </td>
                     </tr>
 

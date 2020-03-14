@@ -5,13 +5,15 @@
   require_once'../api/Dao/BourseDao.php';
   require_once'../api/Modele/Mtransaction.php';
   require_once'../api/Dao/transactionDao.php';
-  $iduti=$_GET['id_uti'];
- $_SESSION['id_uti']=$iduti;
-$row=BourseDao::afficherkobous($iduti);
 
-if(isset( $_SESSION['id_uti'])){
+  //$_SESSION['id_uti']=3;
+
+if(isset($_SESSION['id_uti'])){
+
+  $iduti=$_SESSION['id_uti'];
+  $row=BourseDao::afficherkobous($iduti);
   $idbourse=$row[0];
-
+  $_SESSION['id_bous']=$idbourse;
 }
 
 

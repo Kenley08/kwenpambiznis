@@ -46,5 +46,5 @@
         </div>
     </div>
 </div>
-<a href="transaction/?id_bous=<?=$idbourse?>&&id_uti=<?=$_SESSION['id_uti']?>" class="btn btn-primary btn-small" >Lis tranzaksyon</a>
+<a href="transaction/" class="btn btn-primary btn-small" >Lis tranzaksyon</a>
 <!-- END STATISTIC-->
