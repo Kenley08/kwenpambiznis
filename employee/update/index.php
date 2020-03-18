@@ -1,33 +1,57 @@
 <?php
-$id=$_GET['id'];
 require_once"../../api/Connector/Connector.php";
+require_once"../../api/Modele/Memploye.php";
+require_once'../../api/Modele/Mconnexion.php';
+require_once'../../api/Dao/EmployeDao.php';
+require_once'../../api/Dao/ConditionMatrimonialDao.php';
+require_once'../../api/Dao/GroupeSanguinDao.php';
+require_once'../../api/Dao/typeNiveauDao.php';
+require_once'../../api/Dao/VilleDao.php';
+require_once'../../api/Dao/PosteDao.php';
 
-//if ($ligne){
+if(isset($_GET['id'])){
   if(isset($_POST['submit'])){
-    if(isset($_POST['nomcomplet'])){
-      $nc=$_POST['nomcomplet'];
-      $email=$_POST['email'];
-      $tel=$_POST['telephone'];
-      $adres=$_POST['adresse'];
-      $postanc=$_POST['postancien'];
-      $postac=$_POST['postactuel'];
-      $salaire=$_POST['salaire'];
-      $requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'";
-      $resultat=mysqli_query($con, $requete);
-                        if($resultat>0){
-        //header("location: ../index.php");
-        $mesaj="";
-        $sikse="Modifikasyon an fet";
-    }else{
-      $sikse="";
-      $mesaj="Modifikasyon an pa fet";
-    }
-}
+      $id=$_GET['id'];
+        $emp=new employe();
+        $emp->idemp=$id;
+        $emp->nomcomplet=$_POST['nomcomplet'];
+        $emp->email=$_POST['email'];
+        $emp->tel=$_POST['telephone'];
+        $emp->sexe=$_POST['sexe'];
+        $emp->idtpcond=$_POST['conditionmat'];
+        $emp->idgs=$_POST['groupesanguin'];
+        $emp->idville=$_POST['ville'];
+        $emp->adresse=$_POST['adresse'];
+        $emp->idtpniv=$_POST['nivo'];
+        $emp->idpostact=$_POST['postactuel'];
+        $emp->idpostanc=$_POST['postancien'];
+        $emp->salaire=$_POST['salaire'];
+      //  $emp->etat=1;
+      //  $emp->dateaj="";
+      //
 
-}else{
-  $mesaj="";
-  $sikse="";
+
+     if(isset($emp->idemp) && isset($emp->nomcomplet) && isset($emp->nomcomplet) && isset($emp->email) && isset($emp->tel) && isset($emp->sexe)
+        && isset($emp->idtpcond) && isset($emp->idgs) && isset($emp->idville) && isset($emp->idpostact) && isset($emp->idpostanc) && isset($emp->salaire)
+        && isset($emp->dateaj) && isset($emp->dateup)){
+          EmployeDao::editeremploye($emp);
+          $sikse="Modifikasyon an fet avek sikse.";
+          $mesaj="";
+
+     }
+     else{
+        $mesaj="Modification an pa fet,reseye anko.";
+        $sikse="";
+      }
+
+    //  $requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'";
+    // $requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'
+ }
 }
+ if(!isset($mesaj) && !isset($ikse)){
+   $mesaj="";
+   $sikse="";
+ }
 
 ?>
 
@@ -63,9 +87,10 @@ require_once"../../api/Connector/Connector.php";
         <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
-                include '../../file/header.inc.php';
+              //  include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-                include '../../file/menu_left.inc.php';
+              //  include '../../file/menu_left.inc.php';
+
                 include '../../file/employee_update.php';
                 include '../../file/help_all.inc.php';
             ?>

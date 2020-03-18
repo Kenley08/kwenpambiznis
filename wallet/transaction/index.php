@@ -31,10 +31,10 @@ require_once'../../api/Dao/BourseDao.php';
 
     <?php
           }else{
-              echo "tann nou valide tranzaksyon a";
+              echo "Tann nou valide tranzaksyon a";
           }
         }else{
-          echo "mwen pa jwen objet a pou update";
+          echo "Mwen pa jwen objet a pou update";
         }
 
      }

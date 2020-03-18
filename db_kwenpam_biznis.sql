@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2020 at 06:56 AM
+-- Generation Time: Mar 18, 2020 at 02:00 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -51,7 +51,9 @@ INSERT INTO `tbladministration` (`id_admin`, `id_uti`, `pin`, `etat`, `date_ajou
 ('158331380163', '90', '158331380116', 1, '2020-03-04 01:23:21', '0000-00-00 00:00:00'),
 ('158331475294', '1', '158331475253', 1, '2020-03-04 01:39:12', '0000-00-00 00:00:00'),
 ('158333997278', '4', '158333997215', 1, '2020-03-04 08:39:32', '0000-00-00 00:00:00'),
-('158338325491', '9', '158338325472', 1, '2020-03-04 20:40:54', '0000-00-00 00:00:00');
+('158338325491', '9', '158338325472', 1, '2020-03-04 20:40:54', '0000-00-00 00:00:00'),
+('158414881382', '3', '158414881357', 1, '2020-03-13 18:20:13', '0000-00-00 00:00:00'),
+('158437456262', '11', '158437456249', 1, '2020-03-16 09:02:42', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -75,9 +77,10 @@ CREATE TABLE `tblbourse` (
 
 INSERT INTO `tblbourse` (`id_bourse`, `id_type_bourse`, `id_uti`, `solde`, `etat`, `date_ajout`, `date_update`) VALUES
 ('1580459475304', 1, '1', 1900, 1, '2020-03-11 14:05:24', '2020-01-31 01:20:00'),
-('158239957215', 66, '2', 1000, 1, '2020-02-23 15:53:29', '0000-00-00 00:00:00'),
-('158240129034', 66, '3', 5000, 1, '2020-02-24 16:13:13', '0000-00-00 00:00:00'),
-('158240140094', 66, '4', 4000, 1, '2020-02-24 16:13:44', '0000-00-00 00:00:00');
+('158239957215', 2, '2', 1000, 1, '2020-03-14 02:04:19', '0000-00-00 00:00:00'),
+('158240129034', 1, '3', 5000, 1, '2020-03-14 02:04:16', '0000-00-00 00:00:00'),
+('158240140094', 2, '4', 4000, 1, '2020-03-14 02:04:12', '0000-00-00 00:00:00'),
+('234345678985', 2, '9', 18000, 1, '2020-03-14 02:49:36', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -162,7 +165,7 @@ CREATE TABLE `tblemploye` (
   `id_ville` int(11) NOT NULL,
   `adresse` varchar(200) NOT NULL,
   `id_poste_actuel` int(2) NOT NULL,
-  `id_poste_ancien` int(2) NOT NULL,
+  `id_poste_ancien` varchar(200) NOT NULL,
   `salaire` int(11) NOT NULL,
   `etat` int(1) NOT NULL,
   `date_ajout` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -174,20 +177,19 @@ CREATE TABLE `tblemploye` (
 --
 
 INSERT INTO `tblemploye` (`id_emp`, `nom_complet`, `email`, `telephone`, `sexe`, `id_type_condition_mat`, `id_type_groupe_san`, `id_type_niveau_et`, `id_ville`, `adresse`, `id_poste_actuel`, `id_poste_ancien`, `salaire`, `etat`, `date_ajout`, `date_update`) VALUES
-('emp-158198974423', 'Junior  Larosiliere', 'junior9@gmail.com', '43567876', 'Masculin', 1, 2, 1, 1, 'Delmas60', 1, 1, 6000, 1, '2020-03-02 17:45:45', '2020-03-02 17:45:45'),
-('emp-158199004381', 'Regine Fleurine', 'fleurgeen32@gmail.com', '46780967', 'Masculin', 1, 2, 1, 1, 'Delmas60', 1, 1, 30000, 1, '2020-03-02 00:56:40', '2020-03-02 00:56:40'),
-('emp-158203529532', 'Francois Nicolas', 'nicolas32@gmail.com', '23567822', 'Masculin', 1, 2, 1, 1, 'Carrefour Feuilles,Route de Dalles', 1, 1, 50000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('emp-158203542428', 'Billy Napoleon', 'joachinwidy@yahoo.fr', '44098743', 'Masculin', 1, 2, 1, 1, 'delmas 45', 1, 1, 12000, 1, '2020-02-20 18:25:32', '0000-00-00 00:00:00'),
-('emp-158204575761', 'Marcel jude', 'Marcel@gmail.com', '343234', 'masculin', 1, 3, 2, 4, 'Petion ville', 2, 5, 56499, 1, '2020-02-21 14:21:21', '0000-00-00 00:00:00'),
-('emp-158207390956', 'Jacques Allain', 'Jacques92@gmail.com', '33225648', 'Masculin', 1, 3, 2, 4, 'Delmas 56', 2, 5, 30000, 1, '2020-03-02 23:11:20', '2020-03-02 23:11:20'),
-('emp-158207400442', 'Judeline amazan Pierre ', 'Judeline08@gmail.com', '23567821', 'Feminin', 1, 3, 2, 4, 'Petion ville,Rue Lamarre', 2, 5, 25000, 1, '2020-02-21 14:54:32', '0000-00-00 00:00:00'),
-('emp-158207413042', 'Ricardo Nelly', 'ricardo@gmail.com', '33447789', 'Masculin', 1, 3, 2, 4, 'Bizoton,78', 2, 5, 30000, 1, '2020-02-20 00:56:13', '0000-00-00 00:00:00'),
-('emp-158213341826', 'Fleurine Kenley', 'fleurinekenley@gmail.com', '47663774', 'Masculin', 1, 3, 2, 4, 'Tabarre.24', 2, 5, 50000, 1, '2020-02-20 00:56:29', '0000-00-00 00:00:00'),
-('emp-158223027070', 'Ricardo Nazaire', 'ricardo@gmail.com', '33447789', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 30000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('emp-158230429465', 'Julien Mondesir', 'Mondesir@gmail.com', '32098976', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 60000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('emp-158302174834', 'jojo Pierre', 'jojo@gmail.com', '3443244', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 6000, 1, '2020-03-02 17:33:03', '2020-03-02 17:33:03'),
-('emp-158310686020', 'Maudelin', 'Maudelin@gmail.com', '43456093', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 6000, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('emp-158318869460', 'toto', 'toto@gmail.com', '45454545', '0', 1, 3, 2, 4, 'Tabarre', 2, 5, 6000, 1, '2020-03-02 22:38:14', '2020-03-02 22:38:14');
+('emp-158198974423', 'Junior  Larosiliere', 'junior9@gmail.com', '43567876', 'Masculin', 1, 1, 1, 1, 'Delmas60,impasse Roumier #28', 1, 'Rose Garden,Chef De cuisine', 6000, 0, '2020-03-17 01:35:03', '2020-03-02 17:45:45'),
+('emp-158199004381', 'Regine Fleurine', 'fleurgeen32@gmail.com', '46780967', 'Masculin', 1, 3, 1, 1, 'Delmas60', 1, 'MSPP,Administrateur en chef', 30000, 0, '2020-03-17 00:41:20', '2020-03-02 00:56:40'),
+('emp-158203529532', 'Francois Nicolas ', 'nicolas322@gmail.com', '235678220', 'Masculin', 1, 2, 1, 1, 'Petion ville,Rue villate', 1, 'MSPP,Administrateur en chef', 20000, 1, '2020-03-17 00:41:25', '2020-03-13 03:27:31'),
+('emp-158203542428', 'Billy Napoleon', 'joachinwidy@yahoo.fr', '44098743', 'Masculin', 1, 1, 1, 1, 'delmas 45', 1, 'MSPP,Administrateur en chef', 22000, 0, '2020-03-17 01:39:57', '2020-03-17 01:39:57'),
+('emp-158204575761', 'Marcel jude', 'Marcel@gmail.com', '343234', 'masculin', 1, 3, 1, 4, 'Petion ville', 2, '5MSPP,Administrateur en chef', 56499, 0, '2020-03-17 01:00:19', '0000-00-00 00:00:00'),
+('emp-158207390956', 'Jacques Allain', 'Jacques92@gmail.com', '33225648', 'Masculin', 1, 3, 2, 4, 'Delmas 56', 2, '5MSPP,Administrateur en chef', 30000, 0, '2020-03-17 00:41:44', '2020-03-02 23:11:20'),
+('emp-158207400442', 'Judeline amazan Pierre ', 'Judeline08@gmail.com', '23567821', 'Feminin', 1, 3, 2, 4, 'Petion ville,Rue Lamarre', 2, '5MSPP,coordonatrice en chef', 25000, 0, '2020-03-17 00:42:02', '0000-00-00 00:00:00'),
+('emp-158207413042', 'Ricardo Nelly', 'ricardo@gmail.com', '33447789', 'Masculin', 1, 3, 2, 4, 'Bizoton,78', 2, 'MSPP,Administrateur en chef', 30000, 1, '2020-03-17 00:42:06', '0000-00-00 00:00:00'),
+('emp-158213341826', 'Fleurine Kenley', 'fleurinekenley@gmail.com', '47663774', 'Masculin', 1, 3, 2, 4, 'Tabarre.24', 2, 'MSPP,Administrateur en chef', 50000, 1, '2020-03-17 00:43:42', '0000-00-00 00:00:00'),
+('emp-158230429465', 'Julien Mondesir', 'Mondesir@gmail.com', '32098976', 'Masculin', 1, 3, 2, 4, 'Tabarre', 2, 'MSPP,Administrateur en chef', 60000, 1, '2020-03-17 00:43:39', '0000-00-00 00:00:00'),
+('emp-158302174834', 'jojo Pierre', 'jojo@gmail.com', '34432444', 'Masculin', 1, 3, 2, 4, 'Tabarre', 2, 'MSPP,Administrateur en chef', 6000, 1, '2020-03-18 00:19:23', '2020-03-02 17:33:03'),
+('emp-158310686020', 'Maudelin', 'Maudelin@gmail.com', '43456093', 'Masculin', 1, 3, 2, 4, 'Tabarre', 2, 'MSPP,Administrateur en chef', 6000, 1, '2020-03-17 00:43:21', '0000-00-00 00:00:00'),
+('emp-15844928364', 'Stanley Milien', 'lele@gmail.com', '34432441', 'Masculin', 1, 1, 1, 1, 'Delmas60', 1, 'MSPP,Chef de cuisine', 20000, 1, '2020-03-18 00:53:56', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -344,6 +346,16 @@ CREATE TABLE `tblniveauetude` (
   `date_ajout` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tblniveauetude`
+--
+
+INSERT INTO `tblniveauetude` (`id_niveau_et`, `niveau`, `date_ajout`) VALUES
+(1, 'Diplome', '2020-02-18 00:00:00'),
+(2, 'License', '2020-02-22 00:00:00'),
+(3, 'Metriz', '2020-02-18 00:00:00'),
+(4, 'Doktora', '2020-02-22 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -447,10 +459,13 @@ CREATE TABLE `tbltransaction` (
 
 INSERT INTO `tbltransaction` (`id_transaction`, `id_bourse`, `montant`, `id_etat_transaction`, `id_type_transaction`, `id_moyen_tran`, `order_id`, `transaction_id`, `description`, `date_ajout`, `date_update`) VALUES
 ('1580462068683', '1580459475304', 200, 2, 3, 2, 'order-034', '158381860032', 'liv revey vesyon pdf', '2020-03-10 23:36:03', '2020-01-31 01:14:28'),
-('1580462221768', '1580459475304', 50, 2, 3, 2, 'order-401', '158381860147', 'liv revey vesyon pdf', '2020-03-10 23:35:55', '2020-01-31 01:17:01'),
 ('1580462223434', '1580459475304', 100, 2, 3, 2, 'order-0901', '158381860116', 'liv revey vesyon pdf', '2020-03-10 23:35:43', '2020-01-31 01:17:03'),
 ('1580462400504', '1580459475304', 150, 2, 3, 2, 'erttretr', '35534553535535', 'liv revey vesyon pdf', '2020-03-11 06:19:20', '2020-01-31 01:20:00'),
 ('158301035050', '158239957215', 300, 2, 3, 2, 'order-001', '158376240621', 'description de cette transaction', '2020-03-09 07:27:03', '0000-00-00 00:00:00'),
+('158414895757', '158240129034', 500, 2, 3, 2, '1584148957655', '1584148957863', 'Demand retre 500 goud pa mwayen 2', '2020-03-13 18:29:21', '0000-00-00 00:00:00'),
+('158414939196', '158240129034', 2000, 2, 3, 2, '1584149391271', '1584149391416', 'Demand retre 2000 goud pa mwayen 1', '2020-03-16 16:01:57', '0000-00-00 00:00:00'),
+('158415154251', '234345678985', 4000, 2, 3, 2, '1584151542349', '1584151542250', 'Demand retre 4000 goud pa mwayen 2', '2020-03-13 19:49:36', '0000-00-00 00:00:00'),
+('158448383444', '158240129034', 700, 1, 3, 1, '1584483834254', '158448383479', 'Demand retre 700 goud pa mwayen 1', '2020-03-17 15:23:54', '0000-00-00 00:00:00'),
 ('2343456567876', '1580459475304', 200, 2, 3, 2, 'gdfgdgdgfd', '34534553453453', 'dgdfgdgg', '2020-03-11 07:05:24', '0000-00-00 00:00:00'),
 ('898239957220', '158239957215', 200, 2, 3, 2, 'dgdgfgf', '54353453455', 'sfsfsfsdbfdfdgdfgdg', '2020-03-10 23:48:49', '0000-00-00 00:00:00');
 
@@ -955,7 +970,7 @@ ALTER TABLE `tblmoyentransaction`
 -- AUTO_INCREMENT for table `tblniveauetude`
 --
 ALTER TABLE `tblniveauetude`
-  MODIFY `id_niveau_et` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_niveau_et` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblposte`

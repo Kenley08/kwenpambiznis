@@ -1,6 +1,5 @@
 <?php
-require_once'../api/Modele/Mconnexion.php';
-require_once'../api/Modele/Madministration.php';
+
 
  class administrationDao{
     public static function capteriduti($id){

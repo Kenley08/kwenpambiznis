@@ -26,7 +26,7 @@
                             <label for="txtcodeemp" class=" form-control-label">K&ograve;d anplwaye</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtcodeemp" placeholder="emp-02-323" disabled="" class="form-control">
+                            <input type="text" id="txtcodeemp" placeholder="emp-02-323"  disabled="" class="form-control">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -34,7 +34,7 @@
                             <label for="nomcompletemp" class=" form-control-label">Non konpl&egrave;</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtnomcompletemp" name="nomcompletemp" placeholder="Ex: Junior Jean Laurent" class="form-control">
+                            <input type="text" id="txtnomcompletemp" required value="<?php if(($mesaj)){ echo $_POST['nomcompletemp'];}?>" name="nomcompletemp" placeholder="Ex: Junior Jean Laurent" class="form-control">
                             <!-- <small class="form-text text-muted">This is a help text</small> -->
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <label for="txtemailemp" class=" form-control-label">Imel</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="email" id="txtemailemp" name="emailemp"  placeholder="Ex: juni@gamil.com" class="form-control">
+                            <input type="email" id="txtemailemp" name="emailemp" value="<?php if(($mesaj)){ echo $_POST['emailemp'];}?>"  required placeholder="Ex: juni@gmail.com" class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <label for="txtphoneemp" class=" form-control-label">Telef&ograve;n</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtphoneemp" name="telephoneemp" placeholder="Ex: 47293493" class="form-control">
+                            <input type="text" id="txtphoneemp" name="telephoneemp"  value="<?php if(($mesaj)){ echo $_POST['telephoneemp'];}?>" placeholder="Ex: 47293493" required class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>
@@ -61,10 +61,9 @@
                             <label for="txtsexeemp" class=" form-control-label">S&egrave;ks</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtsexeemp" name="sexeemp" class="form-control">
-                                <option value="0">Mal</option>
-                                <option value="1">Fem&egrave;l</option>
-                                <option value="2">L&ograve;t</option>
+                            <select id="txtsexeemp" name="sexe" class="form-control">
+                                <option value="Masculin">Mal</option>
+                                <option value="Feminin">Fem&egrave;l</option>
                             </select>
                         </div>
                     </div>
@@ -73,10 +72,9 @@
                             <label for="txtconditionmatrimonialeemp" class=" form-control-label">Kontidisyon M.</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtconditionmatrimonialeemp" class="form-control">
-                                <option value="0">Selibat&egrave;</option>
-                                <option value="1">Marye</option>
-                                <option value="2">V&egrave;f</option>
+                            <select id="txtconditionmatrimonialeemp" name="conditionmat" class="form-control">
+                              <?php foreach(conditionmatDao::getconditionmat() as $r):
+                                echo "<option value='$r[0]'>$r[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -85,11 +83,9 @@
                             <label for="txtgroupesanguinemp" class=" form-control-label">Gwoup sangen</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtgroupesanguinemp" class="form-control">
-                                <option value="0">A+</option>
-                                <option value="1">B+</option>
-                                <option value="2">AB</option>
-                                <option value="1">O+</option>
+                            <select id="txtgroupesanguinemp" name="groupesanguin" class="form-control">
+                              <?php foreach(groupesanguinDao::GetGroupsanguins() as $l):
+                                echo "<option value='$l[0]'>$l[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -98,11 +94,9 @@
                             <label for="txtgroupesanguinemp" class=" form-control-label">Nivo etid</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtgroupesanguinemp" class="form-control">
-                                <option value="0">Dipl&ograve;m</option>
-                                <option value="1">Lisans</option>
-                                <option value="2">Metriz</option>
-                                <option value="1">Doktora</option>
+                            <select id="txtnivo" name="nivo" class="form-control">
+                              <?php foreach(typeNiveauDao::GetNiveau() as $liy):
+                                echo "<option value='$liy[0]'>$liy[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -111,17 +105,18 @@
                             <label for="txtvilleemp" class=" form-control-label">Kote rete</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtvilleemp" class="form-control">
-                                <option value="0">Delma</option>
+                            <select id="txtvilleemp" name="ville" class="form-control">
+                              <?php foreach(VilleDao::GetVille() as $li):
+                                echo "<option value='$li[0]'>$li[2]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="txtadresseemp" class=" form-control-label">Telef&ograve;n</label>
+                            <label for="txtadresseemp" class=" form-control-label">adre&egrave;s</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtadresseemp"  placeholder="Ex: 117, route de dalles" class="form-control">
+                            <input type="text" id="txtadresseemp"  name="adresse"  value="<?php if(($mesaj)){ echo $_POST['adresse'];}?>" placeholder="Ex: 117, route de dalles" required class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>
@@ -130,7 +125,7 @@
                             <label for="txtdernierposteemp" class=" form-control-label">D&egrave;nye dj&ograve;b</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtdernierposteemp"  placeholder="Ex: kontab, Le bon berger" class="form-control">
+                            <input type="text" id="txtdernierposteemp"  name="postancien"  value="<?php if(($mesaj)){ echo $_POST['postancien'];}?>" placeholder="Ex: kontab, Le bon berger" required class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>
@@ -139,15 +134,9 @@
                             <label for="txtposteemp" class=" form-control-label">P&ograve;s</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtposteemp" class="form-control">
-                                <option value="0">Administrat&egrave;</option>
-                                <option value="1">Sip&egrave;viz&egrave;</option>
-                                <option value="2">Kesye</option>
-                                <option value="3">Sekret&egrave;</option>
-                                <option value="4">Kontab</option>
-                                <option value="5">Sekirite</option>
-                                <option value="6">Jesyno&egrave;</option>
-                                <option value="7">Enf&ograve;mastisyen</option>
+                            <select id="txtposteemp" name="postactuel" class="form-control">
+                              <?php foreach(posteDao::GetPoste() as $ro):
+                                echo "<option value='$ro[0]'>$ro[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -156,7 +145,7 @@
                             <label for="txtsalireemp" class=" form-control-label">Sal&egrave; (an goud)</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtsalireemp" name="salaireemp" placeholder="Ex: 5000" class="form-control">
+                            <input type="text" id="txtsalireemp" name="salaire"  value="<?php if(($mesaj)){ echo $_POST['salaire'];}?>" placeholder="Ex: 5000" required class="form-control">
                             <!-- <small class="help-block form-text">Please enter a complex password</small> -->
                         </div>
                     </div>  <br>

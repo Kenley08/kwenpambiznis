@@ -38,7 +38,7 @@
                     <label for="txtkantitekobretre" name="txtkantitekobretre"  class=" form-control-label">Kantite retr&egrave;</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" id="txtkantitekobretre"  value="<?php if (isset($_POST['kantitekobretre'])){echo $_POST['kantitekobretre'];} ?>" name="kantitekobretre" placeholder="Ex: 100" class="form-control">
+                    <input type="text" id="txtkantitekobretre"  value="<?php if(($mesaj)){ echo $_POST['kantitekobretre'];}?>" name="kantitekobretre" placeholder="Ex: 100" class="form-control">
                     <!-- <small class="form-text text-muted">This is a help text</small> -->
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <label for="txtnimewotranzaksyon" class=" form-control-label">Nimwo tranzaksyon</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" id="txtnimewotranzaksyon" maxlength="8" value="<?php if (isset($_POST['nimewotranzaksyon'])){echo $_POST['nimewotranzaksyon'];} ?>" name="nimewotranzaksyon" placeholder="Ex: 47734239" class="form-control">
+                    <input type="text" id="txtnimewotranzaksyon" maxlength="8" value="<?php if(($mesaj)){ echo $_POST['nimewotranzaksyon'];}?>" name="nimewotranzaksyon" placeholder="Ex: 47734239" class="form-control">
                     <!-- <small class="help-block form-text">Please enter your email</small> -->
                 </div>
             </div>

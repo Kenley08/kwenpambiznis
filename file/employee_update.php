@@ -1,9 +1,14 @@
 
 
 <div class="row" id="midle-new-employee">
+
     <div class="col-9">
+      <?php
+      echo $mesaj;
+      echo $sikse;
+      ?>
         <p class="title-page">
-            Ajoute yon nouvo anplwaye
+            Modifye anploye
         </p>
         <div class="text-pub" id="step-1-new-employee">
            Asire ke moun ou pral anrejistre a, li genyen yon maximum enf&ograve;masyon disponib sou li. Apre chak anrejistre ou kapab modifye li l&egrave; ou vle e jan ou vle.
@@ -19,8 +24,8 @@
             </div>
             <div class="card-body card-block">
               <?php
-              echo $mesaj;
-              echo $sikse;
+            //  echo $mesaj;
+            //  echo $sikse;
               ?>
                 <form action="" method="post"  class="form-horizontal">
                     <div class="row form-group">
@@ -29,10 +34,13 @@
                         </div>
                         <div class="col-12 col-md-9">
                             <?php
-                            // partie php ou on va recuperer les donnees de l'employe venat de la base de donnees
+                            if(isset($_GET['id'])){
+                              $id=$_GET['id'];
+                            //partie php ou on va recuperer les donnees de l'employe venat de la base de donnees
                                  $req="select * from tblemploye where id_emp='$id'";
                                   $result=mysqli_query($con, $req);
                                   $ligne=mysqli_fetch_row($result);
+                                }
                             ?>
 
                             <input type="text" id="txtcodeemp"  value="<?=$ligne[0];?>" name="txtid" disabled="" class="form-control">
@@ -73,9 +81,9 @@
                         </div>
                         <div class="col-12 col-md-9">
                             <select id="txtsexeemp" name="sexe" class="form-control">
-                                <option value="0">Mal</option>
-                                <option value="1">Fem&egrave;l</option>
-                                <option value="2">L&ograve;t</option>
+                                <option value="Masculin">Mal</option>
+                                <option value="Feminin">Fem&egrave;l</option>
+                                <!-- <option value="autre">L&ograve;t</option> -->
                             </select>
                         </div>
                     </div>
@@ -84,10 +92,9 @@
                             <label for="txtconditionmatrimonialeemp" class=" form-control-label">Kontidisyon M.</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select id="txtconditionmatrimonialeemp" name="condition" class="form-control">
-                                <option value="0">Selibat&egrave;</option>
-                                <option value="1">Marye</option>
-                                <option value="2">V&egrave;f</option>
+                            <select id="txtconditionmatrimonialeemp" name="conditionmat" class="form-control">
+                              <?php foreach(conditionmatDao::getconditionmat() as $r):
+                                echo "<option value='$r[0]'>$r[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -98,10 +105,8 @@
 
                         <div class="col-12 col-md-9">
                             <select id="txtgroupesanguinemp" name="groupesanguin" class="form-control">
-                                <option value="0">A+</option>
-                                <option value="1">B+</option>
-                                <option value="2">AB</option>
-                                <option value="1">O+</option>
+                              <?php foreach(groupesanguinDao::GetGroupsanguins() as $l):
+                                echo "<option value='$l[0]'>$l[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -111,10 +116,8 @@
                         </div>
                         <div class="col-12 col-md-9">
                             <select id="txtgroupesanguinemp" name="nivo" class="form-control">
-                                <option value="0">Dipl&ograve;m</option>
-                                <option value="1">Lisans</option>
-                                <option value="2">Metriz</option>
-                                <option value="1">Doktora</option>
+                              <?php foreach(typeNiveauDao::GetNiveau() as $liy):
+                                echo "<option value='$liy[0]'>$liy[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -124,7 +127,8 @@
                         </div>
                         <div class="col-12 col-md-9">
                             <select id="txtvilleemp" name="ville" class="form-control">
-                                <option value="0">Delma</option>
+                              <?php foreach(VilleDao::GetVille() as $li):
+                                echo "<option value='$li[0]'>$li[2]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -142,7 +146,7 @@
                             <label for="txtdernierposteemp" class=" form-control-label">D&egrave;nye dj&ograve;b</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="txtdernierposteemp" name="postancien" value="<?=$ligne[10]?>"  placeholder="Ex: kontab, Le bon berger" class="form-control">
+                            <input type="text" id="txtdernierposteemp" name="postancien" value="<?=$ligne[11]?>"  placeholder="Ex: kontab, Le bon berger" class="form-control">
                             <!-- <small class="help-block form-text">Please enter your email</small> -->
                         </div>
                     </div>
@@ -152,14 +156,8 @@
                         </div>
                         <div class="col-12 col-md-9">
                             <select id="txtposteemp" name="postactuel" class="form-control">
-                                <option value="0">Administrat&egrave;</option>
-                                <option value="1">Sip&egrave;viz&egrave;</option>
-                                <option value="2">Kesye</option>
-                                <option value="3">Sekret&egrave;</option>
-                                <option value="4">Kontab</option>
-                                <option value="5">Sekirite</option>
-                                <option value="6">Jesyno&egrave;</option>
-                                <option value="7">Enf&ograve;matisyen</option>
+                              <?php foreach(posteDao::GetPoste() as $ro):
+                                echo "<option value='$ro[0]'>$ro[1]</option>"; endforeach;?>
                             </select>
                         </div>
                     </div>
@@ -172,7 +170,7 @@
                             <!-- <small class="help-block form-text">Please enter a complex password</small> -->
                         </div>
                     </div>  <br>
-                    <a href="../"><button type="button" class="btn btn-secondary btn-small" >Anile anrejitreman</button> </a>
+                    <a href="../"><button type="button" class="btn btn-secondary btn-small" >Anile Modifikasyon a</button> </a>
                     <!-- <button type="button" name="submit" class="btn btn-primary btn-small" id="btnajouteremploye">Ajoute</button> -->
                       <input type="submit" name="submit" class="btn btn-primary btn-small" id="btnupdateemploye" value="Modifye"/>
     </div>

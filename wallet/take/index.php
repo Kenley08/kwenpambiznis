@@ -59,9 +59,15 @@ require_once"../../api/Dao/transactionDao.php";
                          if($liy){
                             //mwen teste si uti sa pa gen tranzaksyon ki an kou sou bous li a
                             if($liy[3]==2){
-                              //ajoute tranzakzyon
-                                transactionDao::ajoutertransaction($tran);
-                                $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou nou valide l";
+                              $nim=strval($nimewotranzaksyon);
+                                if(strlen($nim)==8){
+                                  //ajoute tranzakzyon
+                                    transactionDao::ajoutertransaction($tran);
+                                    $sikse="Tranzaksyon an ale men li an atant toujou, tann yon ti moman pou nou valide l";
+                                }else{
+                                  $mesaj=" Nimewo telefon la dwe gen 8 chif";
+                                }
+
                             }else{
                               $mesaj="Ou gen yon trazaksyon ki an atant deja,tanpri tann nou valide li pou ou";
                             }

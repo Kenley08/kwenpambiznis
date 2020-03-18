@@ -35,8 +35,8 @@
         $this->idpostanc="";
         $this->salaire="";
         $this->etat="";
-        $this->$dateaj="";
-        $this->$dateup="";
+        $this->dateaj="";
+        $this->dateup="";
 
       }
   }

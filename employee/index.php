@@ -3,18 +3,36 @@ session_start();
   require_once"../api/Dao/EmployeDao.php";
   require_once'../api/Modele/Memploye.php';
   require_once'../api/Modele/Mconnexion.php';
- // echo $i;
+//  // echo $i;
+ if(isset($_GET['id_emp'])){
+  $id=$_GET['id_emp'];
+   $emp=new employe();
+   $emp->idemp=$id;
+   if($emp->idemp){
+    $r=EmployeDao::getetatemploye($emp);
+    if($r[0]==1){
+      EmployeDao::bloke($emp);
+     $sikse="Anploye sa bloke avek sikse.";
+     $mesaj="";
+    echo $r[0];
+  }else if($r[0]==0){
+    EmployeDao::debloke($emp);
+    $sikse="Anploye sa debloke avek sikse.";
+    $mesaj="";
+  }else{
+    $mesaj="Svp reyese anko.";
+  }
 
-    if(isset($_POST['btnupdateetat'])){
-      // require_once "../api/Dao/EmployeDao.php";
-       $emp=new EmployeDao();
-       $emp->idemp=$ligne[0];
-    //   $_SESSION['ligne']=
-       if($emp->idemp){
-          EmployeDao::updateetat($emp);
-       }
-   }
+    }
+}else{
+    $mesaj="";
+    $sikse="";
+}
 
+if(!isset($mesaj) && !isset($sikse)){
+  $sikse="";
+  $mesaj="";
+}
 
 
 
@@ -49,7 +67,7 @@ session_start();
     <div class="page-wrapper">
         <div class="page-container2">
             <?php
-               include '../file/header.inc.php';
+            //   include '../file/header.inc.php';
                 // include '../file/info.inc.php';
             ?>
             <div class="section__content section__content--p30 midle-midle">
@@ -57,13 +75,16 @@ session_start();
 
                     Lis tout anplwaye yo
                 </p>
-                <?php include '../file/employee.inc.php'; include '../file/footer.inc.php';?>
+                <?php
+                  echo $sikse;
+                  echo $mesaj;
+                include '../file/employee.inc.php'; include '../file/footer.inc.php';?>
             </div>
         </div>
         <?php
 
             //insertion du menu gauche de la page
-           include '../file/menu_left.inc.php';
+          // include '../file/menu_left.inc.php';
             include '../file/confirmation.inc.php';
         ?>
     </div>

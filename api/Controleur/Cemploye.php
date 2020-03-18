@@ -2,8 +2,8 @@
 require_once'../api/Dao/EmployeDao.php';
 $emp=new EmployeDao();
           //on passe l'objet des atrributs
-          $e="emp-".time()."".rand(1,100);
-          $emp->idemp=$e;
+          //$e="emp-".time()."".rand(1,100);
+          $emp->idemp=$_POST[];
           $emp->nomcomplet=$_POST['nomcompletemp'];
           $emp->email=$_POST['emailemp'];
           $emp->tel=$_POST['telephoneemp'];

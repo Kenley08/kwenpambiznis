@@ -45,7 +45,7 @@
         //    $r="emp-".time()."".rand(1,100);
           //  echo $r;
           ?>
-          <form action="" method="post" >
+          <form action="?" method="post" >
             <table class="table table-borderless table-data3">
                 <thead>
                     <tr>
@@ -58,14 +58,22 @@
                 </thead>
                 <tbody>
 
-                  <?php foreach(EmployeDao::listeremploye2() as $row): ?>
+                  <?php foreach(EmployeDao::listeremploye2() as $row):?>
                     <tr>
                       <td><?php echo $row[0] ?></td>
                       <td><?php echo $row[1] ?></td>
                       <td><?php echo $row[2] ?></td>
                       <td><?php echo $row[3]?></td>
                     <td>
-              <button type="button" name="btnupdateetat" class="btn btn-secondary btn-sm" data-toggle="modal">bloke</button>
+
+              <!-- <a href="?id_emp=<?//=$row[0]?>"><input type="submit" value="Bloke" name="btnupdateetat" class="btn btn-secondary btn-sm" data-toggle="modal"/></a> -->
+              <a href="?id_emp=<?=$row[0]?>"><input type="submit" value="<?php
+              if($row[4]==1){
+                  echo"Bloke";
+                }else if($row[4]==0){
+                    echo"Debloke";
+                  }
+              ?>" id="idbtnbloke" name="btnupdateetat" class="btn btn-secondary btn-sm" data-toggle="modal"/></a>
                 <!-- <input type="submit" name="btnupdateetat" class="btn btn-secondary btn-sm" value="Bloke"  data-toggle="modal"/> -->
                             <a href="update/?id=<?=$row[0]?>"><button type="button" name="btnupdateindex" class="btn btn-primary btn-sm" >Modifye</button> </a>
                         </td>
