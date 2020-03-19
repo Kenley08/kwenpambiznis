@@ -67,13 +67,13 @@
         </div> 
     </div> <br> 
     <div class="col col-md-9 bg-white padding-3" > 
-    <label for="checkbox1" class="form-check-label ">
-        <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input"> 
-        Mwen byen li e konprann tout sa mwen sot f&egrave; la yo. Si tout fwa ou ta renmen anile sa ou sot f&egrave; a 
-        menm ke ou gentan valide li, depi okenn klik poko f&egrave; wap kapab.
-    </label>
-    <br> <br>
-    <button type="button" class="btn btn-primary btn-small" id="btnvalideads">Valide epi peye</button>
+        <label for="checkbox1" class="form-check-label ">
+            <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input"> 
+            Mwen byen li e konprann tout sa mwen sot f&egrave; la yo. Si tout fwa ou ta renmen anile sa ou sot f&egrave; a 
+            menm ke ou gentan valide li, depi okenn klik poko f&egrave; wap kapab.
+        </label>
+        <br> <br>
+        <button type="button" class="btn btn-primary btn-small" id="btnvalideads">Valide epi peye</button>
     </div>  <br><br>  
     <button type="button" class="btn btn-primary btn-small back-ads" id="back02">F&egrave; bak</button>
     <button type="button" class="btn btn-secondary btn-small back-ads" id="cancel-ads">Anile</button>

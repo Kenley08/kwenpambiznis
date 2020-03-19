@@ -18,7 +18,7 @@
     <!-- Vendor CSS-->
     <link href="../vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> 
     <link href="../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all"> 
-
+    <link href="../vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="../css/theme.css" rel="stylesheet" media="all">
     <link href="../css/main.css?v=23" rel="stylesheet" media="all">
@@ -28,18 +28,18 @@
         <div class="page-container2">
             <?php
                 include '../file/header.inc.php';
-                // include '../file/info.inc.php';   
+                // include '../file/info.inc.php';
             ?> 
             <div class="section__content section__content--p30 midle-midle"> 
                 <p class="title-page">
                     Lis tout Notifikasyon yo
                 </p>
-                <?php include '../file/notification.inc.php'; include '../file/footer.inc.php';?> 
+                <?php include '../file/notification.inc.php'; include '../file/footer.inc.php'; ?> 
             </div> 
         </div>
-        <?php  
+        <?php
             //insertion du menu gauche de la page
-            include '../file/menu_left.inc.php'; 
+            include '../file/menu_left.inc.php';
         ?>
     </div>
     <!-- Jquery JS-->
