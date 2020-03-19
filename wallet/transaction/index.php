@@ -76,7 +76,7 @@ require_once '../../api/Dao/BourseDao.php';
         <div class="page-container2">
             <?php
                include '../../file/header.inc.php';
-                 include '../../file/info.inc.php';
+                //  include '../../file/info.inc.php';
             ?>
             <div class="section__content section__content--p30 midle-midle">
                 <p class="title-page">
