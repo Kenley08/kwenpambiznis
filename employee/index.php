@@ -67,7 +67,7 @@ if(!isset($mesaj) && !isset($sikse)){
     <div class="page-wrapper">
         <div class="page-container2">
             <?php
-            //   include '../file/header.inc.php';
+              include '../file/header.inc.php';
                 // include '../file/info.inc.php';
             ?>
             <div class="section__content section__content--p30 midle-midle">
@@ -84,7 +84,7 @@ if(!isset($mesaj) && !isset($sikse)){
         <?php
 
             //insertion du menu gauche de la page
-          // include '../file/menu_left.inc.php';
+           include '../file/menu_left.inc.php';
             include '../file/confirmation.inc.php';
         ?>
     </div>

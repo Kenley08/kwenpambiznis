@@ -15,7 +15,6 @@ if(!isset($mesaj) && !isset($sikse)){
 
 }
       if(isset($_POST['btnadd'])){
-
         $emp=new EmployeDao();
                   //on passe l'objet des atrributs
                   $e="emp-".time()."".rand(1,100);

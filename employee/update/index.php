@@ -8,7 +8,7 @@ require_once'../../api/Dao/GroupeSanguinDao.php';
 require_once'../../api/Dao/typeNiveauDao.php';
 require_once'../../api/Dao/VilleDao.php';
 require_once'../../api/Dao/PosteDao.php';
-
+  ini_set('display_errors', 'Off');
 if(isset($_GET['id'])){
   if(isset($_POST['submit'])){
       $id=$_GET['id'];
@@ -26,26 +26,60 @@ if(isset($_GET['id'])){
         $emp->idpostact=$_POST['postactuel'];
         $emp->idpostanc=$_POST['postancien'];
         $emp->salaire=$_POST['salaire'];
-      //  $emp->etat=1;
-      //  $emp->dateaj="";
-      //
 
+        $nc=$_POST['nomcomplet'];
+        $tel=$_POST['telephone'];
+        $pa=$_POST['postancien'];
+        $sa=$_POST['salaire'];
 
      if(isset($emp->idemp) && isset($emp->nomcomplet) && isset($emp->nomcomplet) && isset($emp->email) && isset($emp->tel) && isset($emp->sexe)
         && isset($emp->idtpcond) && isset($emp->idgs) && isset($emp->idville) && isset($emp->idpostact) && isset($emp->idpostanc) && isset($emp->salaire)
         && isset($emp->dateaj) && isset($emp->dateup)){
-          EmployeDao::editeremploye($emp);
-          $sikse="Modifikasyon an fet avek sikse.";
-          $mesaj="";
 
+          //on va tester si le nom contient entree ne contient pas de chiffres
+          if(preg_match ("/^[a-zA-Z\s]+$/",$nc)) {
+              //on va tester si le telephone contient seulment des chiffres entree ne contient pas de chiffres
+             if(preg_match('/^[0-9]*$/',$tel)){
+               //Coversion des chiffres de telephone en string
+               $t=strval($tel);
+               //on teste maintenant la longeur du chaine
+               if(strlen($t)==8){
+                 //  on va tester maintenant si le champ poste ancien contient seulement des lettres et des virgules
+                    if(preg_match ("/^[a-zA-Z\s\,]+$/",$pa)){
+                      //on va tester si le salaire contient uniquement des chiffres
+                    if(preg_match('/^[0-9]*$/',$sa)){
+                    //on va modifier l'objet employe
+                                EmployeDao::editeremploye($emp);
+                                $sikse="Modifikasyon an fet avek sikse.";
+                                $mesaj="";
+
+                    }else{
+                      $mesaj="Sale dwe genyen selman chif.";
+                    }
+
+                    }else{
+                      $mesaj="Pos asyen an dwe gen let ak vigil selman.";
+                    }
+
+               }else{
+                   $mesaj="Nimewo telefon ou a dwe gen 8 chif.";
+               }
+
+
+             }else{
+                 $mesaj = "Nimewo telefon la dwe genyen chif selman.";
+             }
+
+
+             }else{
+                 $mesaj = "Non konple a dwe gen let selman.";
+             }
      }
      else{
         $mesaj="Modification an pa fet,reseye anko.";
         $sikse="";
       }
 
-    //  $requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'";
-    // $requete="update tblemploye set nom_complet='$nc',email='$email',telephone='$tel',adresse='$adres',salaire='$salaire',date_update=NOW() where id_emp='$id'
  }
 }
  if(!isset($mesaj) && !isset($ikse)){
@@ -87,9 +121,9 @@ if(isset($_GET['id'])){
         <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
-              //  include '../../file/header.inc.php';
+               include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-              //  include '../../file/menu_left.inc.php';
+               include '../../file/menu_left.inc.php';
 
                 include '../../file/employee_update.php';
                 include '../../file/help_all.inc.php';

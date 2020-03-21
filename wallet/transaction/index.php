@@ -1,8 +1,8 @@
 <?php session_start();
- require_once'../../api/Modele/Mconnexion.php';
- require_once'../../api/Modele/Mtransaction.php';
-require_once'../../api/Dao/transactionDao.php';
-require_once'../../api/Dao/BourseDao.php';
+ require_once '../../api/Modele/Mconnexion.php';
+ require_once '../../api/Modele/Mtransaction.php';
+require_once '../../api/Dao/transactionDao.php';
+require_once '../../api/Dao/BourseDao.php';
 
   if(isset($_SESSION['id_uti']) && isset($_SESSION['id_bous'])){
     $iduser=$_SESSION['id_uti'];
@@ -73,8 +73,13 @@ require_once'../../api/Dao/BourseDao.php';
     <div class="page-wrapper">
         <div class="page-container2">
             <?php
+<<<<<<< HEAD
                 include '../../file/header.inc.php';
                  //include '../../file/info.inc.php';
+=======
+               include '../../file/header.inc.php';
+                //  include '../../file/info.inc.php';
+>>>>>>> bdba89e0a7cd3c6899555df8baede031ef8943f0
             ?>
             <div class="section__content section__content--p30 midle-midle">
                 <p class="title-page">
@@ -86,7 +91,11 @@ require_once'../../api/Dao/BourseDao.php';
         <?php
             //insertion du menu gauche de la page
            include '../../file/menu_left.inc.php';
+<<<<<<< HEAD
           include '../../file/confirmation.inc.php';
+=======
+           include '../../file/confirmation.inc.php';
+>>>>>>> bdba89e0a7cd3c6899555df8baede031ef8943f0
         ?>
     </div>
     <!-- Jquery JS-->
