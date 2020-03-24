@@ -18,23 +18,23 @@ require_once '../../api/Dao/BourseDao.php';
     $t=new transactionDao();
     $t->idtran=$row1[0];
     $t->montant=$row1[2];
-   $montant=$t->montant;
+    $montant=$t->montant;
       if(isset($t->idtran) && isset($t->montant)){
         if(($row1[6]!="") && ($row1[7]!="") && ($row1[3]==1)){
-      transactionDao::UpdateEtatTransactionId($t);
+        transactionDao::UpdateEtatTransactionId($t);
           //on va ajouter le montant sur le solde de la bourse
           BourseDao::updatesolde($idb,$montant);
            echo "ou konfime tranzaksyon a";
 
-?>
-<script type='text/javascript'>
-     $(document).ready(function(){
-        document.getElementById("idbtnvalide").style.dislay="none";
+    ?>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            document.getElementById("idbtnvalide").style.dislay="none";
 
-      });
-  </script>
+          });
+      </script>
 
-<?php
+    <?php
       }else{
           echo "tann nou valide tranzaksyon a";
       }
