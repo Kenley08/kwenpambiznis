@@ -1,4 +1,4 @@
-<div class="table-data__tool">
+<div class="table-data__tool"> 
         <div class="table-data__tool-left">
             <div class="rs-select2--light rs-select2--md">
                 <select class="js-select2" name="property">
@@ -41,7 +41,7 @@
                     <tr>
                         <th>Tip</th>
                         <th>Presizyon</th>
-                        <th>DEskripsyon</th>
+                        <th>Deskripsyon</th>
                         <th>Eta</th>
                         <th> </th>
                     </tr>
@@ -52,14 +52,14 @@
                         <td>Rezevasyon 4 galon lwil</td>
                         <td>Lwil alberto, 12 lit</td>
                         <td class="process">Poko trete</td>
-                        <td> <button type="button" class="btn btn-primary btn-sm" >Konfime</button></td>
+                        <td> <a href="detail/?id=1" class="btn btn-primary btn-sm" >W&egrave; plis</a></td>
                     </tr>
                     <tr>
                         <td>Rez&egrave;vasyon</td>
                         <td>Rezevasyon 4 galon lwil</td>
                         <td>Lwil alberto, 12 lit</td>
                         <td class="denied">Trete deja</td>
-                        <td><button type="button" class="btn btn-secondary btn-sm" disabled="">Konfime</button></td>
+                        <td><a href='detail/?id=1' class="btn btn-primary btn-sm"  >W&egrave; plis</a></td>
                     </tr> 
                 </tbody>
             </table>

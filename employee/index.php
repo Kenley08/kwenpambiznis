@@ -34,6 +34,9 @@ if(!isset($mesaj) && !isset($sikse)){
   $mesaj="";
 }
 
+if(isset($_SESSION['id_uti'])){
+  $iduti=$_SESSION['id_uti'];
+}
 
 
   ?>

@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-<div class="row m-t-30">  
+<div class="row m-t-30">
     <div class="col-md-12">
         <!-- DATA TABLE-->
         <div class="table-responsive m-b-40">
@@ -47,13 +47,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                  <?php foreach(produitDao::listerproduits($iduti) as $row):?>
                     <tr>
-                        <td>Iphone 7S</td>
-                        <td>Mobile</td>
-                        <td>iPhone X 64Gb Grey</td>
-                        <td>500 goud</td>
-                        <td> <a href="detail?product&id=1" class="btn btn-secondary">Modifye</a> <a href="setting?product&id=1" class="btn btn-primary">Param&egrave;t</a> </td>
-                    </tr> 
+                        <td><?php echo $row[1] ?></td>
+                        <td><?php  echo $row[2] ?></td>
+                        <td ><?php echo $row[3] ?></td>
+                        <td><?php echo $row[4] ?></td>
+                        <td> <a href="detail?productid=<?=$row[0]?>" class="btn btn-secondary">Modifye</a> <a href="setting?product&id=1" class="btn btn-primary">Param&egrave;t</a> </td>
+                    </tr>
+                      <?php endforeach;?>
                 </tbody>
             </table>
         </div>

@@ -47,7 +47,7 @@
                         <th>moyen</th>
                         <th>Deskripsyon</th>
                         <th>Date</th>
-                        <th>valide</th>
+                        <th> </th>
                         <!-- <th> </th> -->
                     </tr>
                 </thead>

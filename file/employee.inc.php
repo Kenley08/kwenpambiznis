@@ -58,7 +58,7 @@
                 </thead>
                 <tbody>
 
-                  <?php foreach(EmployeDao::listeremploye2() as $row):?>
+                  <?php foreach(EmployeDao::listeremploye2($iduti) as $row):?>
                     <tr>
                       <td><?php echo $row[0] ?></td>
                       <td><?php echo $row[1] ?></td>

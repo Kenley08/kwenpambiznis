@@ -1,7 +1,4 @@
- <?php
-    // include 'database.php';
-    include ("../../../smtptester/class.phpmailer.php"); 
- 
+ <?php 
     //fonction pour lister les types de comptes
     function sendmail($host,$username,$password,$from,$fromname,$subject,$email,$body)
     {
@@ -20,7 +17,7 @@
           $mail->WordWrap = 50;
           $mail->IsHTML(true);
           $str1= "gmail.com";
-          $str2=strtolower("info@cashdirek.com");
+          $str2=strtolower("info@kwenpam.com");
             If(strstr($str2,$str1))  {
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;

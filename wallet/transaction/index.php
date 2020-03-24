@@ -26,6 +26,7 @@ require_once '../../api/Dao/BourseDao.php';
          $(document).ready(function(){
             document.getElementById("idbtnvalide").style.dislay="none";
 
+<<<<<<< HEAD
           });
       </script>
 
@@ -41,6 +42,42 @@ require_once '../../api/Dao/BourseDao.php';
   }
 
 
+=======
+  if(isset($_POST['btnvalide'])){
+    $_SESSION['id_bous']=$_GET['id_bous'];
+    $idb=$_SESSION['id_bous'];
+    if(isset($_SESSION['id_bous'])){
+     $row1=transactionDao::getlastrow($idb);
+    // echo $row1[0];
+    $t=new transactionDao();
+    $t->idtran=$row1[0];
+    $t->montant=$row1[2];
+    $montant=$t->montant;
+      if(isset($t->idtran) && isset($t->montant)){
+        if(($row1[6]!="") && ($row1[7]!="") && ($row1[3]==1)){
+        transactionDao::UpdateEtatTransactionId($t);
+          //on va ajouter le montant sur le solde de la bourse
+          BourseDao::updatesolde($idb,$montant);
+           echo "ou konfime tranzaksyon a";
+
+    ?>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            document.getElementById("idbtnvalide").style.dislay="none";
+
+          });
+      </script>
+
+    <?php
+      }else{
+          echo "tann nou valide tranzaksyon a";
+      }
+    }else{
+      echo "mwen pa jwen objet a pou update";
+    }
+   }
+ }
+>>>>>>> d073a70c5b8dcf95115e28d37677ff8e24065282
 
 
 ?>

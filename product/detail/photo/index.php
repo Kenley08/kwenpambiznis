@@ -1,8 +1,4 @@
-<?php
-    // if(isset($_POST['btncontinuer'])){
-    //     header("Location:i/");
-    // }
-?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,8 +32,9 @@
                 include '../../../file/header.inc.php';
                 //insertion du menu gasuche de la page
                 include '../../../file/menu_left.inc.php';
+                  echo $mesaj;
                 include '../../../file/photo_product.inc.php';
-                include '../../../file/help_all.inc.php'; 
+                include '../../../file/help_all.inc.php';
             ?>
         </div>
     </div>

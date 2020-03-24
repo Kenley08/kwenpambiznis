@@ -10,9 +10,9 @@
       }
 
       //fonction pour lister tous les employes en selectionaant l'id,nom_complet,telephone et le salaire
-        public static function listeremploye2(){
+        public static function listeremploye2($iduti){
           $con=new connexion();
-          $cont=$con->executerequete("select id_emp,nom_complet,telephone,salaire,etat,email,telephone from tblemploye");
+          $cont=$con->executerequete("select id_emp,nom_complet,telephone,salaire,etat,email,telephone from tblemploye where id_uti=$iduti");
           $con->closeconnexion();
           return $cont;
         }
