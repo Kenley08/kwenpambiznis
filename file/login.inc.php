@@ -5,7 +5,7 @@
         <?php
             if(!isset($_SESSION['id_uti'])){?>
                 <div class="alert alert-primary" role="alert">
-                    Pou konekte sou kwenpam biznis,<a href="https://kwenpam.com/login/?referer=http://localhost/kwenpambiznis/login" class="alert-link">konekte</a>, oubyen <a href="https://kwenpam.com/register/?referer=<?php echo "http://localhost/kwenpambiznis/login";?>" class="alert-link">kreye yon kont </a> sou kwenpam
+                    Pou konekte sou kwenpam biznis,<a href="https://www.kwenpam.com/login/?referer=http://localhost/kwenpambiznis/login" class="alert-link">konekte</a>, oubyen <a href="https://www.kwenpam.com/register/?referer=<?php echo "http://localhost/kwenpambiznis/login";?>" class="alert-link">kreye yon kont </a> sou kwenpam
                 </div> <br>
             <?php }else  if(!$row){
                  echo "<div class='alert alert-primary' role='alert'> Kenbe PIN sila yon kote pou ou pa bliye li, san li ou pap ka gen aks&egrave; ak kwenpam biznis  </div> <br>";
