@@ -1,5 +1,5 @@
  <!-- STATISTIC-->
- <section class="statistic">
+ <!-- <section class="statistic">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row">
@@ -42,5 +42,15 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- END STATISTIC-->
+<div class="row padding-3">
+    <div class="col-12">
+        <p>
+            <h4>Byenvini sou kwenpam biznis</h4> <br>
+            Kwenpam biznis se yon s&egrave;vis kwenpam ki p&egrave;m&egrave;t ou jere tout aktivite ou sou kwenpam. Li p&egrave;m&egrave;t ou gen
+            yon kontw&ograve;l jeneral. W ap kapab jere boutik ou yo pi byen sou li, jere tranzaksyon yo, k&ograve;mand. W ap kapab kreye bous vity&egrave;l 
+            sou li, resevwa lajan sou li. W ap kapab bouste yon pwodwi ou genyen sou li, ak anpil l&ograve;t s&egrave;vis adisyon&egrave;l nou konte mete sou li pou ou.
+        </p> 
+    </div> 
+</div>

@@ -6,10 +6,10 @@
                 <div class="col-md-12">
                     <div class="au-breadcrumb-content">
                         <div class="au-breadcrumb-left">
-                            <span class="au-breadcrumb-span">Ou nan paj:</span>
+                            <!-- <span class="au-breadcrumb-span">Ou nan paj:</span> -->
                             <ul class="list-unstyled list-inline au-breadcrumb__list">
                                 <li class="list-inline-item active">
-                                    <a href="#">Ak&egrave;y</a>
+                                    <!-- <a href="#">Ak&egrave;y</a> -->
                                 </li>
                                 <!-- <li class="list-inline-item seprate">
                                     <span>/</span>
