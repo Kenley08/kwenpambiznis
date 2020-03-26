@@ -29,16 +29,15 @@
                 //mwen teste si attribut pin la egziste paske se avel mwen pral fe tes poum konnen si uti a mete
                 //Bon PIN li a
                   if(isset($admin->pin) && isset($admin->idemp) && isset($admin->etat)){
-                    if(($admin->pin)==$row[2]){
-
+                    if(($admin->pin)==$row[2]){ 
                       administrationDao::updateetat($admin);
                       header("location:../index.php");
                     }else {
-                      echo "svp antre bon PIN la!";
+                      $mesaj= "svp antre bon PIN la!";
                     }
                   }//sinon sa se pou si la pa jwenn yon attribut ki lye ak obje a,n apaffiche yon mesaj
                   else{
-                    echo "mwen pa jwen obje a,update la pa ka fet";
+                    $mesaj= "mwen pa jwen obje a,update la pa ka fet";
                   }
 
               }

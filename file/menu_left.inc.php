@@ -34,8 +34,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="../../../notification/">
-                        <i class="fas fa-bell"></i>Notifkasyon</a>
+                    <a href="../../../order/">
+                        <i class="fas fa-bell"></i>K&ograve;mand</a>
                     <span class="inbox-num">3</span>
                 </li> 
                 <li class="has-sub">

@@ -8,7 +8,7 @@
 
       public function __construct (){
 
-        $this->connexion2=new mysqli("localhost","root","","db_a38e91");
+        $this->connexion2=new mysqli("localhost","root","","db_a38e91_kwen");
       }
 
      public function executerequete2($sql2){
