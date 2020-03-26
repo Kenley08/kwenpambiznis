@@ -1,13 +1,16 @@
 <?php
-    require_once'../api/Modele/Mconnexion.php';
-    require_once'../api/Modele/Madministration.php';
-  session_start();
-  //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
-  //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
-  ini_set('display_errors', 'Off');
-  require_once'../api/Dao/administrationDao.php';
+    require_once '../api/Modele/Mconnexion.php';
+    require_once '../api/Modele/Madministration.php';
+    session_start();
+    //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
+    //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
+    ini_set('display_errors', 'Off');
+    require_once '../api/Dao/administrationDao.php';
 
-      $_SESSION['id_uti']=$_GET['id_uti'];
+        if(isset($_GET['id_uti'])){
+          $_SESSION['id_uti']=$_GET['id_uti'];
+          header("location:?X_");
+        } 
         if(isset($_SESSION['id_uti'])){
           $iduti=$_SESSION['id_uti'];
           //session_destroy();
@@ -31,13 +34,13 @@
                   if(isset($admin->pin) && isset($admin->idemp) && isset($admin->etat)){
                     if(($admin->pin)==$row[2]){ 
                       administrationDao::updateetat($admin);
-                      header("location:../index.php");
+                      header("location:../");
                     }else {
-                      $mesaj= "svp antre bon PIN la!";
+                      $mesaj= "Pin sila pa koresponn ak kont sa";
                     }
                   }//sinon sa se pou si la pa jwenn yon attribut ki lye ak obje a,n apaffiche yon mesaj
                   else{
-                    $mesaj= "mwen pa jwen obje a,update la pa ka fet";
+                    $mesaj= "Nou pa arive jwenn enf&ograve;masyon sou kont sa";
                   }
 
               }
@@ -47,7 +50,7 @@
           //sinon sa se pou le moun la fek konekte sou kwenpam epi li vin premye fwa ap konnete
           //sou kwenpambiznis mwen jenere yon kod yon PIN pou li pou li ka konekte sou kwenpambiznis
             $idadmin=time()."".rand(1,100);
-            $e=time()."".rand(1,100);
+            $e=rand(1,9).rand(1,9).rand(1,9).rand(1,9);
           //ON va inserer dans la base
           if(isset($_POST['btnconnect'])){
             $admin->idadmin=$idadmin;
@@ -62,7 +65,7 @@
               //  echo "admin nan kreye";
                   header("location:../index.php");
               }else{
-                echo "admin na pa arive kreye";
+                $mesaj= "Nou pa arive kreye kont lan pou ou";
               }
 
           }
