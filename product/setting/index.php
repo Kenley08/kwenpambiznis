@@ -1,14 +1,42 @@
 <?php
+session_start();
+if(isset($_GET['productid']) && isset($_GET['etat'])){
+  $_SESSION['productid']=$_GET['productid'];
+  $_SESSION['etat']=$_GET['etat'];
+  //echo $_SESSION['productid'];
+}
+
     if(isset($_POST['btncontinuer'])){
-        header("Location:i/");
-    }
+      //on testesi le radio bouton existe
+        if(isset($_POST['radios'])){
+          $radios=$_POST['radios'];
+          if($radios=="option3"){
+            //on va teste si le le champ description et nb_accepte_livre existe
+            if(isset($_POST['txtdescriptionliv']) && isset($_POST['txtnblivre'])){
+              $_SESSION['descriptionliv']=$_POST['txtdescriptionliv'];
+              $_SESSION['nblivre']=$_POST['txtnblivre'];
+              header("Location:i/");
+            }
+
+          }else if($radios=="option4"){
+            echo "on va inserer dans la table de livraison";
+          }else{
+            echo "opt 5";
+          }
+
+        }else{
+          echo"ou pa seleksyone anyen";
+        }
+}
+
+
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <meta name="author" content="kwenpam"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="kwenpam">
     <title>Kwenpam | Tablo b&ograve; | Pwodwi | Param&egrave;t</title>
      <!-- Fontfaces CSS-->
     <link href="../../css/font-face.css" rel="stylesheet" media="all">
@@ -20,9 +48,9 @@
     <link href="../../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="../../vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> 
+    <link href="../../vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="../../vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="../../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all"> 
+    <link href="../../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="../../css/theme.css" rel="stylesheet" media="all">
@@ -31,26 +59,26 @@
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-container2 index-page-container2">
-            <?php 
+            <?php
                 //insertion de l'entete de la page
-                include '../../file/header.inc.php'; 
+                //include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-                include '../../file/menu_left.inc.php';
+                //include '../../file/menu_left.inc.php';
                 include '../../file/setting_product.inc.php';
-                include '../../file/help_all.inc.php'; 
+                include '../../file/help_all.inc.php';
             ?>
-        </div>  
+        </div>
     </div>
- 
+
     <!-- Jquery JS-->
     <script src="../../vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="../../vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="../../vendor/bootstrap-4.1/bootstrap.min.js"></script>  
-    <script src="../../vendor/animsition/animsition.min.js"></script> 
-    <script src="../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script> 
+    <script src="../../vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="../../vendor/animsition/animsition.min.js"></script>
+    <script src="../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../../vendor/select2/select2.min.js">
-    </script> 
+    </script>
     <!-- Main JS-->
     <script src="../../js/main.js"></script>
 

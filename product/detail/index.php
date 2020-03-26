@@ -84,9 +84,9 @@ if(!isset($mesaj) && !isset($ikse)){
         <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
-              //  include '../../file/header.inc.php';
+                include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-              //  include '../../file/menu_left.inc.php';
+               include '../../file/menu_left.inc.php';
                 include '../../file/detail_product.inc.php';
                 include '../../file/help_all.inc.php';
             ?>
