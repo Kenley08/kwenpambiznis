@@ -1,16 +1,19 @@
 <?php
-session_start();
-require_once"../../api/Dao/categorieProduitDao.php";
-require_once"../../api/Dao/ProduitsKwenPamDao.php";
-//require_once'../api/Modele/Memploye.php';
-require_once'../../api/Modele/Mannonce.php';
-require_once'../../api/Modele/Mconnexion_2.php';
+  session_start();
+  require_once "../../api/Dao/categorieProduitDao.php";
+  require_once "../../api/Dao/ProduitsKwenPamDao.php";
+  //require_once'../api/Modele/Memploye.php';
+  require_once '../../api/Modele/Mannonce.php';
+  require_once '../../api/Modele/Mconnexion_2.php';
   ini_set('display_errors', 'Off');
 
-if(isset($_GET['productid'])){
+  if(isset($_GET['productid'])){
+    $_SESSION['productid']=$_GET['productid'];
+  }
+
   if(isset($_POST['btnmodifye']))
   {
-     $id=$_GET['productid'];
+     $id=$_SESSION['productid'];
      $annonce=new Mannonce();
      $annonce->idann=$id;
      $annonce->idcatann=$_POST['txtkategori'];
@@ -20,7 +23,7 @@ if(isset($_GET['productid'])){
      $annonce->etat=$_POST['txtkalite'];
      $annonce->negociable=$_POST['txtnegosyab'];
      $annonce->qtestock=$_POST['txtestok'];
-    // $_POST['txtdeskripsyon']="fdgdfgdfgdfgdg";
+     // $_POST['txtdeskripsyon']="fdgdfgdfgdfgdg";
      $annonce->deskripsyon=$_POST['txtdeskripsyon'];
      $pri=$_POST['txtpri'];
      $quantite=$_POST['txtestok'];
@@ -43,16 +46,12 @@ if(isset($_GET['productid'])){
                 }
 
              }
-  }
-}
-
+  } 
 if(!isset($mesaj) && !isset($ikse)){
   $mesaj="";
   $sikse="";
 }
-
-
-
+ 
 ?>
 <html lang="en">
 <head>

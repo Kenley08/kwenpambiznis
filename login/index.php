@@ -6,6 +6,7 @@
     //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
     ini_set('display_errors', 'Off');
     require_once '../api/Dao/administrationDao.php';  
+    // $_SESSION['id_uti']=null;
         if(isset($_GET['id_uti'])){
           $_SESSION['id_uti']=$_GET['id_uti'];
           header("location:?X_");

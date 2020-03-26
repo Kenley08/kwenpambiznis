@@ -164,5 +164,6 @@
         </div>  <br>
         <a href="../"  class="btn btn-secondary btn-small">Tounen </a>
         <input type="submit" class="btn btn-primary btn-small" value="Modifye" name="btnmodifye"/>
+        <a href="../setting?productid=<?php echo $_SESSION['productid'];?>" class="btn btn-primary">Param&egrave;t</a>
     </div>
 </form>

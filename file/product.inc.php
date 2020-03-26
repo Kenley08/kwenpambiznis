@@ -53,7 +53,7 @@
                         <td><?php  echo $row[2] ?></td>
                         <td ><?php echo $row[3] ?></td>
                         <td><?php echo $row[4] ?></td>
-                        <td> <a href="detail?productid=<?=$row[0]?>" class="btn btn-secondary">Modifye</a> <a href="setting?productid=<?=$row[0]?>&etat=<?=$row[5]?>" class="btn btn-primary">Param&egrave;t</a> </td>
+                        <td> <a href="detail?productid=<?=$row[0]?>" class="btn btn-secondary">Modifye</a>  </td>
                     </tr>
                       <?php endforeach;?>
                 </tbody>
