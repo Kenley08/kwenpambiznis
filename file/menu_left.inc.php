@@ -8,7 +8,7 @@
     <div class="menu-sidebar2__content js-scrollbar1">
         <div class="account2">
             <div class="image img-cir img-160">
-                <img src="http://kwenpam.com/ressource/images/profil/user/vignettes/5d602152a1b79.jpg" alt="John Doe" />
+                <img src="http://kwenpam.com/ressource/images/profil/user/vignettes/5d602152a1b79.jpg" alt="itilize logo" style="height: 100px!important;" />
             </div>
             <h4 class="name">Eustache L.Y.</h4>
             <a href="http://business.kwenpam.com/logout">Dekonekte</a>

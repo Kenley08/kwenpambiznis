@@ -7,6 +7,12 @@
     ini_set('display_errors', 'Off');
     require_once '../api/Dao/administrationDao.php';  
     // $_SESSION['id_uti']=null;
+    //nap verifye eske se yon konpayi livrezon kap konekte
+    if(isset($_POST['btnconnectdelivery'])){
+      //si tout bagay byen pase
+      $_SESSION['id_delivery_company']=1;
+      header("Location:../delivery");
+    }
         if(isset($_GET['id_uti'])){
           $_SESSION['id_uti']=$_GET['id_uti'];
           header("location:?X_");
