@@ -25,7 +25,7 @@
                 //mwen adapte attributs yo ak objet mwen te kreye anle a
                 $admin->idemp=$row[0];
                 $admin->iduti=$row[1];
-                $admin->pin=$_POST['pin'];
+                $admin->pin=MD5($_POST['pin']);
                 $admin->etat=1;
                 $admin->dateajout=$row[4];
                 $admin->dateupdate=$row[5];
