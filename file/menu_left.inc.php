@@ -28,8 +28,8 @@
                                 <i class="fas"></i>Modifye kont</a>
                         </li>
                         <li>
-                            <a href="../../../account/password/">
-                                <i class="fas"></i>Modifye modpas</a>
+                            <a href="../../../account/pin/">
+                                <i class="fas"></i>Modifye pin</a>
                         </li> 
                     </ul>
                 </li>
