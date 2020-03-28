@@ -1,13 +1,9 @@
 <?php
   session_start();
-require_once"../api/Dao/ProduitsKwenPamDao.php";
-//require_once'../api/Modele/Memploye.php';
-require_once'../api/Modele/Mconnexion_2.php';
-
-  if(isset($_GET['idan'])){
-      $_SESSION['id_an_pay']=$_GET['idan'];
-      $idan=$_GET['idan'];
-  }
+// require_once"../api/Dao/ProduitsKwenPamDao.php";
+// //require_once'../api/Modele/Memploye.php';
+// require_once'../api/Modele/Mconnexion_2.php';
+ 
   //$ligne=produitDao::GetProduit();
 ?>
 <html lang="en">
@@ -31,7 +27,7 @@ require_once'../api/Modele/Mconnexion_2.php';
 
     <!-- Main CSS-->
     <link href="../../../css/theme.css" rel="stylesheet" media="all">
-    <link href="../../../css/main.css?v=233" rel="stylesheet" media="all">
+    <link href="../../../css/main.css?v=23322" rel="stylesheet" media="all">
 </head>
 <body class="animsition">
     <div class="page-wrapper">

@@ -5,11 +5,14 @@
             Kwenpam pran tout mezi sekirite pou jere done ou yo. Ou lib pou ou verifye tout fason nou jere sa pandan wap aprann plis
             <a href="https://kwenpam.com/business/privacy/">politik konfidansyalite</a> nou yo.
         </div> <br>
-        <p class="title-page">
-            ID : <a href="#">23232323</a>  <br>
-            Deskipsyon : Laptop Dell, 4GB RAM, LD
+        <p class="title-page  bg-white padding-3">
+            ID k&ograve;mand: <a href="#"><?php echo time().''.rand(1,1000).''.rand(1,1000);?></a>  <br>
+            Kategori : Odinate <br>
+            Deskipsyon : Laptop Dell, 4GB RAM, LD <br>
+            Pri : 5000 goud <br>
+            Kalite : n&egrave;f
         </p>
-        <div class="col col-md-12">
+        <div class="col col-md-12 bg-white"> <br>
             <p>
                 <h4>Pa ki mwayen ou konte peye?</h4>
             </p>
@@ -84,13 +87,15 @@
                 <div class="col-12 col-md-9">
                     <input type="text" id="txtadresse" placeholder="117, Carrefour-feuille, route des dalles"   class="form-control" required>
                 </div>
-            </div>
-        </div> <br>
+            </div> <br>
+        </div>  
+      <div class="padding-3">
         <label for="checkbox1" class="form-check-label  ">
             <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input">
             Mwen byen li e konprann tout sa mwen sot f&egrave; la yo. Byen verifye enf&ograve;masyon yo avan menm ou peye, <a href="https://kwenpam.com/business/legal/terms">t&egrave;m ak kondisyon</a> aplikab.
-        </label> <br> <br>
-        <a href="https://kwenpam.com/annonce/details.php"  class="btn btn-secondary btn-small">Anile </a>
-        <input type="submit" class="btn btn-primary btn-small" value="Peye kounya" name="btnvalide"/>
+            </label> <br> <br>
+            <a href="https://kwenpam.com/annonce/details.php"  class="btn btn-secondary btn-small">Anile </a>
+            <input type="submit" class="btn btn-primary btn-small" value="Peye kounya" name="btnvalide" disabled/>
+      </div>
     </div>
 </form>

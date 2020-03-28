@@ -35,7 +35,7 @@
                 </li>
                 <li>
                     <a href="https://kwenpam.com/business/delivery/order/">
-                        <i class="fas fa-bell"></i>K&ograve;mand</a>
+                        <i class="fas fa-shopping-cart"></i>K&ograve;mand</a>
                     <span class="inbox-num">3</span>
                 </li>  
                 <li class="has-sub">

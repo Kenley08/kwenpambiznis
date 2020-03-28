@@ -92,7 +92,7 @@
              </div>  
              <!--Enfomasyon sou moun kap vann pwodwi an, si se yon konpayi livrezon kap verifye enfomasyon yo lap wel, si se moun kap vann lan li pap afiche-->
              <?php 
-                if(!isset($_GET['delivery'])){?>
+                if(isset($_GET['delivery'])){?>
                      <br> <h4>Enf&ograve;masyon vand&egrave; a</h4> <br>
                     <div class="row form-group">
                         <div class="col col-md-3"> 
