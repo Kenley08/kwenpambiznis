@@ -17,6 +17,11 @@
           $_SESSION['id_uti']=$_GET['id_uti'];
           header("location:?X_");
         }
+
+        //nap teste si deconnect
+        if(isset($_GET['deconnect'])){
+          $_SESSION['id_uti']=null; 
+        }
         if(isset($_SESSION['id_uti'])){
           $iduti=$_SESSION['id_uti'];
           //session_destroy();
