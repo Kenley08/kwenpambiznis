@@ -21,7 +21,7 @@ public static function createadmin($admin){
   //fonction pour update etat connexion administrateur
   public static function updateetat($admin){
       $con=new connexion();
-      $con->executeactualisation("update tbladministration set etat='".$admin->etat . "' where pin=". $admin->pin );
+      $con->executeactualisation("update tbladministration set etat='".$admin->etat . "' where pin='4288'" );
       $con->closeconnexion();
   }
 

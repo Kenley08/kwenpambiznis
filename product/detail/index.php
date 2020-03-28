@@ -8,8 +8,8 @@
   ini_set('display_errors', 'Off');
 
   if(isset($_GET['productid']) && isset($_GET['etat'])){
-  echo  $_SESSION['productid']=$_GET['productid'];
-  echo  $_SESSION['etat']=$_GET['etat'];
+    $_SESSION['productid']=$_GET['productid'];
+    $_SESSION['etat']=$_GET['etat'];
   }
 
   if(isset($_POST['btnmodifye']))
