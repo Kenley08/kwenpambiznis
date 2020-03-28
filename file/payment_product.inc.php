@@ -39,7 +39,7 @@
                 </div>
                 <div class="radio">
                     <label for="radio3" class="form-check-label ">
-                        <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input" checked>Non (Map pase pran l)
+                        <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input">Non (Map pase pran l)
                     </label>
                 </div>
             </div>   <br>
