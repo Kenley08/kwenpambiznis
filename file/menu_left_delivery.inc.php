@@ -11,7 +11,7 @@
                 <img src="https://kwenpam.com/business/images/delivery/bridgexpress.jpg" alt="livrezon logo" style="height: 100px!important;"/>
             </div>
             <h4 class="name">BridgeXpress</h4>
-            <a href="https://kwenpam.com/delivery/logout">Dekonekte</a>
+            <a href="https://kwenpam.com/business/delivery/logout">Dekonekte</a>
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
@@ -69,7 +69,7 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="https://kwenpam.com/delivery/logout">
+                            <a href="https://kwenpam.com/business/delivery/logout">
                                 <i class="fab"></i>Dekonekte</a>
                         </li> 
                         <li>
