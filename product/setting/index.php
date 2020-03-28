@@ -1,11 +1,18 @@
 <?php
 session_start();
-if(isset($_GET['productid']) && isset($_GET['etat'])){
-  $_SESSION['productid']=$_GET['productid'];
-  $_SESSION['etat']=$_GET['etat'];
-  //echo $_SESSION['productid'];
+require_once "../../api/Modele/Mconnexion.php";
+require_once "../../api/Dao/livraisonDao.php";
+require_once "../../api/Modele/Mlivraison.php";
+require_once "../../api/Modele/Mconnexion.php";
+require_once "../../api/Dao/detaillivraisonDao.php";
+  ini_set('display_errors', 'Off');
+if(isset($_SESSION['etat']) && isset($_SESSION['productid'])){
+  echo $_SESSION['productid']=$idpro;
+  echo $_SESSION['etat']=$etat;
+//  $idpro=$_GET['productid'];
+  $iduti=$_SESSION['id_uti'];
+//  $etat=$_GET['etat'];
 }
-
     if(isset($_POST['btncontinuer'])){
       //on testesi le radio bouton existe
         if(isset($_POST['radios'])){
@@ -17,17 +24,61 @@ if(isset($_GET['productid']) && isset($_GET['etat'])){
               $_SESSION['nblivre']=$_POST['txtnblivre'];
               header("Location:i/");
             }
-
-          }else if($radios=="option4"){
-            echo "on va inserer dans la table de livraison";
-          }else{
-            echo "opt 5";
           }
 
-        }else{
-          echo"ou pa seleksyone anyen";
         }
 }
+
+if(isset($_POST['btnvalide'])){
+  //si l'utilisateur a choisi que c'est Kwenpam qui va gerer la livraison
+    $alea=time()."".rand(1,100);
+   $livraison=new livraisonDao();
+    $livraison->idliv=$alea;
+    $livraison->idann=$idpro;
+    $livraison->idlivreur='1';
+   $livraison->etat=$etat;
+    $livraison->desc=$_POST['txtdescriptionliv'];
+    $livraison->nbacc=$_POST['txtnblivre'];
+    $livraison->dateup="";
+
+    if(isset($livraison->idliv) && isset($livraison->idann) &&  isset($livraison->idlivreur) && isset($livraison->etat) && isset($livraison->desc)
+        && isset($livraison->nbacc) && isset($livraison->dateup)){
+          //on recherche l'id de l annoce dans la base avant d ajouter ce parametre
+        //  livraisonDao::getAlllivraison();
+          foreach(livraisonDao::getAlllivraison() as $row):
+            if($row[1]==$idpro){
+                $mesaj="Pwodwi sila te parametre deja";
+                $sikse="";
+            }
+          endforeach;
+          if(!isset($mesaj)){
+            //on va inserer dans la table livraison
+              livraisonDao::ajouterlivraison($livraison);
+              $alea=time()."".rand(1,100);
+              $detaillivraison=new detaillivraisonDao();
+
+
+            //   $detaillivraison=new detaillivraisonDao();
+            //   $ale=$alea=time()."".rand(1,100);
+            //  $detaillivraison->iddetailliv=$ale;
+            //  $detaillivraison->idliv=$livraison->idliv;
+            // $detaillivraison->idville="Tabarre";
+            // $detaillivraison->prix=250;
+            // $detaillivraison->dateup="";
+
+           //detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
+              $sikse="Paramet la ajoute avek sikse.";
+               $mesaj="";
+
+
+          }
+
+      }
+
+}
+
+
+
 
 
 ?>
@@ -61,9 +112,9 @@ if(isset($_GET['productid']) && isset($_GET['etat'])){
         <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
-                include '../../file/header.inc.php';
+              //  include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-                include '../../file/menu_left.inc.php';
+              //  include '../../file/menu_left.inc.php';
                 include '../../file/setting_product.inc.php';
                 include '../../file/help_all.inc.php';
             ?>

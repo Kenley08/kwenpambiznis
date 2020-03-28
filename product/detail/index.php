@@ -7,8 +7,9 @@
   require_once '../../api/Modele/Mconnexion_2.php';
   ini_set('display_errors', 'Off');
 
-  if(isset($_GET['productid'])){
-    $_SESSION['productid']=$_GET['productid'];
+  if(isset($_GET['productid']) && isset($_GET['etat'])){
+  echo  $_SESSION['productid']=$_GET['productid'];
+  echo  $_SESSION['etat']=$_GET['etat'];
   }
 
   if(isset($_POST['btnmodifye']))
@@ -46,12 +47,12 @@
                 }
 
              }
-  } 
+  }
 if(!isset($mesaj) && !isset($ikse)){
   $mesaj="";
   $sikse="";
 }
- 
+
 ?>
 <html lang="en">
 <head>
@@ -83,9 +84,9 @@ if(!isset($mesaj) && !isset($ikse)){
         <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
-                include '../../file/header.inc.php';
+            //    include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-               include '../../file/menu_left.inc.php';
+               //include '../../file/menu_left.inc.php';
                 include '../../file/detail_product.inc.php';
                 include '../../file/help_all.inc.php';
             ?>

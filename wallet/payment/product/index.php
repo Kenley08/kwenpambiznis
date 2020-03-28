@@ -1,8 +1,14 @@
 <?php
-  session_start();  
+  session_start();
+require_once"../api/Dao/ProduitsKwenPamDao.php";
+//require_once'../api/Modele/Memploye.php';
+require_once'../api/Modele/Mconnexion_2.php';
+
   if(isset($_GET['idan'])){
       $_SESSION['id_an_pay']=$_GET['idan'];
+      $idan=$_GET['idan'];
   }
+  //$ligne=produitDao::GetProduit();
 ?>
 <html lang="en">
 <head>
@@ -21,7 +27,7 @@
     <link href="../../../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="../../../vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> 
+    <link href="../../../vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="../../../css/theme.css" rel="stylesheet" media="all">
@@ -38,8 +44,8 @@
     <!-- Bootstrap JS-->
     <script src="../../../vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="../../../vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <script src="../../../vendor/animsition/animsition.min.js"></script> 
-    <script src="../../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>  
+    <script src="../../../vendor/animsition/animsition.min.js"></script>
+    <script src="../../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../../../js/main.js"></script>
 </body>
 </html>

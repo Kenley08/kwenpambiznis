@@ -5,6 +5,10 @@
     //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
     //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
     ini_set('display_errors', 'Off');
+<<<<<<< HEAD
+    require_once '../api/Dao/administrationDao.php';
+// $_SESSION['id_uti']=null;
+=======
     require_once '../api/Dao/administrationDao.php';  
     // $_SESSION['id_uti']=null;
     //nap verifye eske se yon konpayi livrezon kap konekte
@@ -13,10 +17,11 @@
       $_SESSION['id_delivery_company']=1;
       header("Location:../delivery");
     }
+>>>>>>> f3d66525abc5a1939986f4c2456ca85862f833dc
         if(isset($_GET['id_uti'])){
           $_SESSION['id_uti']=$_GET['id_uti'];
           header("location:?X_");
-        } 
+        }
         if(isset($_SESSION['id_uti'])){
           $iduti=$_SESSION['id_uti'];
           //session_destroy();
@@ -38,7 +43,7 @@
                 //mwen teste si attribut pin la egziste paske se avel mwen pral fe tes poum konnen si uti a mete
                 //Bon PIN li a
                   if(isset($admin->pin) && isset($admin->idemp) && isset($admin->etat)){
-                    if(($admin->pin)==$row[2]){ 
+                    if(($admin->pin)==$row[2]){
                       administrationDao::updateetat($admin);
                       header("location:../");
                     }else {

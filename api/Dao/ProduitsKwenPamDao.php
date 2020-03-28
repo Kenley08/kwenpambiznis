@@ -1,14 +1,14 @@
 <?php
   class produitDao{
-            public static function listerproduits($id){
-              $con2=new connexion2();
+        public static function listerproduits($id){
+        $con2=new connexion2();
             //  $cont2=$con2->executerequete2("select * from tblannonce where Id_Uti='$id'");
-              $cont2=$con2->executerequete2("  SELECT tblannonce.Id_An,tblannonce.Preciser,tblcategorie.Type_Cat,tblannonce.Description,tblannonce.Prix,tblannonce.Etat
-                                              FROM tblcategorie
-                                              join tblannonce on tblcategorie.Id_Cat_An=tblannonce.Id_Cat_An WHERE tblannonce.Id_Uti='$id'");
+        $cont2=$con2->executerequete2("  SELECT tblannonce.Id_An,tblannonce.Preciser,tblcategorie.Type_Cat,tblannonce.Description,tblannonce.Prix,tblannonce.Etat
+                                          FROM tblcategorie
+                                          join tblannonce on tblcategorie.Id_Cat_An=tblannonce.Id_Cat_An WHERE tblannonce.Id_Uti='$id'");
               $con2->closeconnexion2();
               return $cont2;
-            }
+        }
 
           public static function GetProduit($id){
                     $con2=new connexion2();

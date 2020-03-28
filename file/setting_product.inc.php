@@ -1,5 +1,9 @@
-<form class="row" id="midle-new-ads" action="?" method="POST">
+<form class="row" id="midle-new-ads" action="" method="POST">
     <div class="col-9">
+      <?php
+        echo $sikse;
+        echo $mesaj;
+      ?>
         <p class="title-page">
             Pwodwi <a href="../detail/?id=1">23232323</a> /  Param&egrave;t
         </p>
@@ -34,7 +38,7 @@
                 </div>
                 <div class="radio">
                     <label for="radio3" class="form-check-label ">
-                        <input type="radio" id="radio3" name="radios" value="option4" class="form-check-input" >Wi (kwenpam biznis ap jere sa)
+                        <input type="radio" id="radio3" name="radios" value="option4" onclick="visible_button()" class="form-check-input" >Wi (kwenpam biznis ap jere sa)
                     </label>
                 </div>
                 <div class="radio">
@@ -66,6 +70,6 @@
         </div> <br>
         <a href="../"  class="btn btn-secondary btn-small">Anile </a>
         <input type="submit" class="btn btn-primary btn-small" value="Kontinye" name="btncontinuer"/>
-        
+        <input type="submit" class="btn btn-primary btn-small" value="Valide" id="btnvalid"  name="btnvalide"/>
     </div>
 </form>
