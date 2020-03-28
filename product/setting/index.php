@@ -6,12 +6,12 @@ require_once "../../api/Modele/Mlivraison.php";
 require_once "../../api/Modele/Mconnexion.php";
 require_once "../../api/Dao/detaillivraisonDao.php";
   ini_set('display_errors', 'Off');
-if(isset($_SESSION['etat']) && isset($_SESSION['productid'])){
-  echo $_SESSION['productid']=$idpro;
-  echo $_SESSION['etat']=$etat;
-//  $idpro=$_GET['productid'];
+if(isset($_GET['productid']) && isset($_GET['etat'])){
+  $_SESSION['productid']=$_GET['productid'];
+  $_SESSION['etat']=$_GET['etat'];
+  $idpro=$_GET['productid'];
   $iduti=$_SESSION['id_uti'];
-//  $etat=$_GET['etat'];
+  $etat=$_GET['etat'];
 }
     if(isset($_POST['btncontinuer'])){
       //on testesi le radio bouton existe
@@ -54,21 +54,63 @@ if(isset($_POST['btnvalide'])){
           if(!isset($mesaj)){
             //on va inserer dans la table livraison
               livraisonDao::ajouterlivraison($livraison);
-              $alea=time()."".rand(1,100);
+            //  $alea=time()."".rand(1,100);
               $detaillivraison=new detaillivraisonDao();
 
+              for($i=0;$i<6;$i++){
+            $ale=time()."".rand(1,100);
+            if($i==0){
+             $detaillivraison->iddetailliv=$ale;
+             $detaillivraison->idliv=$livraison->idliv;
+            $detaillivraison->idville=70;
+             $detaillivraison->prix=250;
+             $detaillivraison->dateup="";
+             detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
+          }
+          else if($i==1){
+            $detaillivraison->iddetailliv=$ale;
+            $detaillivraison->idliv=$livraison->idliv;
+           $detaillivraison->idville=53;
+            $detaillivraison->prix=250;
+            $detaillivraison->dateup="";
+            detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
+          }
+          else if($i==2){
+            $detaillivraison->iddetailliv=$ale;
+            $detaillivraison->idliv=$livraison->idliv;
+           $detaillivraison->idville=65;
+            $detaillivraison->prix=250;
+            $detaillivraison->dateup="";
+            detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
+          }
+          else if($i==3){
+            $detaillivraison->iddetailliv=$ale;
+            $detaillivraison->idliv=$livraison->idliv;
+           $detaillivraison->idville=66;
+            $detaillivraison->prix=250;
+            $detaillivraison->dateup="";
+            detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
+          }else if($i==4){
+            $detaillivraison->iddetailliv=$ale;
+            $detaillivraison->idliv=$livraison->idliv;
+           $detaillivraison->idville=144;
+            $detaillivraison->prix=250;
+            $detaillivraison->dateup="";
+            detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
+          }else{
+            $detaillivraison->iddetailliv=$ale;
+            $detaillivraison->idliv=$livraison->idliv;
+           $detaillivraison->idville=145;
+            $detaillivraison->prix=250;
+            $detaillivraison->dateup="";
+            detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
 
-            //   $detaillivraison=new detaillivraisonDao();
-            //   $ale=$alea=time()."".rand(1,100);
-            //  $detaillivraison->iddetailliv=$ale;
-            //  $detaillivraison->idliv=$livraison->idliv;
-            // $detaillivraison->idville="Tabarre";
-            // $detaillivraison->prix=250;
-            // $detaillivraison->dateup="";
+          }
+          $sikse="Paramet la ajoute avek sikse.";
+           $mesaj="";
+              }
 
-           //detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
-              $sikse="Paramet la ajoute avek sikse.";
-               $mesaj="";
+
 
 
           }
