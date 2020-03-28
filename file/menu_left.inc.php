@@ -35,7 +35,7 @@
                 </li>
                 <li>
                     <a href="../../../order/">
-                        <i class="fas fa-bell"></i>K&ograve;mand</a>
+                        <i class="fas fa-shopping-cart"></i>K&ograve;mand</a>
                     <span class="inbox-num">3</span>
                 </li> 
                 <li class="has-sub">
@@ -56,7 +56,7 @@
                         </li> 
                     </ul>
                 </li>
-                <li class="has-sub">
+                <!-- <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-shopping-cart"></i>Boutik
                         <span class="arrow">
@@ -69,7 +69,7 @@
                                 <i class="fas fa-sign-in-alt"></i>Kpub</a>
                         </li> 
                     </ul>
-                </li>
+                </li> -->
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-flag"></i>Estatistik
