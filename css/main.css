@@ -1,4 +1,5 @@
 /* body,html{background-color: white!important;} */
+li{list-style: none;}
 .header-desktop2,.inbox-num{background-color: #ff8615;}
 .logo{background-color: #ee7b0f!important;font-size: 1.8em; font-weight: bold;text-align: center!important;padding:0!important;}
 .logo p{color: white;width: 100%; }
@@ -33,3 +34,10 @@
 #page-connexion strong{color: #ff8615;}
 #tab_pwodwi td{padding: 1%; }
 .img_pwodwi{width: 100%;}
+#page-connexion img{border-radius: 50px;height: 50px;border:1px solid rgb(226, 226, 226);}
+#list-company,#list-company table{width: 100%;}
+#list-company{border-radius:5px;border:1px solid rgb(235, 235, 235);padding: 3%;}
+#list-company td{ padding-bottom: 15px; padding: 3%; }
+.img-list-company{width: 30%!important;text-align: center;}
+#list-company a{padding-left: 10px;}
+.email-list-company{width:70%;text-align: left}

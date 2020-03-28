@@ -1,5 +1,5 @@
 <div class="row" id="midle-new-ads">
-    <div class="col-9">
+    <div class="col-9 col-lg-9 col-md-12">
         <p class="title-page">
             Modifikasyon pwofil
         </p>

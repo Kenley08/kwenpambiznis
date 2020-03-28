@@ -140,9 +140,9 @@
             ?> 
             <div class="section__content section__content--p30 midle-midle"> 
                 <p class="title-page">
-                    Notifikasyon / Detay
+                    K&ograve;mand / Detay
                 </p>
-                <?php include '../../file/detail_notification.inc.php'; include '../../file/footer.inc.php'; ?> 
+                <?php include '../../file/detail_order.inc.php'; include '../../file/footer.inc.php'; ?> 
             </div> 
         </div>
         <?php

@@ -5,8 +5,19 @@
     //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
     //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
     ini_set('display_errors', 'Off');
+<<<<<<< HEAD
     require_once '../api/Dao/administrationDao.php';
 // $_SESSION['id_uti']=null;
+=======
+    require_once '../api/Dao/administrationDao.php';  
+    // $_SESSION['id_uti']=null;
+    //nap verifye eske se yon konpayi livrezon kap konekte
+    if(isset($_POST['btnconnectdelivery'])){
+      //si tout bagay byen pase
+      $_SESSION['id_delivery_company']=1;
+      header("Location:../delivery");
+    }
+>>>>>>> f3d66525abc5a1939986f4c2456ca85862f833dc
         if(isset($_GET['id_uti'])){
           $_SESSION['id_uti']=$_GET['id_uti'];
           header("location:?X_");
@@ -25,7 +36,7 @@
                 //mwen adapte attributs yo ak objet mwen te kreye anle a
                 $admin->idemp=$row[0];
                 $admin->iduti=$row[1];
-                $admin->pin=$_POST['pin'];
+                $admin->pin=MD5($_POST['pin']);
                 $admin->etat=1;
                 $admin->dateajout=$row[4];
                 $admin->dateupdate=$row[5];

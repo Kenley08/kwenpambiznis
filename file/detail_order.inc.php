@@ -78,7 +78,11 @@
              </div> 
             <a href="../"> <button type="button" class="btn btn-secondary btn-small" >Tounen</button>  </a>
             <!-- <button type="button" name="submit" class="btn btn-primary btn-small" id="btnvaliderdemandetransaction">Valide</button> -->
-            <input type="submit" name="btnconfimer" value ="Konfime" class="btn btn-primary btn-small" />
+            <?php
+                if(!isset($_GET['delivery'])){?>
+                    <input type="submit" name="btnconfimer" value ="Konfime" class="btn btn-primary btn-small" />
+                <?php } 
+            ?> 
             <br><br>
         </div>
         </form>

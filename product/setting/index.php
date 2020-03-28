@@ -6,12 +6,12 @@ require_once "../../api/Modele/Mlivraison.php";
 require_once "../../api/Modele/Mconnexion.php";
 require_once "../../api/Dao/detaillivraisonDao.php";
   ini_set('display_errors', 'Off');
-if(isset($_GET['productid']) && isset($_GET['etat'])){
-  $_SESSION['productid']=$_GET['productid'];
-  $_SESSION['etat']=$_GET['etat'];
-  $idpro=$_GET['productid'];
+if(isset($_SESSION['etat']) && isset($_SESSION['productid'])){
+  echo $_SESSION['productid']=$idpro;
+  echo $_SESSION['etat']=$etat;
+//  $idpro=$_GET['productid'];
   $iduti=$_SESSION['id_uti'];
-  $etat=$_GET['etat'];
+//  $etat=$_GET['etat'];
 }
     if(isset($_POST['btncontinuer'])){
       //on testesi le radio bouton existe
@@ -54,9 +54,23 @@ if(isset($_POST['btnvalide'])){
           if(!isset($mesaj)){
             //on va inserer dans la table livraison
               livraisonDao::ajouterlivraison($livraison);
+              $alea=time()."".rand(1,100);
               $detaillivraison=new detaillivraisonDao();
+
+
+            //   $detaillivraison=new detaillivraisonDao();
+            //   $ale=$alea=time()."".rand(1,100);
+            //  $detaillivraison->iddetailliv=$ale;
+            //  $detaillivraison->idliv=$livraison->idliv;
+            // $detaillivraison->idville="Tabarre";
+            // $detaillivraison->prix=250;
+            // $detaillivraison->dateup="";
+
+           //detaillivraisonDao::ajouterdetaillivraison($detaillivraison);
               $sikse="Paramet la ajoute avek sikse.";
                $mesaj="";
+
+
           }
 
       }
@@ -98,9 +112,9 @@ if(isset($_POST['btnvalide'])){
         <div class="page-container2 index-page-container2">
             <?php
                 //insertion de l'entete de la page
-                include '../../file/header.inc.php';
+              //  include '../../file/header.inc.php';
                 //insertion du menu gauche de la page
-                include '../../file/menu_left.inc.php';
+              //  include '../../file/menu_left.inc.php';
                 include '../../file/setting_product.inc.php';
                 include '../../file/help_all.inc.php';
             ?>

@@ -1,4 +1,4 @@
-<div class="table-data__tool">
+<div class="table-data__tool"> 
         <div class="table-data__tool-left">
             <div class="rs-select2--light rs-select2--md">
                 <select class="js-select2" name="property">
@@ -20,8 +20,8 @@
                 <i class="zmdi zmdi-filter-list"></i>Filtre</button>
         </div>
         <div class="table-data__tool-right">
-            <a href='http://kwenpam.com/annonce/deposer' class="au-btn au-btn-icon au-btn--blue au-btn--small">
-                <i class="zmdi zmdi-plus"></i>Ajoute nouvo pwodwi</a>
+            <!-- <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                <i class="zmdi zmdi-plus"></i>Ajoute nouvo pwodwi</button> -->
             <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                 <select class="js-select2" name="type">
                     <option selected="selected">Export</option>
@@ -32,30 +32,35 @@
             </div>
         </div>
     </div>
-<div class="row m-t-30">
+<div class="row m-t-30">  
     <div class="col-md-12">
         <!-- DATA TABLE-->
         <div class="table-responsive m-b-40">
             <table class="table table-borderless table-data3">
                 <thead>
                     <tr>
-                        <th>Non</th>
-                        <th>Kategori</th>
+                        <th>Tip</th>
+                        <th>Presizyon</th>
                         <th>Deskripsyon</th>
-                        <th>Pri</th>
-                        <th></th>
+                        <th>Eta</th>
+                        <th> </th>
                     </tr>
                 </thead>
                 <tbody>
-                  <?php foreach(produitDao::listerproduits($iduti) as $row):?>
                     <tr>
-                        <td><?php echo $row[1] ?></td>
-                        <td><?php  echo $row[2] ?></td>
-                        <td ><?php echo $row[3] ?></td>
-                        <td><?php echo $row[4] ?></td>
-                        <td> <a href="detail?productid=<?=$row[0]?>&etat=<?=$row[5]?>" class="btn btn-secondary">Modifye</a>  </td>
+                        <td>Rez&egrave;vasyon</td>
+                        <td>Rezevasyon 4 galon lwil</td>
+                        <td>Lwil alberto, 12 lit</td>
+                        <td class="process">Poko trete</td>
+                        <td> <a href="detail/?id=1&delivery" class="btn btn-primary btn-sm" >W&egrave; plis</a></td>
                     </tr>
-                      <?php endforeach;?>
+                    <tr>
+                        <td>Rez&egrave;vasyon</td>
+                        <td>Rezevasyon 4 galon lwil</td>
+                        <td>Lwil alberto, 12 lit</td>
+                        <td class="denied">Trete deja</td>
+                        <td><a href='detail/?id=1&delivery' class="btn btn-primary btn-sm"  >W&egrave; plis</a></td>
+                    </tr> 
                 </tbody>
             </table>
         </div>

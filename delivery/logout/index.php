@@ -1,0 +1,1 @@
+<?php header("location:https://kwenpam.com/logout.php?referer=https://kwenpam.com/business/login/choice");
