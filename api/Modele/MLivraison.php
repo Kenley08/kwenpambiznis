@@ -2,6 +2,7 @@
 class Mlivraison{
     public $idliv;
     public $idann;
+    public $idlivreur;
     public $etat;
     public $desc;
     public $nbacc;
@@ -11,6 +12,7 @@ class Mlivraison{
     public function __construct(){
       $this->idliv="";
       $this->idann="";
+      $this->idlivreur="";
       $this->etat="";
       $this->desc="";
       $this->nbacc="";

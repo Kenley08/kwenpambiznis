@@ -6,5 +6,14 @@
         values('" . $detaillivraison->iddetailliv. "','" . $detaillivraison->idliv . "','" . $detaillivraison->idville . "','" . $detaillivraison->prix. "',NOW(),'" . $detaillivraison->dateup . "')");
         $con->closeconnexion();
       }
+
+      public static function GetDetailLivraison($id){
+                $con=new connexion();
+                $cont=$con->executerequete("select * from tbldetaillivraison where id_liv='$id'");
+                $con->closeconnexion();
+                return $cont;
+
+      }
+
     }
 ?>

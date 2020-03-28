@@ -3,10 +3,12 @@ session_start();
     require_once"../api/Dao/ProduitsKwenPamDao.php";
     //require_once'../api/Modele/Memploye.php';
     require_once'../api/Modele/Mconnexion_2.php';
-    $_SESSION['id_uti']=1507655075;
+    ini_set('display_errors', 'Off');
+//    $_SESSION['id_uti']=1507655075;
     if($_SESSION['id_uti']){
       $iduti=$_SESSION['id_uti'];
     }
+    //session_destroy();
 ?>
 
 <!DOCTYPE html>

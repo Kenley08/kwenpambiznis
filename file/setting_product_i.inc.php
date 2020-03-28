@@ -40,6 +40,6 @@
             </label>
         </div>  <br>
         <a href="../"  class="btn btn-secondary btn-small">Tounen</a>
-        <input type="submit" class="btn btn-primary btn-small" id="btnvalidate" value="Anrejistre" disabled name="btnvalide"/>
+        <input type="submit" class="btn btn-primary btn-small" id="btnvalidate" value="Anrejistre"  disabled name="btnvalide"/>
     </div>
 </form>
