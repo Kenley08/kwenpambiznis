@@ -6,18 +6,15 @@
             Kwenpam pran tout mezi sekirite pou jere done ou yo. Ou lib pou ou verifye tout fason nou jere sa pandan wap aprann plis
             <a href="https://kwenpam.com/business/privacy/">politik konfidansyalite</a> nou yo. <br> <br>
         </div> <br>
-<<<<<<< HEAD
         <p class="title-page  bg-white padding-3">
             ID k&ograve;mand: <a href="#"><?php echo time().''.rand(1,1000).''.rand(1,1000);?></a>  <br>
             Kategori : Odinate <br>
             Deskipsyon : Laptop Dell, 4GB RAM, LD <br>
             Pri : 5000 goud <br>
             Kalite : n&egrave;f
-=======
         <p class="title-page">
             ID : <a href="#"><?php echo $ligne[0];?></a>  <br>
             <?php echo $ligne[8];?>
->>>>>>> 6e6d86eb532172e9f508a3fcb00154b489a04501
         </p>
         <div class="col col-md-12 bg-white"> <br>
             <p>
@@ -46,11 +43,7 @@
                 </div>
                 <div class="radio">
                     <label for="radio3" class="form-check-label ">
-<<<<<<< HEAD
-                        <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input">Non (Map pase pran l)
-=======
                         <input type="radio" id="radio3" name="radios" value="2" class="form-check-input" checked>Non (Map pase pran l)
->>>>>>> 6e6d86eb532172e9f508a3fcb00154b489a04501
                     </label>
                 </div>
             </div>   <br>

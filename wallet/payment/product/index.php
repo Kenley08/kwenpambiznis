@@ -1,12 +1,5 @@
 <?php
   session_start();
-<<<<<<< HEAD
-// require_once"../api/Dao/ProduitsKwenPamDao.php";
-// //require_once'../api/Modele/Memploye.php';
-// require_once'../api/Modele/Mconnexion_2.php';
- 
-  //$ligne=produitDao::GetProduit();
-=======
   require_once '../../../api/Modele/Mconnexion.php';
   require_once '../../../api/Modele/Mtransaction.php';
   require_once '../../../api/Modele/Mcommande.php';
@@ -19,9 +12,7 @@
 
   if(isset($_GET['idan'])){
       $_SESSION['id_an_pay']=$_GET['idan'];
-       $idan=$_GET['idan'];
-
-
+       $idan=$_GET['idan']; 
    $ligne=produitDao::GetProduit($idan);
   // //on va tester les champs si ils sont vides
         if(isset($_POST['btnvalide'])){
@@ -136,19 +127,11 @@
                         }
 
 
-          }
-
-
-
-
-
-
-
+          } 
           }
       }
 
 
->>>>>>> 6e6d86eb532172e9f508a3fcb00154b489a04501
 ?>
 <html lang="en">
 <head>
