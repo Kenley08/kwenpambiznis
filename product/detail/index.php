@@ -35,25 +35,19 @@
                   //on teste si la quantite antre dans le champ ne contient pas de lettres
                     if(preg_match('/^[0-9]*$/',$quantite)){
                       produitDao::UpdateProduct($annonce);
-                      $sikse="Modifikasyon a fet avek sikse";
-                      $mesaj="";
+                      $sikse="Modifikasyon an f&egrave;t avek siks&egrave;"; 
                     }else{
-                      $mesaj="Quantite ou mete a gen let.";
+                      $mesaj="Kantite a pa sipoze gen l&egrave;t ladan";
                     }
 
                 }else{
-                  $mesaj="Pri ou mete a gen Let.";
-                  $sikse="";
+                  $mesaj="Pri ou mete a pa sipoze gen l&egrave;t ladan"; 
                 }
 
              }
-  }
-if(!isset($mesaj) && !isset($ikse)){
-  $mesaj="";
-  $sikse="";
-}
-
+  } 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,34 +71,32 @@ if(!isset($mesaj) && !isset($ikse)){
 
     <!-- Main CSS-->
     <link href="../../css/theme.css" rel="stylesheet" media="all">
-    <link href="../../css/main.css?v=3333w2" rel="stylesheet" media="all">
+    <link href="../../css/main.css?v=23" rel="stylesheet" media="all">
 </head>
 <body class="animsition">
     <div class="page-wrapper">
-        <div class="page-container2 index-page-container2">
+        <div class="page-container2">
             <?php
-                //insertion de l'entete de la page
-            //    include '../../file/header.inc.php';
-                //insertion du menu gauche de la page
-               //include '../../file/menu_left.inc.php';
-                include '../../file/detail_product.inc.php';
-                include '../../file/help_all.inc.php';
-            ?>
+                include '../../file/header.inc.php';
+                // include '../../file/info.inc.php'; 
+                include '../../file/detail_product.inc.php'; include '../../file/footer.inc.php';?>
+     
         </div>
+        <?php
+            //insertion du menu gauche de la page
+            include '../../file/menu_left.inc.php';
+        ?>
     </div>
-
     <!-- Jquery JS-->
     <script src="../../vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="../../vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="../../vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <script src="../../vendor/animsition/animsition.min.js"></script>
+    <script src="../../vendor/circle-progress/circle-progress.min.js"></script>
     <script src="../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../../vendor/select2/select2.min.js">
     </script>
-    <!-- Main JS-->
     <script src="../../js/main.js"></script>
-
-    <script src="../../js/index.js?v=142321"></script>
 </body>
 </html>

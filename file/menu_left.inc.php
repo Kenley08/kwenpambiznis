@@ -47,11 +47,11 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="../../../product/">
+                            <a href="https://kwenpam.com/business/product">
                                 <i class="fas"></i>Lis</a>
                         </li>
                         <li>
-                            <a href="../../../product/add">
+                            <a href="https://kwenpam.com/annonce/deposer">
                                 <i class="far"></i>Ajoute</a>
                         </li> 
                     </ul>

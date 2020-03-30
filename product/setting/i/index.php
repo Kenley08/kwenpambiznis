@@ -56,7 +56,7 @@ session_start();
                                 $mesaj="Vil sa la deja.";
                             }
                           endforeach;
-                          //o cherche si le mesaj n existe pas
+                          //on cherche si le mesaj n existe pas
                           if(!isset($mesaj)){
                             if($row[2]!=1){
                               $detaillivraison->idliv=$row[0];

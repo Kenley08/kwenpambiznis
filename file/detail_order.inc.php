@@ -1,4 +1,15 @@
- <div class="row"  >    
+ <form class="row" method="POST" > 
+        <?php
+            if(isset($mesaj)){?>
+                <div class="alert alert-danger col-lg-9 col-md-12" role="alert">
+                    <?php echo $mesaj;?>
+                </div>
+            <?php }else if(isset($sikse)){?>
+                <div class="alert alert-primary col-lg-9 col-md-12" role="alert">
+                    <?php echo $sikse;?>
+                </div>
+            <?php }
+        ?>   
     <div class="col-lg-9 col-md-12 bg-white">
             <br> <h4>Enf&ograve;masyon pwodwi</h4> <br>
             <div class="row form-group">
@@ -143,4 +154,4 @@
             <?php } 
         ?> <br> <br>
    
-</div>
+</form>

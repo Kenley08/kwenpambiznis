@@ -1,16 +1,23 @@
 <form class="row" id="midle-new-ads" action="" method="POST">
 
-    <div class="col-9">
-      <?php
-          echo $sikse;
-          echo $mesaj;
-      ?>
+    <div class="col-lg-9 col-md-12"> 
         <p class="title-page">
-             Pwodwi <a href="../detail/?id=1">23232323</a> / Detay
+             Pwodwi <a href="../detail/?id=1"><?php echo  $_SESSION['productid'];?></a> / Detay
         </p>
         <div class="col col-md-12 bg-white padding-3" >
             Pa neglije founi bon jan enf&ograve;masyon sou modifikasyon ou vle pote sou pwodwi sila.
         </div> <br>
+        <?php
+            if(isset($mesaj)){?>
+                <div class="alert alert-danger" role="alert">
+                    <?php echo $mesaj;?>
+                </div>
+            <?php }else if(isset($sikse)){?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo $sikse;?>
+                </div>
+            <?php }
+        ?>
         <div class="col col-md-12 bg-white padding-3" >
             <table id="tab_pwodwi">
                 <tr>
@@ -25,22 +32,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td >
-                         <a href="photo"  class="btn btn-primary btn-small">W&egrave; plis </a>
+                    <td>
+                         <a href="#photo"  class="btn btn-primary btn-small">W&egrave; plis </a>
                     </td>
                 </tr>
             </table>
-        </div> <br>
-
-                <?php
-                if(isset($_GET['productid'])){
-                  $id=$_GET['productid'];
-                    $ligne=produitDao::GetProduit($id);
-                }
-
-
-                ?>
-
+        </div> <br> 
+        <?php
+            if(isset($_GET['productid'])){
+            $id=$_GET['productid'];
+                $ligne=produitDao::GetProduit($id);
+            }  
+        ?> 
         <div class="text-pub" id="step-1-new-ads">
             <div class="row form-group">
                 <div class="col col-md-3">
@@ -50,8 +53,7 @@
                 <div class="col-12 col-md-9">
                     <select id="txtkategori" name="txtkategori" class="form-control">
 
-                      <?php
-
+                      <?php 
                       foreach(categorieDao::GetAllCategorie() as $r):
                         if($r[0]==$ligne[2]){
                           echo "<option selected='selected' value='$r[0]'>$r[1]</option>";

@@ -34,6 +34,15 @@
               return $result;
 
           }
+
+          public static function UpdateTransactionId($tran){
+              $con=new connexion();
+            $result=$con->executeactualisation("update tbltransaction set transaction_id='". $tran->transactionid . "' where id_transaction=". $tran->idtran);
+              $con->closeconnexion();
+              return $result;
+
+          }
+
           public static function getlastrow($id){
             $con=new connexion();
             $cont=$con->executerequete("SELECT * FROM tbltransaction WHERE id_bourse=$id ORDER by date_ajout desc limit 0,1");

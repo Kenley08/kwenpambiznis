@@ -1,8 +1,9 @@
 <?php
 session_start();
-    require_once"../../api/Dao/ProduitsKwenPamDao.php";
-    //require_once'../../api/Modele/Memploye.php';
-    require_once'../../api/Modele/Mconnexion_2.php';
+    // require_once"../../api/Dao/ProduitsKwenPamDao.php";
+    // //require_once'../../api/Modele/Memploye.php';
+    // require_once'../../api/Modele/Mconnexion_2.php';
+    require_once'../../api/Modele/sendmail.class.php';
     // $_SESSION['id_uti']=1507655075;
     if(isset($_SESSION['id_uti'])){
       $iduti=$_SESSION['id_uti']; 
@@ -16,7 +17,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="kwenpam">
-    <title>Kwenpam | Tablo b&ograve; | pwodwi</title>
+    <title>Kwenpam | Tablo b&ograve; | K&ograve;mand</title>
      <!-- Fontfaces CSS-->
     <link href="../../css/font-face.css" rel="stylesheet" media="all">
     <link href="../../vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -62,7 +63,7 @@ session_start();
                     Hello Luckens, nou swete tout bagay anf&ograve;m pou ou. Ou resevwa imel sila se pou 
                     konfime ou ke James Talyor konfime ke li resevwa demand ou an, kote ou te di ou achte yon mayo
                     ou vle yo livre li pou ou. <br/> <br/>
-                    N.B: Tout fwa si apre 3 jou, livrezon an pa f&egrave;t, rele nan +509 47239162 / 48349386, oubyen ekri nou 
+                    N.B: Tout fwa si apre 2 jou, livrezon an pa f&egrave;t, rele nan +509 47239162 / 48349386, oubyen ekri nou 
                     sou info@kwenpam.com. <br/> <br/>
                     <strong>Enf&ograve;masyon kliyan</strong> <br/>
                     Eustache Luckens Yadley <br/>
@@ -75,69 +76,74 @@ session_start();
             "; 
             //corps message pour livreur
             $body_livreur=" <!DOCTYPE html>
-                <html> 
-                <head> <meta charset='UTF-8'>  <meta name='viewport' content='width=device-width, initial-scale=1.0'> <meta http-equiv='X-UA-Compatible' content='ie=edge'> <title>Imel livrezon</title><style>*{margin:0;padding:0}#corps-mail-livreur{border:1px solid rgb(214, 214, 214);}a{list-style: none;}  #tete-mail-livreur,#pied-mail-livreur,#milieu-mail-livreur{width: 90%;padding:5%;} #tete-mail-livreur{text-align:center;color:white; background-color: rgb(221, 123, 10);  } #pied-mail-livreur{ line-height: 20px;background-color: rgb(56, 56, 56);text-align: center} #pied-mail-livreur p{font-size: .8em;color:white;} #pied-mail-livreur li{display: inline; padding: 10px;} #pied-mail-livreur li a{color:white;}#corps-mail-livreur table{width: 100%;} #corps-mail-livreur table td{padding:2%;}</style></head>
-                <body> 
-                <div id='corps-mail-livreur' >
-                    <div id='tete-mail-livreur' >
-                        <h1>Kwenpam biznis & BrigeExpress</h1> <br>
-                        S&egrave;vis livrezon
-                    </div>
-                    <div id='milieu-mail-livreur' >
-                        <p>
-                            Hi, nou gen yon nouvo livrezon pou ou. Se yon mayo 23df. 
-                            <a href='http://business/kwenpam.com/transaction/203203923' class='btn btn-primary'>Detay sou pwodwi a</a>
-                        </p> <br><hr> <br>
-                        <table>
-                            <tr>
-                                <td>
-                                    <h2><strong>Enf&ograve;masyon vand&egrave;</strong></h2> <br>
-                                    Eustache Luckens Yadley <br/>
-                                    47239162 <br/>
-                                    eustache455@gmail.com <br/>
-                                    Haiti, port-au-prince, carrefourfeuille # 117 <br/>
-                                </td>
-                                <td>
-                                    <h2><strong>Enf&ograve;masyon vand&egrave;</strong></h2> <br>
-                                    Eustache Luckens Yadley <br/>
-                                    47239162 <br/>
-                                    eustache455@gmail.com <br/>
-                                    Haiti, port-au-prince, carrefourfeuille # 117 <br/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div id='pied-mail-livreur'> 
-                        <ul>
-                            <li><a href='http://business.kwenpam.com/privacy'> Politik konfidansyalite</a></li>
-                            <li><a href='http://business.kwenpam.com/legal/terms'>T&egrave;m ak kondisyon</a></li>
-                            <li><a href='http://business.kwenpam.com'> Sit</a></li>
-                        </ul> <br>
-                        <p>
-                            Tout enf&ograve;masyon nan imel sila, konsene s&egrave;lman BrigeExpress. Si tout fwa ou panse pou yon rezon oubyen yon l&ograve;t
-                            imel sa pa sipoze vin jwenn nou, f&egrave; nou konn sa pandan wap rele s&egrave;vis kliyant&egrave;l nou nan + 4834-9386
-                        </p>
-                    </div>
+            <html> 
+            <head> <meta charset='UTF-8'>  <meta name='viewport' content='width=device-width, initial-scale=1.0'> <meta http-equiv='X-UA-Compatible' content='ie=edge'> <title>Imel livrezon</title><style>*{margin:0;padding:0}#corps-mail-livreur{border:1px solid rgb(214, 214, 214);}a{list-style: none;}  #tete-mail-livreur,#pied-mail-livreur,#milieu-mail-livreur{width: 90%;padding:5%;} #tete-mail-livreur{text-align:center;color:white; background-color: rgb(221, 123, 10);  } #pied-mail-livreur{ line-height: 20px;background-color: rgb(56, 56, 56);text-align: center} #pied-mail-livreur p{font-size: .8em;color:white;} #pied-mail-livreur li{display: inline; padding: 10px;} #pied-mail-livreur li a{color:white;}#corps-mail-livreur table{width: 100%;} #corps-mail-livreur table td{padding:2%;}</style></head>
+            <body> 
+            <div id='corps-mail-livreur' >
+                <div id='tete-mail-livreur' >
+                    <h1>Kwenpam biznis & BrigeExpress</h1> <br>
+                    S&egrave;vis livrezon
                 </div>
-                </body></html>
+                <div id='milieu-mail-livreur' >
+                    <p>
+                        Hi, nou gen yon nouvo livrezon pou ou.<br/><br/>
+                        <h4>Deskipsyon koli</h4> <br/>
+                        <strong>Kategori</strong> : Rad <br/>
+                        <strong>Presizyon</strong> : Mayo wouj <br/>
+                        <strong>Deskripsyon</strong> : me sk odo fdf d... <br/>
+                        <strong>Kantite</strong> : 3 <br/>
+                        <a href='https://kwenpam.com/order/203203923' class='btn btn-primary'>Detay sou k&ograve;mand sila</a>
+                    </p> <br><hr> <br>
+                    <table>
+                        <tr>
+                            <td>
+                                <h2><strong>Enf&ograve;masyon acht&egrave;</strong></h2> <br>
+                                Eustache Luckens Yadley <br/>
+                                47239162 <br/>
+                                eustache455@gmail.com <br/>
+                                Haiti, port-au-prince, carrefourfeuille # 117 <br/>
+                            </td>
+                            <td>
+                                <h2><strong>Enf&ograve;masyon vand&egrave;</strong></h2> <br>
+                                Eustache Luckens Yadley <br/>
+                                47239162 <br/>
+                                eustache455@gmail.com <br/>
+                                Haiti, port-au-prince, carrefourfeuille # 117 <br/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id='pied-mail-livreur'> 
+                    <ul>
+                        <li><a href='http://business.kwenpam.com/privacy'> Politik konfidansyalite</a></li>
+                        <li><a href='http://business.kwenpam.com/legal/terms'>T&egrave;m ak kondisyon</a></li>
+                        <li><a href='http://business.kwenpam.com'> Sit</a></li>
+                    </ul> <br>
+                    <p>
+                        Tout enf&ograve;masyon nan imel sila, konsene s&egrave;lman BrigeExpress. Si tout fwa ou panse pou yon rezon oubyen yon l&ograve;t
+                        imel sa pa sipoze vin jwenn nou, f&egrave; nou konn sa pandan wap rele s&egrave;vis kliyant&egrave;l nou nan + 4834-9386
+                    </p>
+                </div>
+            </div>
+            </body></html>
             "; 
             if(sendmail($host,$username,$password,$from,$fromname,$subject,$email,$body)==1){
                 if(sendmail($host,$username_livreur,$password,$from_livreur,$fromname,$subject_livreur,$email_livreur,$body_livreur)==1){
                     $id=time();
-                    $dossier = '../../transaction/'.$id.'/';
+                    $dossier = '../../order/'.$id.'/';
                      if(@mkdir($dossier, 0777, true)) {    
                         //id de la transaction 
-                        copy("../../transaction/0/index.php","../../transaction/$id/index.php");
+                        copy("../../order/0/index.php","../../order/$id/index.php");
                         // header("location:../../transaction/$id");
-                        $result=1;
+                        $sikse="Tout bagay byen pase av&egrave;k siks&egrave;";
                      }else{
-                         $result=2;
+                         $mesaj="Tout bagay byen pase, men nou pa arive kreye depi k&ograve;mand lan";
                      }
                 }else{
-                    $result=0;
+                    $mesaj="Tout bagay byen pase, men nou pa arive voye imel bay depatman livrezon an";
                 } 
             }else{
-                $result=0;
+                $mesaj="Nou pa arive voye okenn imel";
             }  
         }
     ?>
@@ -156,7 +162,7 @@ session_start();
         </div>
         <?php
             //insertion du menu gauche de la page
-            include '../../file/menu_left.inc.php';
+           include '../../file/menu_left.inc.php';
         ?>
     </div>
     <!-- Jquery JS-->
