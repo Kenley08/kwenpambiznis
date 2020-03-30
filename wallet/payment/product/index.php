@@ -14,7 +14,6 @@
       $_SESSION['id_an_pay']=$_GET['idan'];
        $idan=$_GET['idan'];
 
-
    $ligne=produitDao::GetProduit($idan);
   // //on va tester les champs si ils sont vides
         if(isset($_POST['btnvalide'])){
@@ -106,7 +105,7 @@
                                             endforeach;
 
                                             //on teste si le sikse et $mesaj n exsite pas pour qu'on puise ajouter la transaction
-                                            //quand on a pas trouve la colonne dans la table commande on va ajouter pour cette via cette partie de code
+                                            //quand on a pas trouve la colonne dans la table commande on va ajouter via cette partie de code
                                             if(!isset($sikse) && !isset($mesaj)){
                                               transactionDao::ajoutertransaction($transaction);
                                               commandeDao::ajoutercommande($commande);
