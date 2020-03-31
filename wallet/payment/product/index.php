@@ -129,13 +129,6 @@
 
 
           }
-
-
-
-
-
-
-
           }
       }
 
@@ -162,7 +155,7 @@
 
     <!-- Main CSS-->
     <link href="../../../css/theme.css" rel="stylesheet" media="all">
-    <link href="../../../css/main.css?v=233" rel="stylesheet" media="all">
+    <link href="../../../css/main.css?v=23322" rel="stylesheet" media="all">
 </head>
 <body class="animsition">
     <div class="page-wrapper">

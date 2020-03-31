@@ -43,16 +43,20 @@
                         <th>Kategori</th>
                         <th>Deskripsyon</th>
                         <th>Pri</th>
+                        <th>Kantite</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                  <?php foreach(produitDao::listerproduits($iduti) as $row):?>
+                  <?php foreach(produitDao::listerproduits($iduti) as $row):
+                        if($row[6]==1){$mon="HTG";}else{$mon="$ US";}
+                    ?>
                     <tr>
                         <td><?php echo $row[1] ?></td>
                         <td><?php  echo $row[2] ?></td>
-                        <td ><?php echo $row[3] ?></td>
-                        <td><?php echo $row[4] ?></td>
+                        <td ><?php echo substr($row[3],0,25).'...'; ?></td>
+                        <td><?php echo $row[4].' '.$mon; ?></td>
+                        <td ><?php echo $row[7] ?></td>
                         <td> <a href="detail?productid=<?=$row[0]?>&etat=<?=$row[5]?>" class="btn btn-secondary">Modifye</a>  </td>
                     </tr>
                       <?php endforeach;?>

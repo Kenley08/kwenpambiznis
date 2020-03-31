@@ -19,7 +19,7 @@
                  echo "<div class='alert alert-primary' role='alert'>Nou kreye yon PIN otomatik pou ou, l&egrave; ou fin konekte, chanje li, sinon ou pap ka konekte</div> <br>";
             }  
         ?> 
-        <?php
+        <?php  
             if(isset($mesaj)) 
                 echo "<div class='alert alert-danger' role='alert'> $mesaj </div> <br>";
         ?> 

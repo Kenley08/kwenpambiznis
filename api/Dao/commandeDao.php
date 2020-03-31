@@ -6,6 +6,13 @@ class commandeDao{
     $con->closeconnexion();
     return $cont;
   }
+
+  public static function getCommandeById($id){
+    $con=new connexion();
+    $cont=$con->executerequete("select * from tblcommande where id_commande='$id'");
+    $con->closeconnexion();
+    return $cont[0];
+  }
   //fonction pour inserer des les commandes
   public static function ajoutercommande($commande){
     $con=new connexion();
@@ -15,7 +22,12 @@ class commandeDao{
     $con->closeconnexion();
   }
 
-
+  public static function getAllCommande(){
+    $con=new connexion();
+    $cont=$con->executerequete("select * from tblcommande");
+    $con->closeconnexion();
+    return $cont;
+  }
 
 }
 

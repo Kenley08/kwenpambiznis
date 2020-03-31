@@ -8,10 +8,10 @@
     <div class="menu-sidebar2__content js-scrollbar1">
         <div class="account2">
             <div class="image img-cir img-160">
-                <img src="http://kwenpam.com/ressource/images/profil/user/vignettes/5d602152a1b79.jpg" alt="itilize logo" style="height: 100px!important;" />
+                <img src="https://kwenpam.com/ressource/images/profil/user/vignettes/5d602152a1b79.jpg" alt="itilize logo" style="height: 100px!important;" />
             </div>
             <h4 class="name">Eustache L.Y.</h4>
-            <a href="http://business.kwenpam.com/logout">Dekonekte</a>
+            <a href="https://kwenpam.com/business/logout">Dekonekte</a>
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
@@ -24,18 +24,18 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="../../../account/update">
+                            <a href="https://kwenpam.com/business/account/update">
                                 <i class="fas"></i>Modifye kont</a>
                         </li>
                         <li>
-                            <a href="../../../account/pin/">
+                            <a href="https://kwenpam.com/business/account/pin/">
                                 <i class="fas"></i>Modifye pin</a>
                         </li> 
                     </ul>
                 </li>
                 <li>
-                    <a href="../../../order/">
-                        <i class="fas fa-bell"></i>K&ograve;mand</a>
+                    <a href="https://kwenpam.com/business/order">
+                        <i class="fas fa-shopping-cart"></i>K&ograve;mand</a>
                     <span class="inbox-num">3</span>
                 </li> 
                 <li class="has-sub">
@@ -47,16 +47,16 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="../../../product/">
+                            <a href="https://kwenpam.com/business/product">
                                 <i class="fas"></i>Lis</a>
                         </li>
                         <li>
-                            <a href="../../../product/add">
+                            <a href="https://kwenpam.com/annonce/deposer">
                                 <i class="far"></i>Ajoute</a>
                         </li> 
                     </ul>
                 </li>
-                <li class="has-sub">
+                <!-- <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-shopping-cart"></i>Boutik
                         <span class="arrow">
@@ -69,8 +69,8 @@
                                 <i class="fas fa-sign-in-alt"></i>Kpub</a>
                         </li> 
                     </ul>
-                </li>
-                <li class="has-sub">
+                </li> -->
+                <!-- <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-flag"></i>Estatistik
                         <span class="arrow">
@@ -95,7 +95,7 @@
                                 <i class="far"></i>Boutik</a>
                         </li> 
                     </ul>
-                </li>
+                </li> -->
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-bullhorn"></i>Piblisite
@@ -105,15 +105,15 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="../../../ads/">
+                            <a href="https://kwenpam.com/business/ads/">
                                 <i class="fas"></i>Lis</a>
                         </li>   
                         <li>
-                            <a href="../../../ads/stat">
+                            <a href="https://kwenpam.com/business/ads/stat">
                                 <i class="fas"></i>Estatistik</a>
                         </li>   
                         <li>
-                            <a href="../../../ads/new">
+                            <a href="https://kwenpam.com/business/ads/new">
                                 <i class="fab"></i>Kreye publisite</a>
                         </li> 
                     </ul>
@@ -127,11 +127,11 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="../../../employee">
+                            <a href="https://kwenpam.com/business/employee">
                                 <i class="fab"></i>Lis</a>
                         </li> 
                         <li>
-                            <a href="../../../employee/new">
+                            <a href="https://kwenpam.com/business/employee/new">
                                 <i class="fab"></i>Ajoute</a>
                         </li> 
                     </ul>
@@ -145,15 +145,15 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="../../../wallet/deposit">
+                            <a href="https://kwenpam.com/business/wallet/deposit">
                                 <i class="fab"></i>Ajoute lajan</a>
                         </li> 
                         <li>
-                            <a href="../../../wallet/transaction">
+                            <a href="https://kwenpam.com/business/wallet/transaction">
                                 <i class="fab"></i>Tranzaksyon</a>
                         </li> 
                         <li>
-                            <a href="../../../wallet/take">
+                            <a href="https://kwenpam.com/business/wallet/take">
                                 <i class="fab"></i>Retire lajan</a>
                         </li> 
                     </ul>
@@ -167,11 +167,11 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="../../../logout/">
+                            <a href="https://kwenpam.com/business/logout">
                                 <i class="fab"></i>Dekonekte</a>
                         </li> 
                         <li>
-                            <a href="../../../privacy">
+                            <a href="https://kwenpam.com/business/legal/terms">
                                 <i class="fab"></i>T&egrave;m ak kondisyon</a>
                         </li> 
                     </ul>

@@ -1,5 +1,5 @@
  <?php 
-    //fonction pour lister les types de comptes
+    include ("../../smtptester/class.phpmailer.php"); 
     function sendmail($host,$username,$password,$from,$fromname,$subject,$email,$body)
     {
           //you have to upload class files "class.phpmailer.php" and "class.smtp.php" 
