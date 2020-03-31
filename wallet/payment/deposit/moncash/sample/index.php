@@ -1,4 +1,6 @@
 <?php session_start();
+  //nou siprime id_commande
+  $_SESSION['id_commande_client']=NULL;
   // unset($_SESSION['order_id']);
   require_once '../../../../../api/Modele/Mconnexion.php';
   require_once '../../../../../api/Modele/Mtransaction.php';

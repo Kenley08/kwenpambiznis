@@ -12,8 +12,8 @@
 
           public static function GetProduit($id){
                     $con2=new connexion2();
-                    $cont2=$con2->executerequete2("select * from tblannonce where Id_An='$id'");
-                    $con2->closeconnexion2();
+                    $cont2=$con2->executerequete2("select * from tblannonce inner join tblcategorie_cr where tblannonce.Id_An='$id' and tblannonce.id_cat_an=tblcategorie_cr.id_cat_an");
+                    $con2->closeconnexion2(); 
                     return $cont2[0];
           }
 

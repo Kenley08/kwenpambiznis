@@ -1,20 +1,29 @@
 
-<form class="row " id="midle-new-ads" action="" method="POST">
-    <div class="col-lg-7 col-xs-7 col-md-12">
+<form class="row " id="midle-new-ads" action="" method="POST" > 
+    <div class="col-lg-7 col-xs-7 col-md-12">  
         <h2>T&egrave;m ak kondisyon</h2> <br>
-        <div class="col col-md-12 bg-white padding-3" >
+        <div class="col col-md-12 bg-white padding-3">
             Kwenpam pran tout mezi sekirite pou jere done ou yo. Ou lib pou ou verifye tout fason nou jere sa pandan wap aprann plis
-            <a href="https://kwenpam.com/business/privacy/">politik konfidansyalite</a> nou yo. <br> <br>
+            <a href="https://kwenpam.com/business/privacy/">politik konfidansyalite</a> nou yo. <br> 
         </div> <br>
+        <?php
+            if(isset($mesaj)){?>
+                <div class="alert alert-danger" role="alert">
+                    <?php echo $mesaj;?>
+                </div>
+            <?php }else if(isset($sikse)){?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo $sikse;?>
+                </div>
+            <?php }
+        ?>
         <p class="title-page  bg-white padding-3">
-            ID k&ograve;mand: <a href="#"><?php echo time().''.rand(1,1000).''.rand(1,1000);?></a>  <br>
-            Kategori : Odinate <br>
-            Deskipsyon : Laptop Dell, 4GB RAM, LD <br>
-            Pri : 5000 goud <br>
-            Kalite : n&egrave;f
-        <p class="title-page">
-            ID : <a href="#"><?php echo $ligne[0];?></a>  <br>
-            <?php echo $ligne[8];?>
+            <strong> ID k&ograve;mand:</strong> <a href="#"><?php echo $id_commande;?></a>  <br>
+            <strong>Kategori :</strong> <?php echo $ligne[16];?> <br>
+            <strong>presizyon :</strong> <?php echo $ligne[7];?> <br>
+            <strong>Deskipsyon :</strong> <?php echo $ligne[8] ?> <br>
+            <strong>Pri :</strong> <?php if($ligne[3]==1){$mon="Goud";$chanje=$ligne[5];}else{$chanje=($ligne[5]*100);$mon="Dola ameriken / $chanje Goud <a href='https://www.brh.ht/taux-du-jour/'>Referans : BRH</a>";} echo $ligne[5].' '.$mon; ?><br>
+            <strong>Kalite :</strong> <?php if($ligne[10]==0){echo "N&egrave;f";}else{echo "Ize";} ?>
         </p>
         <div class="col col-md-12 bg-white"> <br>
             <p>
@@ -28,7 +37,7 @@
                 </div>
                 <div class="radio">
                     <label for="radio2" class="form-check-label">
-                        <input type="radio" id="radio2" name="radios1" value="option2" class="form-check-input">Bous kwenpam (<a href="https://kwenpam.com/business/legal/wallet">Aprann plis</a>)
+                        <input type="radio" id="radio2" name="radios1" value="option2" class="form-check-input" disabled>Bous kwenpam (<a href="https://kwenpam.com/business/legal/wallet">Aprann plis</a>)
                     </label>
                 </div>
             </div>  <br>
@@ -43,18 +52,11 @@
                 </div>
                 <div class="radio">
                     <label for="radio3" class="form-check-label ">
-                        <input type="radio" id="radio3" name="radios" value="2" class="form-check-input" checked>Non (Map pase pran l)
+                        <input type="radio" id="radio3" name="radios" value="2" class="form-check-input" >Non (Map pase pran l)
                     </label>
                 </div>
             </div>   <br>
-            <p>
-              <p style="color:red;">
-                 <?php
-                   echo $mesaj;
-                   echo $sikse;
-                    echo $sikse2;
-                 ?>
-              </p>
+            <p> 
                 <h4>Enf&ograve;masyon itil</h4>
             </p>
             <div class="row form-group">
@@ -83,7 +85,7 @@
             </div>
             <div class="row form-group">
                 <div class="col col-md-3">
-                    <label for="txtville" class=" form-control-label">S&egrave;ks</label>
+                    <label for="txtville" class=" form-control-label">Non vil</label>
                 </div>
                 <div class="col-12 col-md-9">
                     <select id="txtville" name="txtville" class="form-control" >
@@ -101,23 +103,34 @@
                 </div>
             </div> <br>
         </div>  <br>
+        <div class="col col-md-12 bg-white"> <br>
+            <h4>Kantite lajan ou gen pou peye</h4> <br>
+            <?php
+                 $fret=$chanje*0.05;
+                 $frel=250;
+                 $pritoal=$fret+$chanje+$frel; 
+            ?>
+            <strong>Pri pwodwi : </strong> <span id="pripwodwi"><?php echo $chanje;?></span> goud <br><br>
+            <strong>Fr&egrave; tranzaksyon : </strong> <span id="fretranzak"><?php echo $fret;?></span> goud <br><br>
+            <div id="divprilivrezon">
+                 <strong>Fr&egrave; livrezon : </strong> <span id="prilivrezon"><?php echo $frel;?></span> goud <br> <br><br>
+            </div>  
+            <strong>Total : </strong> <span id="pritotal"><?php echo $pritoal;?></span> goud <br> <br>
+            <input type="hidden" name="prixtotalachat" value="<?php echo $pritoal;?>" id="inputpritotal">
+            <input type="hidden"  value="<?php echo $frel;?>" id="inputprilivrezon"> 
+            <input type="hidden"  value="<?php echo $chanje+$fret;?>" id="inputpritotalsanlivrezon">  
+            <input type="hidden"  value="<?php echo $pritoal;?>" id="inputpritotaaveklivrezon">  
+        </div> <br>
         <div class="alert-danger padding-3">
             NB: Ou pa kakab tounen apr&egrave; ou fin peye. Si tout bagay byen pase wap resevwa yon imel ki diw k&ograve;mand ou an pase e li an atant. 
             Otomatikman vand&egrave; a konfime sa, nap notifye ou sa, swa pa yon sms oubyen yon imel.
          </div> 
       <div class="padding-3">
-        <label for="checkbox1" class="form-check-label  ">
+        <label for="checkbox1" class="form-check-label">
             <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" onclick="enable_button()" class="form-check-input">
             Mwen byen li e konprann tout sa mwen sot f&egrave; la yo. Byen verifye enf&ograve;masyon yo avan menm ou peye, <a href="https://kwenpam.com/business/legal/terms">t&egrave;m ak kondisyon</a> aplikab.
-<<<<<<< HEAD
-            </label> <br> <br>
-            <a href="https://kwenpam.com/annonce/details.php"  class="btn btn-secondary btn-small">Anile </a>
-            <input type="submit" class="btn btn-primary btn-small" value="Peye kounya" name="btnvalide" disabled/>
-      </div>
-=======
         </label> <br> <br>
         <a href="https://kwenpam.com/annonce/details.php"  class="btn btn-secondary btn-small">Anile </a>
         <input type="submit" class="btn btn-primary btn-small" value="Peye kounya" id="btnvalide" disabled name="btnvalide"/>
->>>>>>> 6e6d86eb532172e9f508a3fcb00154b489a04501
     </div>
 </form>

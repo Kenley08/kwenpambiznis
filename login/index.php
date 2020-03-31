@@ -5,15 +5,12 @@
     //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
     //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
     ini_set('display_errors', 'Off');
-<<<<<<< HEAD
     require_once '../api/Dao/administrationDao.php';  
-=======
 
     require_once '../api/Dao/administrationDao.php';
 //$_SESSION['id_uti']=null;
 
     require_once '../api/Dao/administrationDao.php';
->>>>>>> baff88f2ce45e6b31868c837d9ac2d298dfe697e
     // $_SESSION['id_uti']=null;
     //nap verifye eske se yon konpayi livrezon kap konekte
     if(isset($_POST['btnconnectdelivery'])){
@@ -21,10 +18,7 @@
       $_SESSION['id_delivery_company']=1;
       header("Location:../delivery");
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> baff88f2ce45e6b31868c837d9ac2d298dfe697e
         if(isset($_GET['id_uti'])){
           $_SESSION['id_uti']=$_GET['id_uti'];
           header("location:?X_");

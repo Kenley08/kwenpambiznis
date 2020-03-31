@@ -3,18 +3,30 @@
   require_once '../../../api/Modele/Mconnexion.php';
   require_once '../../../api/Modele/Mtransaction.php';
   require_once '../../../api/Modele/Mcommande.php';
- require_once '../../../api/Dao/transactionDao.php';
- require_once '../../../api/Dao/ProduitsKwenPamDao.php';
+  require_once '../../../api/Dao/transactionDao.php';
+  require_once '../../../api/Dao/ProduitsKwenPamDao.php';
   require_once '../../../api/Dao/commandeDao.php';
   require_once '../../../api/Modele/Mconnexion_2.php';
   require_once '../../../api/Dao/villeDao.php';
   ini_set('display_errors', 'Off');
-
-  if(isset($_GET['idan'])){
-      $_SESSION['id_an_pay']=$_GET['idan'];
-       $idan=$_GET['idan']; 
-   $ligne=produitDao::GetProduit($idan);
-  // //on va tester les champs si ils sont vides
+ 
+  if(isset($_GET['idan']) || isset( $_SESSION['id_an_pay'])){
+      if($_SESSION['id_an_pay']){
+        $idan= $_SESSION['id_an_pay'];  
+      }else{
+        $idan=$_GET['idan'];
+        $_SESSION['id_an_pay']=$_GET['idan'];
+      } 
+       $ligne=produitDao::GetProduit($idan);
+       if(!$ligne){
+          header("Location:https://kwenpam.com/error/");
+          $id_commande=time().''.rand(1,1000).''.rand(1,1000);
+          $_SESSION['id_commande_client']=$id_commande;
+       } else{
+          $_SESSION['amount_pay_client']=$_POST['prixtotalachat'];
+       }
+       $_SESSION['id_type_commande']=$_POST['radios'];
+        // //on va tester les champs si ils sont vides
         if(isset($_POST['btnvalide'])){
           $transaction=new transactionDao();
           //on va tester les champs si ils sont vides
@@ -22,13 +34,13 @@
             $idorder=time().''.rand(1,1000);
             $transaction->idtran=$idtran;
             $transaction->idbourse="";
-            $transaction->montant=$ligne[5];
+            $transaction->montant=$_POST['prixtotalachat'];
             $transaction->idetattran=1;
             $transaction->idtypetran=1;
             $transaction->idmoyentran=2;
             $transaction->orderid=$idorder;
             $transaction->transactionid="";
-            $transaction->description="Demand komand prodwi ".$ligne[0]."Deskripsyon ".$ligne[8];
+            $transaction->description="Demand komand ".$ligne[7];
             $transaction->dateupdate="";
 
             if((isset($transaction->idtran)) && (isset($transaction->idbourse)) && (isset($transaction->montant)) && (isset($transaction->idetattran)) && (isset($transaction->idtypetran)) && (isset($transaction->idmoyentran)) && (isset($transaction->orderid))
@@ -53,8 +65,7 @@
                                                      $commande->idtran=$idtran;
                                                      $commande->nomcomplet=$nc;
                                                      $commande->telephone=$_POST['txttelephone'];
-                                                     $commande->email=$_POST['txtemail'];
-
+                                                     $commande->email=$_POST['txtemail']; 
                                                      $commande->ville=$_POST['txtville'];
                                                      $commande->adresse=$_POST['txtadresse'];
                                                      $commande->idtypecom=$_POST['radios'];
@@ -73,10 +84,12 @@
                                                             //on va inseres dans les deux tables
                                                             transactionDao::ajoutertransaction($transaction);
                                                             commandeDao::ajoutercommande($commande);
-                                                            $sikse="Tranzaksyon an ajoute.";
-                                                            $mesaj="";
-                                                            $sikse2="";
-                                                            header("location:../success/?id_tran=$idtran");
+                                                            // $sikse="Tranzaksyon an ajoute.";
+                                                            // $mesaj="";
+                                                            // $sikse2="";
+                                                            $_SESSION['order_id']=$idorder;
+                                                            $_SESSION['id_transaction']=$idtran;
+                                                            header("location:moncash/verification/?payment_client&id=$idorder");
                                                          }
                                                 }
                                                 //////////////////////////////////////////////////////////////////////////////////////////
@@ -86,17 +99,19 @@
                                                         //on le teste avec la session qui stocke l'id de l'uti
                                                         if($_SESSION['id_an_pay']==$row[1]){
                                                           //on affiche le message sinon on va peut inserer dans les deux tables
-                                                          $mesaj="Ou gen yon komand ki fet deja sou pwodui sila.";
-                                                          $sikse="";
-                                                          $sikse2="";
+                                                          $mesaj="Ou gen yon k&ograve;mand ki f&egrave;t deja sou pwodui sila.";
+                                                          // $sikse="";
+                                                          // $sikse2="";
                                                         }else{
                                                           //on va inseres dans les deux tables
                                                           transactionDao::ajoutertransaction($transaction);
                                                           commandeDao::ajoutercommande($commande);
-                                                          $sikse="Tranzaksyon an ajoute.";
-                                                          $mesaj="";
-                                                          $sikse2="";
-                                                          header("location:../success/?id_tran=$idtran");
+                                                          //$sikse="Tranzaksyon an ajoute.";
+                                                          // $mesaj="";
+                                                          // $sikse2="";
+                                                          $_SESSION['order_id']=$idorder;
+                                                          $_SESSION['id_transaction']=$idtran;
+                                                          header("location:moncash/verification/?payment_client&id=$idorder");
                                                         }
                                                           $row[9]++;
                                                         }
@@ -105,30 +120,34 @@
 
                                             //on teste si le sikse et $mesaj n exsite pas pour qu'on puise ajouter la transaction
                                             //quand on a pas trouve la colonne dans la table commande on va ajouter pour cette via cette partie de code
-                                            if(!isset($sikse) && !isset($mesaj)){
+                                            if(!isset($mesaj)){
                                               transactionDao::ajoutertransaction($transaction);
                                               commandeDao::ajoutercommande($commande);
-                                                $sikse2="Tranzaksyon an ajoute.";
-                                                $sikse="";
-                                                $mesaj="";
-                                                header("location:../success/?id_tran=$idtran");
+                                                // $sikse2="Tranzaksyon an ajoute.";
+                                                // $sikse="";
+                                                // $mesaj="";
+                                                $_SESSION['order_id']=$idorder;
+                                                $_SESSION['id_transaction']=$idtran;
+                                                header("location:moncash/verification/?payment_client&id=$idorder");
                                            }
 
                                       }else{
-                                            $mesaj="Nimewo telefon la pa dwe gen piti chif.";
+                                            $mesaj="Nimewo telef&ograve;n lan pa dwe gen piti chif.";
                                             }//on teste maintenant la longeur du chaine
                                         }else{
-                                      $mesaj = "Nimewo telefon la dwe genyen chif selman.";
+                                      $mesaj = "Nimewo telef&ograve;n la dwe genyen chif selman.";
                                   }
 
                              }else{
-                           $mesaj="Non konple a dwe gen let selman";
+                           $mesaj="Non konple an dwe gen l&egrave;t s&egrave;lman";
                          }
                         }
 
 
           } 
           }
+      }else{
+        header("Location:https://kwenpam.com/error/");
       }
 
 
@@ -154,13 +173,19 @@
 
     <!-- Main CSS-->
     <link href="../../../css/theme.css" rel="stylesheet" media="all">
-    <link href="../../../css/main.css?v=23322" rel="stylesheet" media="all">
+    <link href="../../../css/main.css?v=33333" rel="stylesheet" media="all"> 
 </head>
-<body class="animsition">
-    <div class="page-wrapper">
-         <?php
-            include '../../../file/payment_product.inc.php';
-         ?>
+<body class="animsition"> 
+    <div class="page-wrapper"> 
+         <div id="entete-paiement">  
+              <img src="../../../images/system/2.png" alt="imaj sistem sekirize">  
+              <strong>Kwenpam</strong> P&egrave;man sekirize 
+        </div>
+        <div style="margin-top:30px;border:1px solid transparent;">
+          <?php
+              include '../../../file/payment_product.inc.php';
+          ?>
+        </div> 
     </div>
     <!-- Jquery JS-->
     <script src="../../../vendor/jquery-3.2.1.min.js"></script>
@@ -174,12 +199,27 @@
 </html>
 
 <script>
-function enable_button()
+   function enable_button()
     {
       if(document.getElementById("checkbox1").checked){
           document.getElementById("btnvalide").disabled=false;
       }else{
           document.getElementById("btnvalide").disabled=true;
       }
-  }
-  </script>
+    }
+  $(document).ready(function(){  
+    //on teste si le client fait la livraison 
+    $(".radio input").click(function(){ 
+        val=this.id;
+        if(val==="radio3"){
+          $("#divprilivrezon").hide();
+          prifinal= $("#inputpritotalsanlivrezon").val(); 
+        }else  if(val==="radio4"){
+          $("#divprilivrezon").show();
+          prifinal= $("#inputpritotaaveklivrezon").val();  
+        }
+        $("#inputpritotal").val(prifinal);
+        $("#pritotal").text(prifinal); 
+    });
+  });   
+</script>
