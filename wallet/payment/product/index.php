@@ -19,15 +19,37 @@
       } 
        $ligne=produitDao::GetProduit($idan);
        if(!$ligne){
-          header("Location:https://kwenpam.com/error/");
-          $id_commande=time().''.rand(1,1000).''.rand(1,1000);
-          $_SESSION['id_commande_client']=$id_commande;
-       } else{
-          $_SESSION['amount_pay_client']=$_POST['prixtotalachat'];
-       }
+          header("Location:https://kwenpam.com/error/"); 
+       } 
+       if($ligne[3]==1){$mon="Goud";$chanje=$ligne[5];}else{$chanje=($ligne[5]*100);$mon="Dola ameriken / $chanje Goud <a href='https://www.brh.ht/taux-du-jour/'>Referans : BRH</a>";} 
        $_SESSION['id_type_commande']=$_POST['radios'];
         // //on va tester les champs si ils sont vides
         if(isset($_POST['btnvalide'])){
+          $id_commande=time().''.rand(1,1000).''.rand(1,1000);
+          //liste des informations necessaire
+          $_SESSION['adresse_commande_client']=$_POST['nomvilleclient'].', '.$_POST['txtadresse'];
+          //nap teste eske kliyan an ap pase pran pwodwi an oubyen yap livre li ba li
+          if($_SESSION['id_type_commande']==1){
+            $_SESSION['email_commande_vendeur']="p-email";
+            $_SESSION['nom_commande_vendeur']="p-nom";
+            $_SESSION['adresse_commande_vendeur']="p-adresse";
+          }else{
+            $_SESSION['email_commande_vendeur']="l-email";
+            $_SESSION['nom_commande_vendeur']="l-nom";
+            $_SESSION['adresse_commande_vendeur']="l-adresse";
+          }
+          $_SESSION['adresse_commande_vendeur']=$_POST['txtemail'];
+          $_SESSION['nom_commande_client']=$_POST['txtnomcomplet'];
+          $_SESSION['prix_total_commande_client']=$_POST['prixtotalachat'];
+          $_SESSION['prix_commande_client']=$ligne[5].' '.$mon;
+          $_SESSION['categorie_commande_client']=$ligne[16];
+          $_SESSION['precision_commande_client']=$ligne[7];
+          $_SESSION['email_commande_client']=$_POST['txtemail'];
+          $_SESSION['quantite_commande_client']=1;
+          $_SESSION['phone_commande_client']=$_POST['txttelephone'];
+          $_SESSION['id_commande_client']=$id_commande;
+          $_SESSION['amount_pay_client']=$_POST['prixtotalachat'];
+          /////////////////////////////////////////////////////
           $transaction=new transactionDao();
           //on va tester les champs si ils sont vides
             $idtran=time().''.rand(1,1000);
@@ -89,7 +111,7 @@
                                                             // $sikse2="";
                                                             $_SESSION['order_id']=$idorder;
                                                             $_SESSION['id_transaction']=$idtran;
-                                                            header("location:moncash/verification/?payment_client&id=$idorder");
+                                                            //header("location:moncash/verification/?payment_client&id=$idorder");
                                                          }
                                                 }
                                                 //////////////////////////////////////////////////////////////////////////////////////////
@@ -111,7 +133,7 @@
                                                           // $sikse2="";
                                                           $_SESSION['order_id']=$idorder;
                                                           $_SESSION['id_transaction']=$idtran;
-                                                          header("location:moncash/verification/?payment_client&id=$idorder");
+                                                         // header("location:moncash/verification/?payment_client&id=$idorder");
                                                         }
                                                           $row[9]++;
                                                         }
@@ -128,7 +150,7 @@
                                                 // $mesaj="";
                                                 $_SESSION['order_id']=$idorder;
                                                 $_SESSION['id_transaction']=$idtran;
-                                                header("location:moncash/verification/?payment_client&id=$idorder");
+                                                //header("location:moncash/verification/?payment_client&id=$idorder");
                                            }
 
                                       }else{
@@ -173,7 +195,7 @@
 
     <!-- Main CSS-->
     <link href="../../../css/theme.css" rel="stylesheet" media="all">
-    <link href="../../../css/main.css?v=33333" rel="stylesheet" media="all"> 
+    <link href="../../../css/main.css?v=333383" rel="stylesheet" media="all"> 
 </head>
 <body class="animsition"> 
     <div class="page-wrapper"> 
@@ -181,7 +203,7 @@
               <img src="../../../images/system/2.png" alt="imaj sistem sekirize">  
               <strong>Kwenpam</strong> P&egrave;man sekirize 
         </div>
-        <div style="margin-top:30px;border:1px solid transparent;">
+        <div style="margin-top:0px;border:1px solid transparent;">
           <?php
               include '../../../file/payment_product.inc.php';
           ?>
@@ -220,6 +242,11 @@
         }
         $("#inputpritotal").val(prifinal);
         $("#pritotal").text(prifinal); 
+    });
+
+    //on teste si le client change de ville et on capte la ville
+    $("#txtville").change(function(){
+      $("#nomvilleclient").val($("#txtville option:selected").text());
     });
   });   
 </script>

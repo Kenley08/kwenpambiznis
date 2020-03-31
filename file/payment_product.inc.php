@@ -21,8 +21,8 @@
             <strong> ID k&ograve;mand:</strong> <a href="#"><?php echo $id_commande;?></a>  <br>
             <strong>Kategori :</strong> <?php echo $ligne[16];?> <br>
             <strong>presizyon :</strong> <?php echo $ligne[7];?> <br>
-            <strong>Deskipsyon :</strong> <?php echo $ligne[8] ?> <br>
-            <strong>Pri :</strong> <?php if($ligne[3]==1){$mon="Goud";$chanje=$ligne[5];}else{$chanje=($ligne[5]*100);$mon="Dola ameriken / $chanje Goud <a href='https://www.brh.ht/taux-du-jour/'>Referans : BRH</a>";} echo $ligne[5].' '.$mon; ?><br>
+            <strong>Deskripsyon :</strong> <?php echo $ligne[8] ?> <br>
+            <strong>Pri :</strong> <?php echo $ligne[5].' '.$mon; ?><br>
             <strong>Kalite :</strong> <?php if($ligne[10]==0){echo "N&egrave;f";}else{echo "Ize";} ?>
         </p>
         <div class="col col-md-12 bg-white"> <br>
@@ -93,6 +93,7 @@
                         echo "<option value='$li[0]'>$li[2]</option>"; endforeach;?>
                     </select>
                 </div>
+                <input type="hidden" id="nomvilleclient" name="nomvilleclient" value="Acul-du-Nord">
             </div>
             <div class="row form-group">
                 <div class="col col-md-3">

@@ -3,6 +3,7 @@ session_start();
     // require_once"../../api/Dao/ProduitsKwenPamDao.php";
     // //require_once'../../api/Modele/Memploye.php';
     // require_once'../../api/Modele/Mconnexion_2.php';
+    include ("../../smtptester/class.phpmailer.php"); 
     require_once'../../api/Modele/sendmail.class.php';
     // $_SESSION['id_uti']=1507655075;
     if(isset($_SESSION['id_uti'])){

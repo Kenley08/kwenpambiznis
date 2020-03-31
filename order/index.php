@@ -46,7 +46,7 @@ session_start();
                 <p class="title-page">
                     Lis tout k&ograve;mand yo
                 </p>
-                <?php include '../file/notification.inc.php'; include '../file/footer.inc.php';?>
+                <?php include '../file/order.inc.php'; include '../file/footer.inc.php';?>
             </div>
         </div>
         <?php

@@ -42,4 +42,4 @@ li{list-style: none;}
 #list-company a{padding-left: 10px;}
 .email-list-company{width:70%;text-align: left}
 #entete-paiement img{height:35px;margin-right: 15px;} 
-#entete-paiement{border-bottom:3px solid #FF8615;padding:3% 1% 1% 5%;position:fixed;width: 100%; top:0;background-color: white;z-index:1000;}
+#entete-paiement{border-bottom:3px solid #FF8615;padding:1% 1% 1% 5%;position:fixed;width: 100%; top:0;background-color: white;z-index:1000;}
