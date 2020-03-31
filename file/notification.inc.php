@@ -88,7 +88,7 @@
                             }
                            ?>
                         </td>
-                        <td><a href='detail/?id_an_com=<?=$ligne[0]?>&id_an=<?=$row[0]?>' class="btn btn-primary btn-sm"  >W&egrave; plis</a></td>
+                        <td><a href='detail/?id_an_com=<?=$ligne[0]?>&id_an=<?=$row[0]?>&etat_com=<?=$ligne[9]?>' class="btn btn-primary btn-sm"  >W&egrave; plis</a></td>
                     </tr>
                     <?php
                             $ligne[1]++;

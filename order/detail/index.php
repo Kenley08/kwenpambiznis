@@ -11,10 +11,11 @@ session_start();
 
      ini_set('display_errors', 'Off');
     // $_SESSION['id_uti']=1507655075;
-    if(isset($_SESSION['id_uti']) && isset($_GET['id_an_com']) && isset($_GET['id_an'])){
+    if(isset($_SESSION['id_uti']) && isset($_GET['id_an_com']) && isset($_GET['id_an']) && isset($_GET['etat_com'])){
       $iduti=$_SESSION['id_uti'];
       $idancom=$_GET['id_an_com'];
       $idan=$_GET['id_an'];
+      $etat=$_GET['etat_com'];
     }
 ?>
 
