@@ -1,14 +1,13 @@
 <?php
     require_once '../api/Modele/Mconnexion.php';
     require_once '../api/Modele/Madministration.php';
+    require_once '../api/Dao/administrationDao.php';
     session_start();
     //mwen mete fonksyon sa se just pou afiche ere nan paj la kote ke li pa ka
     //le l n vini a id_uti a men li poko tonbe nan base la avn nou jenere yon Pin pou li
-    ini_set('display_errors', 'Off');
-//$_SESSION['id_uti']=null;
-    require_once '../api/Dao/administrationDao.php';
+   ini_set('display_errors', 'Off');
 
-    // $_SESSION['id_uti']=null;
+    //$_SESSION['id_uti']=null;
     //nap verifye eske se yon konpayi livrezon kap konekte
     if(isset($_POST['btnconnectdelivery'])){
       //si tout bagay byen pase

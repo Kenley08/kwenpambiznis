@@ -1,3 +1,30 @@
+ <?php
+    // session_start();
+    //  require_once "../api/Dao/ProduitsKwenPamDao.php";
+    //  require_once '../api/Modele/Mconnexion_2.php';
+
+    if($_GET['txtsearch']){
+        $id=$_GET['txtsearch'];
+        //$productid=$_GET['productid'];
+        $ligne=produitDao::GetProduit($id);
+        if($ligne){
+            header("location:product/index.php?productid=$id");
+        }else{
+            //nou pral fe yo reche nan pou komande la
+            $liy=commandeDao::getCommandeById($id);
+             if($liy){
+            //header("location:account/update/index.php");
+            header("location:order/?id_com_an=$id");
+            }else{
+                header("location:nothingsearch.php");
+            }
+        
+        }
+   
+    }
+ 
+ ?>
+ 
  <!-- HEADER DESKTOP-->
  <header class="header-desktop2">
     <div class="section__content section__content--p30">
@@ -13,7 +40,7 @@
                         <i class="zmdi zmdi-search"></i>
                         <div class="search-dropdown js-dropdown">
                             <form action="">
-                                <input class="au-input au-input--full au-input--h65" type="text" placeholder="Search for datas &amp; reports..." />
+                                <input  name="txtsearch" class="au-input au-input--full au-input--h65" type="text" placeholder="Search for datas &amp; reports..." />
                                 <span class="search-dropdown__icon">
                                     <i class="zmdi zmdi-search"></i>
                                 </span>

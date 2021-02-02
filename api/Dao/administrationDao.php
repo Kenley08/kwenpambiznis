@@ -25,6 +25,26 @@ public static function createadmin($admin){
       $con->closeconnexion();
   }
 
+    //fonction pour update etat connexion administrateur
+    public static function getAdminByPin($pin,$iduti){
+    $con=new connexion();
+    $cont=$con->executerequete("select a.id_uti,a.id_admin from tbladministration a where a.pin='$pin' and a.id_uti='$iduti'");
+    $con->closeconnexion();
+    return $cont[0];
+  }
+
+
+   //fonction pour update etat connexion administrateur
+   public static function updateDel($id){
+    $con2=new connexion2();
+    $con2->executeactualisation2("UPDATE `tblutilisateur` SET `Delete`=0 WHERE Id_Uti='$id'" );
+    $con2->closeconnexion2();
+}
+
+
+
+
+
 
 }
 

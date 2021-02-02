@@ -4,7 +4,7 @@ session_start();
     require_once"../../api/Dao/categorieProduitDao.php";
     require_once"../../api/Dao/commandeDao.php";
     require_once"../../api/Dao/villeDao.php";
-    // //require_once'../../api/Modele/Memploye.php';
+    //require_once'../../api/Modele/Memploye.php';
     require_once'../../api/Modele/Mconnexion.php';
     require_once'../../api/Modele/Mconnexion_2.php';
     require_once'../../api/Modele/sendmail.class.php';

@@ -1,14 +1,19 @@
 <?php
 session_start();
-  require_once"../api/Dao/commandeDao.php";
-  require_once"../api/modele/Mconnexion.php";
-  require_once"../api/Dao/ProduitsKwenPamDao.php";
-  require_once"../api/modele/Mconnexion_2.php";
+  require_once "../api/Dao/commandeDao.php";
+  require_once "../api/modele/Mconnexion.php";
+  require_once "../api/Dao/ProduitsKwenPamDao.php";
+  require_once "../api/modele/Mconnexion_2.php";
+  require_once "../api/modele/Mconnexion.php";
+//  if(isset($_SESSION['id_uti'])){
+//   $iduti=$_SESSION['id_uti'];
+//   //$_SESSION['id_uti']=null;
+//   }
 
- if(isset($_SESSION['id_uti'])){
-  $iduti=$_SESSION['id_uti'];
-  //$_SESSION['id_uti']=null;
-  }
+$iduti='1507584121';
+if(isset($_GET['id_com_an'])){
+    $idcom=$_GET['id_com_an'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,9 +57,8 @@ session_start();
             <div class="section__content section__content--p30 midle-midle">
                 <p class="title-page">
                     Lis tout k&ograve;mand yo
-                </p>
 
-                <?php include '../file/notification.inc.php'; include '../file/footer.inc.php'; ?>
+                <?php include '../file/order.inc.php'; include '../file/footer.inc.php';?>
 
             </div>
         </div>

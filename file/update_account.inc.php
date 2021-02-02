@@ -3,6 +3,7 @@
         <p class="title-page">
             Modifikasyon pwofil
         </p>
+        
         <div class="text-pub" id="step-1-new-ads">
              Pou nep&ograve;t kont li ye an, wap ka modifye non, adr&egrave;s, imel ak modpas ou. <br> <br> 
             <div class="row form-group">
@@ -13,6 +14,7 @@
                     <input type="text" id="txtcodeemp" placeholder="emp-02-323" disabled="" class="form-control">
                 </div>
             </div>
+
             <div class="row form-group">
                 <div class="col col-md-3">
                     <label for="txtnomcompletemp" class=" form-control-label">Non konpl&egrave;</label>

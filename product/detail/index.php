@@ -10,11 +10,23 @@
   if(isset($_GET['productid']) && isset($_GET['etat'])){
     $_SESSION['productid']=$_GET['productid'];
     $_SESSION['etat']=$_GET['etat'];
+    $id=$_SESSION['productid'];
+  
+    
   }
+
+
+  //n ap delete image la
+  if(isset($_GET['Id_Img'])){
+    $idImg=$_GET['Id_Img'];
+    produitDao::deleteImage($idImg);
+    $sikse="Imaj la siprime";
+  }
+
 
   if(isset($_POST['btnmodifye']))
   {
-     $id=$_SESSION['productid'];
+    
      $annonce=new Mannonce();
      $annonce->idann=$id;
      $annonce->idcatann=$_POST['txtkategori'];
@@ -46,6 +58,15 @@
 
              }
   } 
+
+
+  if(isset($_GET['elim']) && isset($_GET['productid'])){
+  //$idProduct='1576344723';
+  produitDao::deleteProduct($_GET['productid']);
+    //header('Location:../setting');
+
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,12 +100,12 @@
             <?php
                 include '../../file/header.inc.php';
                 // include '../../file/info.inc.php'; 
-                include '../../file/detail_product.inc.php'; include '../../file/footer.inc.php';?>
+               include '../../file/detail_product.inc.php'; include '../../file/footer.inc.php';?>
      
         </div>
         <?php
             //insertion du menu gauche de la page
-            include '../../file/menu_left.inc.php';
+           include '../../file/menu_left.inc.php';
         ?>
     </div>
     <!-- Jquery JS-->

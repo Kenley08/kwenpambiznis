@@ -136,6 +136,7 @@
                         </li> 
                     </ul>
                 </li>
+
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-credit-card"></i>Bous
@@ -158,24 +159,33 @@
                         </li> 
                     </ul>
                 </li>
+
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-bars"></i>Param&egrave;t
+                        <i class="fas fa-credit-card"></i>Param&egrave;t
                         <span class="arrow">
                             <i class="fas fa-angle-down"></i>
                         </span>
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="https://kwenpam.com/business/logout">
+                        <a href="https://kwenpam.com/business/logout">
                                 <i class="fab"></i>Dekonekte</a>
                         </li> 
                         <li>
-                            <a href="https://kwenpam.com/business/legal/terms">
+                        <a href="https://kwenpam.com/business/legal/terms">
                                 <i class="fab"></i>T&egrave;m ak kondisyon</a>
                         </li> 
+
+                        <li>
+                        <a href="../account/delete/index.php">
+                                <i class="fab"></i>Siprime Kont</a>
+                        </li> 
+                       
                     </ul>
                 </li>
+
+               
             </ul>
         </nav>
     </div>

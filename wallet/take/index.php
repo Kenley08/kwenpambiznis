@@ -6,10 +6,13 @@ require_once"../../api/Dao/transactionDao.php";
   ini_set('display_errors', 'Off');
 //  $_SESSION['id_uti']=1;
     //on teste si l 'id de lutilisateur existe'
+    $_SESSION['id_uti']='31507919928';
     if(isset($_SESSION['id_uti'])){
           $iduti=$_SESSION['id_uti'];
+          //nou fe recheche kantite kob uti a genyen
           $row=transactionDao::afficherkobous($iduti);
         //  $_SESSION['id_bourse']=$row[1];
+
           $tran=new transactionDao();
           $idt=time()."".rand(1,100);
 

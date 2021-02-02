@@ -1,3 +1,10 @@
+<?php
+     require_once "api/Dao/ProduitsKwenPamDao.php";
+     require_once 'api/Modele/Mconnexion_2.php';
+     require_once "api/Dao/commandeDao.php";
+     require_once "api/modele/Mconnexion.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +43,10 @@
                 //insertion de l'entete de la page
                 include 'file/header.inc.php';
                 include 'file/info.inc.php';
-                include 'file/mini_stat.inc.php';
+              include 'file/mini_stat.inc.php';
+                
                 //insertion du menu gauche de la page
-                include 'file/menu_left.inc.php';
+              include 'file/menu_left.inc.php';
                 include 'file/footer.inc.php';
             ?>
         </div>

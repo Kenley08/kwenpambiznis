@@ -1,16 +1,60 @@
 <?php
-session_start();
-    require_once"../api/Dao/ProduitsKwenPamDao.php";
-    //require_once'../api/Modele/Memploye.php';
-    require_once'../api/Modele/Mconnexion_2.php';
+    session_start();
+    require_once "../api/Dao/ProduitsKwenPamDao.php";
+    require_once '../api/Modele/Mconnexion_2.php';
+    require_once "../api/Dao/commandeDao.php";
 
     ini_set('display_errors', 'Off');
     // $_SESSION['id_uti']=1507655075;
-    if(isset($_SESSION['id_uti'])){
-      $iduti=$_SESSION['id_uti'];
+   // if(isset($_SESSION['id_uti'])){
+     // $iduti=$_SESSION['id_uti'];
 
     //session_destroy();
-  }
+  //}
+
+   if(isset($_GET['productid'])){
+       $idproduct=$_GET['productid'];
+       $ligne=produitDao::GetProduit($idproduct);
+
+       
+
+   }else if(isset($_GET['txtsearch'])){
+    $idproduct=$_GET['txtsearch'];
+   // $id=$_GET['txtsearch'];
+    //$productid=$_GET['productid'];
+    $ligne=produitDao::GetProduit($idproduct);
+    if($ligne){
+        header("location:index.php?productid=$idproduct");
+    }else{
+      //  $iduti='1507584121';
+       // $idancom='56767667676';
+       // $idan='1122334433';
+       // $etat=0;
+        //nou pral fe yo reche nan pou komande la
+        $liy=commandeDao::getCommandeById($idproduct);
+         if($liy){
+        //header("location:account/update/index.php");
+        header("location:../order/?id_com_an=$idproduct");
+        }else{
+            header("location:../nothingsearch.php");
+        }
+    
+    }
+
+   }
+
+   
+//  if($_GET['txtsearch']){
+    
+// }
+
+
+
+
+  //$idproduct='1577303590';
+    $iduti='1507584121';
+    
+  
 ?>
 
 <!DOCTYPE html>

@@ -1,12 +1,6 @@
-<form class="row" id="midle-new-ads" action="" method="POST">
 
+<form class="" id="midle-new-ads"   action="" method="POST">  
     <div class="col-lg-9 col-md-12"> 
-        <p class="title-page">
-             Pwodwi <a href="../detail/?id=1"><?php echo  $_SESSION['productid'];?></a> / Detay
-        </p>
-        <div class="col col-md-12 bg-white padding-3" >
-            Pa neglije founi bon jan enf&ograve;masyon sou modifikasyon ou vle pote sou pwodwi sila.
-        </div> <br>
         <?php
             if(isset($mesaj)){?>
                 <div class="alert alert-danger" role="alert">
@@ -17,33 +11,68 @@
                     <?php echo $sikse;?>
                 </div>
             <?php }
+            if(isset($sikse_eta)){?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo $sikse_eta;?>
+                </div>
+            <?php }  
+            if(isset($sikse_eta_)){?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo $sikse_eta_;?>
+                </div>
+            <?php } 
         ?>
+        
+        <?php
+            if(!isset($del)){?>
+                 <p class="title-page">
+             Pwodwi <a href="../detail/?id=1"><?php echo  $_SESSION['productid'];?></a> / Detay
+        </p>
+        <div class="col col-md-12 bg-white padding-3" >
+            Pa neglije founi bon jan enf&ograve;masyon sou modifikasyon ou vle pote sou pwodwi sila.
+        </div> <br>
+        <?php 
+            if(isset($_GET['productid'])){
+                $id=$_GET['productid'];
+                $ligne=produitDao::GetProduit($id);
+                // var_dump($ligne);
+                if($ligne===NULL){?>
+                    
+                <?php }
+            }  else{?>
+
+                    <script>
+                        window.location.href="../"; 
+                    </script>
+        <?php    }
+        ?> 
         <div class="col col-md-12 bg-white padding-3" >
             <table id="tab_pwodwi">
-                <tr>
+            
+                <tr> 
+                <!-- <form action="" method="post"> -->
+                <?php 
+                
+                foreach( $liy=produitDao::GetImages($id) as $row):?>
                     <td>
-                        <img src="../../images/bg-title-01.jpg" class="img_pwodwi">
+                        <img src="../../images/<?php echo $row[0];?>" class="img_pwodwi">
+
+                    
+                        <a href="?Id_Img=<?php echo $row[1];?>&&productid=<?php echo $id; ?>"  class="btn btn-primary btn-small" name="btnDeleteImg">Siprime</a>
                     </td>
-                    <td>
-                        <img src="../../images/bg-title-01.jpg" class="img_pwodwi">
-                    </td>
-                    <td>
-                        <img src="../../images/bg-title-01.jpg" class="img_pwodwi">
-                    </td>
+                   
+                <?php endforeach;?>
+                <!-- </form> -->
                 </tr>
+           
+
                 <tr>
                     <td>
-                         <a href="#photo"  class="btn btn-primary btn-small">W&egrave; plis </a>
+                         <a href="../image/new/?productid=<?php echo $id?>"  class="btn btn-primary btn-small">Ajoute </a>
                     </td>
                 </tr>
             </table>
-        </div> <br> 
-        <?php
-            if(isset($_GET['productid'])){
-            $id=$_GET['productid'];
-                $ligne=produitDao::GetProduit($id);
-            }  
-        ?> 
+        </div> <br>  
         <div class="text-pub" id="step-1-new-ads">
             <div class="row form-group">
                 <div class="col col-md-3">
@@ -167,5 +196,8 @@
         <a href="../"  class="btn btn-secondary btn-small">Tounen </a>
         <input type="submit" class="btn btn-primary btn-small" value="Modifye" name="btnmodifye"/>
         <a href="../setting?productid=<?php echo $_SESSION['productid'];?>&etat=<?php echo $_SESSION['etat'];?>" class="btn btn-primary">Param&egrave;t</a>
+        <a href="?productid=<?php echo $_SESSION['productid'];?>&etat=<?php echo $_SESSION['etat']?>&elim=del" class="btn btn-danger btn-small">Siprime </a>
+            <?php }
+        ?> 
     </div>
 </form>
