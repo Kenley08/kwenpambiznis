@@ -74,6 +74,32 @@
             return $cont2[0];
   }
 
+
+  public static function getAbonneesProducts($idcat){
+    $con2=new connexion2();
+        //  $cont2=$con2->executerequete2("select * from tblannonce where Id_Uti='$id'");
+    $cont2=$con2->executerequete2("SELECT tblannonce.Id_An,tblannonce.Preciser,tblcategorie_cr.Type_Cat,tblannonce.Description,tblannonce.Prix,tblannonce.Etat,tblannonce.id_mon,tblannonce.quantite,tblannonce.id_cat_an
+                                      FROM tblcategorie_cr
+                                      join tblannonce on tblcategorie_cr.Id_Cat_An=tblannonce.Id_Cat_An WHERE tblannonce.id_cat_an='$idcat' and tblannonce.Activated=1 and tblannonce.Date_Ajout>= DATE_SUB(CURDATE(),INTERVAL 7 DAY)");
+          $con2->closeconnexion2();
+          return $cont2;
+    }
+
+
+    public static function getOneAbonneesProducts($idcat,$mail){
+      $con2=new connexion2();
+          //  $cont2=$con2->executerequete2("select * from tblannonce where Id_Uti='$id'");
+      $cont2=$con2->executerequete2("SELECT tblannonce.Id_An,tblannonce.Preciser,tblcategorie_cr.Type_Cat,tblannonce.Description,tblannonce.Prix,tblannonce.Etat,tblannonce.id_mon,tblannonce.quantite,tblannonce.id_cat_an
+                                        FROM tblcategorie_cr
+                                        join tblannonce on tblcategorie_cr.Id_Cat_An=tblannonce.Id_Cat_An 
+                                        join tblmaillist on tblmaillist.id_cat_an=tblannonce.Id_Cat_An
+                                        WHERE tblannonce.id_cat_an='$idcat'and tblmaillist.mail_list='$mail' and tblannonce.Activated=1 and tblannonce.Date_Ajout>= DATE_SUB(CURDATE(),INTERVAL 7 DAY)");
+            $con2->closeconnexion2();
+            return $cont2;
+      }
+
+      
+
    
 
         

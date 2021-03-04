@@ -17,7 +17,7 @@
      }
 
      public function executeactualisation2($sql2){
-      $this->connexion2->query($sql2);
+       return $this->connexion2->query($sql2);
      }
 
       public function closeconnexion2(){

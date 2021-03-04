@@ -9,7 +9,7 @@
         return $cont;
       }
 
-      //fonction pour lister tous les employes en selectionaant l'id,nom_complet,telephone et le salaire
+      //fonction pour lister tous les employes en selectionnant l'id,nom_complet,telephone et le salaire
         public static function listeremploye2($iduti){
           $con=new connexion();
           $cont=$con->executerequete("select id_emp,nom_complet,telephone,salaire,etat,email,telephone from tblemploye where id_uti=$iduti");
@@ -19,7 +19,7 @@
         //fonction pour afficher tous les groupes sanguins
           public static function affichergroupesanguin(){
             $con=new connexion();
-            $cont=$con->executerequete("select id_groupe_san,groupefrom tblgroupesanguin");
+            $cont=$con->executerequete("select id_groupe_san,groupe from tblgroupesanguin");
             $con->closeconnexion();
             return $cont;
           }
